@@ -1,3 +1,15 @@
+# Java files #
+*.class
+*.jar
+*.war
+*.ear
+
+# IDE files #
 .idea/
-space_adventures.iml
+*.iml
+
+# Other files and folders #
 target/
+out/
+bin/
+logs/
