@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class WelcomeController {
 
-    @RequestMapping(value = "/index.html", method = RequestMethod.GET)
-    public String index(Model model) {
+    @RequestMapping(value = {"/index.html", "/"}, method = RequestMethod.GET)
+    public String showIndex(Model model) {
         model.addAttribute("message", "Hello Spring MVC Framework!");
-        return "WEB-INF/jsp/index.jsp";
+        return "index";
     }
 }
