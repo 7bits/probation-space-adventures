@@ -16,4 +16,14 @@ public class WelcomeController {
         model.addAttribute("message", "Hello Spring MVC Framework!");
         return "index";
     }
+
+
+    @RequestMapping(value = {"/index2.html", "/"}, method = RequestMethod.GET)
+    public String showIndex2(Model model) {
+        model.addAttribute("message", "Hello Spring MVC Framework2!");
+        return "index";
+    }
+
+
 }
+
