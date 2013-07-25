@@ -1,0 +1,32 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+        >
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="hibernateProperties">
+            <value>
+                hibernate.connection.pool_size = 100
+                hibernate.dialect = org.hibernate.dialect.MySQLDialect
+                hibernate.cache.provider_class = org.hibernate.cache.NoCacheProvider
+                hibernate.current_session_context_class = thread
+                hibernate.transaction.factory_class = org.hibernate.transaction.JDBCTransactionFactory
+                hibernate.hbm2ddl.auto = create-drop
+                hibernate.jdbc.batch_size = 0
+            </value>
+        </property>
+        <property name="annotatedClasses">
+            <list>
+                <value>it.sevenbits.space.model.Subscription</value>
+            </list>
+        </property>
+    </bean>
+
+    <!--описать анотированные классы и пакеты-->
+    <bean id="subscriptionDao" class="it.sevenbits.space.dao.SubscriptionDao">
+        <!--property name="dataSource" ref="dataSource" /-->
+    </bean>
+
+</beans>
