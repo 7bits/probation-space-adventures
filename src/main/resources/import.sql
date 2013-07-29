@@ -1,0 +1,1 @@
+insert into subscription(id, email) values(1,"test10@mail.ru");
