@@ -1,5 +1,7 @@
 package it.sevenbits.space.dao;
 
+import it.sevenbits.space.model.Subscription;
+
 /**
  * Created with IntelliJ IDEA.
  * User: denis
@@ -9,5 +11,5 @@ package it.sevenbits.space.dao;
  */
 public interface SubscriptionDao {
 
-    public void create(String email);
+    public void create(final Subscription subscription);
 }

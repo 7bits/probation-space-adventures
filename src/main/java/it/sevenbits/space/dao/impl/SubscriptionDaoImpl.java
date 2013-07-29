@@ -1,6 +1,7 @@
 package it.sevenbits.space.dao.impl;
 
 import it.sevenbits.space.dao.SubscriptionDao;
+import it.sevenbits.space.model.Subscription;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,14 +13,11 @@ import org.springframework.transaction.annotation.Transactional;
  * To change this template use File | Settings | File Templates.
  */
 @Repository
-public class SubscriptionDaoImpl implements SubscriptionDao {
-
-    //private DataSource dataSource;
+public class SubscriptionDaoImpl extends DaoTemplate implements SubscriptionDao {
 
     @Transactional
     @Override
-    public void create(String email) {
-        //To change body of implemented methods use File | Settings | File Templates.
+    public void create(final Subscription subscription) {
+        getEntityManager().persist(subscription);
     }
-
 }
