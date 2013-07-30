@@ -7,7 +7,8 @@
     </head>
     <body>
         <h3>Подписки</h3>
-        <a href="<c:url value="/addSubscription.html"/>">Добавить подписчика</a>
+         <c:forEach items="${subscriptions}" var="user">
+        <!--<a href="<c:url value="/addSubscription.html"/>">Добавить подписчика</a>
 
         //Email <h2><c:out value="${message}"/></h2>
 
@@ -22,6 +23,6 @@
                     <td><a href="mailto:${user.email}">${user.email}</a></td>
                </tr>
            </c:forEach>
-         </table>
+         </table>  -->
     </body>
 </html>
