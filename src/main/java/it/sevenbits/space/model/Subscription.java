@@ -5,7 +5,6 @@ package it.sevenbits.space.model;
  * User: denis
  * Date: 7/23/13
  * Time: 2:58 PM
- * To change this template use File | Settings | File Templates.
  */
 
 import javax.persistence.*;
