@@ -11,8 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -32,32 +32,11 @@ public class WelcomeController {
     private EventDao eventDao;
 
     @RequestMapping(value = {"/index.html","/"}, method = RequestMethod.GET)
-    public String showIndex(Model model) {
-        Event event = new Event();
+    public ModelAndView listEvent() {
 
-        //Long date = ;
-        //event.setDate(date);
+        List<Event> results  = eventDao.getAllEvent();
 
-
-        List<Event> results = new LinkedList<Event>();
-
-        results = eventDao.getAllEvent();
-        //List<Event> results = eventDao.getAllEvent();
-
-        //Iterator<Event> iterator = results.iterator();
-        //model.addAttribute("mes", "TRUE");
-        //while (iterator.hasNext()){
-               // model.addAttribute("event", iterator.next());
-        //}
-        if (results != null) {
-            for (Event e : results) {
-                model.addAttribute("event", e.getName());
-            }
-        }  else {
-            model.addAttribute("error","null was reterned" );
-        }
-        return "in";
-        //return "index";
+        return new ModelAndView("index", "events", results);
     }
 
     /*@RequestMapping(value = {"/button.html", "/"}, method = RequestMethod.GET)
