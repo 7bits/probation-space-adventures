@@ -242,7 +242,7 @@ border-top-right-radius: 80px;*/
 	text-align:right;
 	
 }
-.evenr-content{
+.event-content{
 	float:left;
 	font-size:14px;
 	height:94px;
@@ -251,7 +251,7 @@ border-top-right-radius: 80px;*/
 }
 
 @-moz-document url-prefix() { /*правило для firefox*/
-.evenr-conent{
+.event-conent{
 	font-size:13px;
 }
 
