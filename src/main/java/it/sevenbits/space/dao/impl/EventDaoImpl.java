@@ -29,16 +29,16 @@ public class EventDaoImpl extends DaoTemplate implements EventDao{
 
         EntityManager entityManager = this.getEntityManager();
 
-        this.getEntityManager();
-        //if(entityManager != null) {
-            TypedQuery<Event> query  = entityManager.createQuery("select e from Event e", Event.class);
+
+        if(entityManager != null) {
+            TypedQuery<Event> query  = entityManager.createQuery("select e from Event e where e.id = 1", Event.class);
             List<Event> results = (List<Event>) query.getResultList();
             //List<Event> results = getEntityManager().createQuery("SELECT e FROM Event e where e.id = 1", Event.class).getResultList();
             return results;
-        //} else {
+        } else {
 
-            //return null;
-        //}
+            return null;
+        }
     }
 
 

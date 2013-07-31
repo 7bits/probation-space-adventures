@@ -26,7 +26,7 @@ public class SubscriptionController {
 
         SubscriptionDao dao=(SubscriptionDao)ctx.getBean("userDao");
         /*List<Subscription> users = dao.getAllSubscriptionJdbc();
-
+        int size =
         for(Subscription u:users) {
             System.out.println(u.toString());
             model.addAttribute("subscriptions",u.toString());
