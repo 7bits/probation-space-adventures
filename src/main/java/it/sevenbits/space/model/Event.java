@@ -69,7 +69,7 @@ public class Event implements Serializable {
     }
 
     @Column(name = "eye", columnDefinition = "TINYINT(1)")
-    public boolean isEye() {
+    public boolean getEye() {
         return eye;
     }
 
