@@ -39,11 +39,7 @@ public class WelcomeController {
         return new ModelAndView("index", "events", results);
     }
 
-    /*@RequestMapping(value = {"/button.html", "/"}, method = RequestMethod.GET)
-    public String showButton(Model model) {
-        model.addAttribute("message", "Hello Spring MVC Framework! It is button");
-        return "index";
-    }          */
+
 
 
     @RequestMapping(value = {"/foo.html"}, method = RequestMethod.GET)
