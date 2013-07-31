@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -33,38 +32,27 @@ public class WelcomeController {
 
     @RequestMapping(value = {"/index.html","/"}, method = RequestMethod.GET)
     public String showIndex(Model model) {
-        Event event = new Event();
-
-        //Long date = ;
-        //event.setDate(date);
-
-
-        List<Event> results = new LinkedList<Event>();
-
-        results = eventDao.getAllEvent();
-        //List<Event> results = eventDao.getAllEvent();
-
-        //Iterator<Event> iterator = results.iterator();
-        //model.addAttribute("mes", "TRUE");
-        //while (iterator.hasNext()){
-               // model.addAttribute("event", iterator.next());
-        //}
+        model.addAttribute("message", "Hello Spring MVC Framework!");
+        List<Event> results = eventDao.getAllEvent();
         if (results != null) {
             for (Event e : results) {
                 model.addAttribute("event", e.getName());
+                model.addAttribute("eventName", e.getName());
+                model.addAttribute("eventDescription", e.getDescription());
+                model.addAttribute("eventDate", e.getDate());
+                model.addAttribute("eventEye", e.getEye());
             }
         }  else {
             model.addAttribute("error","null was reterned" );
         }
-        return "in";
-        //return "index";
+        //return "in";
+
+
+        return "index";
+
     }
 
-    /*@RequestMapping(value = {"/button.html", "/"}, method = RequestMethod.GET)
-    public String showButton(Model model) {
-        model.addAttribute("message", "Hello Spring MVC Framework! It is button");
-        return "index";
-    }          */
+
 
 
     @RequestMapping(value = {"/foo.html"}, method = RequestMethod.GET)
