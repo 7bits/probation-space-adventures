@@ -1,0 +1,31 @@
+$(document).ready(function(){
+	
+$("#subs-button").click(function(event){
+	
+	event.preventDefault();
+	
+      var msg = $('.contForm').serialize();
+        $.ajax({
+          type: 'POST',
+          url: $('.contForm').attr('action'),
+          data: msg,
+          success: 
+		  function(data) {
+		 $('.contForm').hide();
+		 
+		  $('#accept').css("visibility", "visible").fadeTo('fast', '1');  
+		
+		  $('#denied').hide();
+		  },
+          error:  function(xhr, str){
+			  console.log(xhr);
+			  $('#denied').css("visibility", "visible").fadeTo('fast', '1');
+			   $('#accept').hide();
+			  
+			  
+            }
+        });
+ 	
+	
+})
+})

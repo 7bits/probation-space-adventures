@@ -1,21 +1,15 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
-<title>Space adventures</title>
-<script type="text/javascript" src="//vk.com/js/api/openapi.js?98"></script>
-
+<title>Main</title>
 
 <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-
-<script type="text/javascript" src="//vk.com/js/api/openapi.js?98"></script>
-
-<script type="text/javascript">
-  VK.init({apiId: 3795826, onlyWidgets: true});
-</script>
-
 
 <script>
 $(document).ready(function(){
@@ -44,9 +38,24 @@ $(document).ready(function(){
 
 });
 </script>
+
+
+
+
+<script type="text/javascript" src="//vk.com/js/api/openapi.js?98"></script>
+
+<script type="text/javascript">
+  VK.init({apiId: 3795826, onlyWidgets: true});
+</script>
+
+
 </head>
 
 <body>
+
+
+
+
 
 <div id="top-line">
 <div id="top-container" class="top-container centr">
@@ -66,10 +75,13 @@ $(document).ready(function(){
 <div>
 <button id="subs-button"> Подписка на рассылку</button>
 </div>
+<div id="vk-div">
 <div id="vk_like"></div>
 <script type="text/javascript">
-VK.Widgets.Like("vk_like", {type: "mini", height: 20, pageUrl:"google.ru"});
+VK.Widgets.Like("vk_like", {type: "mini", pageUrl:"ya.ru"});
 </script>
+</div>
+
 </header>
  <!--<div id="filtr">
  <div id="admin" title="Вывести сообщения добавленные админом">
@@ -86,20 +98,27 @@ VK.Widgets.Like("vk_like", {type: "mini", height: 20, pageUrl:"google.ru"});
 </form>
  </div>
 
-<div id="subscribe-form-div">
 
-<form id="subscribe-form"  method="post" action="subscribe-form.php">
-<div>
-<div id="form-name"> <label>Подписка на рассылку</label> </div>
-<div id="form-content"> <img src="img/mail.png"> <input id="email-input" class="formSpace" type="text" name="email" placeholder="Введите свой e-mail"/>  </div>
-<div id="subscr-button"> <input type="submit" id ="submit-button-subscribe" value="Подписаться"/></div>
-</div>
-</form>
+<div id="content">
 
-</div>
+        <c:forEach items="${events}" var="events">
+        <div class="block">
+
+        <div > <img class="img-block" src="img/1event.jpg"> </div>
+        <div class="text-block">
+        <div class="event-name"><c:out value="${events.name}"/></div>
+        <div class="event-creator">новость добавил Mihail@1988</div>
+        <div class="evenr-conent"><c:out value="${events.description}"/></div>
+        </div>
+
+        </div>
+        </c:forEach>
 
 
-<div id="content"> 
+
+
+
+
 <div class="block">
  
 <div > <img class="img-block" src="img/1event.jpg"> </div> 
