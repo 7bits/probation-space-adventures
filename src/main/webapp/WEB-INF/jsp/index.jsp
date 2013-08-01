@@ -89,7 +89,7 @@ VK.Widgets.Like("vk_like", {type: "mini", height: 20, pageUrl:"google.ru"});
  </div>
 
 <div id="subscribe-form-div">
-<form:form commandName="subscribeForm" id="subscribe-form" action="index2.html">
+<form:form commandName="subscribeForm" id="subscribe-form" action="index.html">
 <div>
 <div id="form-name"> <label>Подписка на рассылку</label> </div>
 <div id="form-content"> <img src="img/mail.png">
@@ -112,7 +112,7 @@ VK.Widgets.Like("vk_like", {type: "mini", height: 20, pageUrl:"google.ru"});
         <div class="text-block">
         <div class="event-name"><c:out value="${events.name}"/></div>
         <div class="event-creator">новость добавил Mihail@1988</div>
-        <!--div class="event-data"><c:out value="${events.data}"/></div-->
+        <div class="event-date"><c:out value="${events.date}"/></div>
         <div class="event-content"><c:out value="${events.description}"/></div>
         </div>
 

@@ -18,7 +18,7 @@ $(document).ready(function(){
 		
 		$("#submit-button-subscribe").click(function(event){
 
-			event.preventDefault();
+			//event.preventDefault();
 			$("#subscribe-form").css("visibility", "hidden");
 			$('#dark-bg').remove();
 			
