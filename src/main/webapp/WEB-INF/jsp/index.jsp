@@ -1,21 +1,23 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
 <title>Space adventures</title>
-<script type="text/javascript" src="//vk.com/js/api/openapi.js?98"></script>
-
-
 <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-
 <script type="text/javascript" src="//vk.com/js/api/openapi.js?98"></script>
-
 <script type="text/javascript">
   VK.init({apiId: 3795826, onlyWidgets: true});
 </script>
 
+<script src="script/subscribe-button.js"> </script>
 
 <script>
 $(document).ready(function(){
@@ -87,19 +89,39 @@ VK.Widgets.Like("vk_like", {type: "mini", height: 20, pageUrl:"google.ru"});
  </div>
 
 <div id="subscribe-form-div">
-
-<form id="subscribe-form"  method="post" action="subscribe-form.php">
+<form:form commandName="subscribeForm" id="subscribe-form" action="index2.html">
 <div>
 <div id="form-name"> <label>Подписка на рассылку</label> </div>
-<div id="form-content"> <img src="img/mail.png"> <input id="email-input" class="formSpace" type="text" name="email" placeholder="Введите свой e-mail"/>  </div>
-<div id="subscr-button"> <input type="submit" id ="submit-button-subscribe" value="Подписаться"/></div>
+<div id="form-content"> <img src="img/mail.png">
+<form:input path="email" placeholder="Введите свой e-mail" id="email-input" class="formSpace"/>
 </div>
-</form>
+<div id="subscr-button-div"> <input type="submit" id ="submit-button-subscribe" value="Подписаться"/></div>
+</div>
+</form:form>
 
 </div>
 
 
 <div id="content"> 
+
+
+        <c:forEach items="${events}" var="events">
+        <div class="block">
+
+        <div > <img class="img-block" src="img/1event.jpg"> </div>
+        <div class="text-block">
+        <div class="event-name"><c:out value="${events.name}"/></div>
+        <div class="event-creator">новость добавил Mihail@1988</div>
+        <!--div class="event-data"><c:out value="${events.data}"/></div-->
+        <div class="event-content"><c:out value="${events.description}"/></div>
+        </div>
+
+        </div>
+        </c:forEach>
+
+
+
+
 <div class="block">
  
 <div > <img class="img-block" src="img/1event.jpg"> </div> 

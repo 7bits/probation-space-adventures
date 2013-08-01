@@ -2,15 +2,13 @@ package it.sevenbits.space.controller;
 
 import it.sevenbits.space.dao.EventDao;
 import it.sevenbits.space.dao.SubscriptionDao;
+import it.sevenbits.space.forms.SubscribeForm;
 import it.sevenbits.space.model.Event;
-import it.sevenbits.space.model.Subscription;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -34,14 +32,19 @@ public class WelcomeController {
     @RequestMapping(value = {"/index.html","/"}, method = RequestMethod.GET)
     public ModelAndView listEvent() {
 
+        ModelAndView modelAndView = new ModelAndView("index");
         List<Event> results  = eventDao.getAllEvent();
+        SubscribeForm subscribeForm = new SubscribeForm();
+        subscribeForm.setEmail("fooo");
+        modelAndView.addObject("subscribeForm", subscribeForm)
+            .addObject("events", results);
 
-        return new ModelAndView("index", "events", results);
+        return modelAndView;
     }
 
 
 
-
+         /*
     @RequestMapping(value = {"/foo.html"}, method = RequestMethod.GET)
     @ResponseBody
     public String foo(Model model) {
@@ -51,5 +54,5 @@ public class WelcomeController {
         subscription.setEmail("sldfjasldfkjasdlf");
         subscriptionDao.create(subscription);
         return "created";
-    }
+    }              */
 }

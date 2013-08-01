@@ -415,7 +415,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 	border-radius: 6px;
 	
 	
-background: -moz-linear-gradient(top,  rgba(228,221,233,0.95) 0%, rgba(120,117,122,0.95) 100%); /* FF3.6+ */
+	background: -moz-linear-gradient(top,  rgba(228,221,233,0.95) 0%, rgba(120,117,122,0.95) 100%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(228,221,233,0.95)), color-stop(100%,rgba(120,117,122,0.95))); /* Chrome,Safari4+ */
 background: -webkit-linear-gradient(top,  rgba(228,221,233,0.95) 0%,rgba(120,117,122,0.95) 100%); /* Chrome10+,Safari5.1+ */
 background: -o-linear-gradient(top,  rgba(228,221,233,0.95) 0%,rgba(120,117,122,0.95) 100%); /* Opera 11.10+ */
