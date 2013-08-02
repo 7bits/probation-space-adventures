@@ -248,6 +248,7 @@ border-top-right-radius: 80px;*/
 	color:#999;
 	width:110px;
 	text-align:right;
+	font-size: 14px;
 	
 }
 .event-content{
@@ -334,9 +335,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#777373', end
 
 /*Стилизация кнопки ВВЕРХ */
 #back-top{	
-	position:absolute;
-	top:50px;
-	left:0px;
+    position:fixed;
+    top:50px;
+    left:0px;
+    bottom: 38px;
 
 }
 
@@ -396,7 +398,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 
 #vk_like{
 	position:absolute;
-	right:-23px;
+	right:-20px;
 	float:right;
 }
 

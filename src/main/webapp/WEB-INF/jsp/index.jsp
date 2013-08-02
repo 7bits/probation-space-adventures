@@ -5,41 +5,47 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Main</title>
-<link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <title>Main</title>
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
-<script src="script/subscribe-button.js"> </script>
-<script>
-$(document).ready(function(){
-    // появление/затухание кнопки #back-top
-    $(function (){
-        // прячем кнопку #back-top
-        $("#back-top").hide();
+    <script type="text/javascript" src="//vk.com/js/api/openapi.js?98"></script>
+    <script type="text/javascript">
+        VK.init({apiId: 3795826, onlyWidgets: true});
+    </script>
 
-        $(window).scroll(function (){
-            if ($(this).scrollTop() > 100){
-                $("#back-top").fadeIn();
-            } else{
-                $("#back-top").fadeOut();
-            }
+    <script src="script/subscribe-button.js"> </script>
+    <script>
+    $(document).ready(function(){
+        // появление/затухание кнопки #back-top
+        $(function (){
+            // прячем кнопку #back-top
+            $("#back-top").hide();
+
+            $(window).scroll(function (){
+                if ($(this).scrollTop() > 100){
+                    $("#back-top").fadeIn();
+                } else{
+                    $("#back-top").fadeOut();
+                }
+            });
+
+            // при клике на ссылку плавно поднимаемся вверх
+            $("#back-top a").click(function (){
+                $("body,html").animate({
+                    scrollTop:0
+                }, 500);
+                return false;
+            });
+
         });
 
-        // при клике на ссылку плавно поднимаемся вверх
-        $("#back-top a").click(function (){
-            $("body,html").animate({
-                scrollTop:0
-            }, 500);
-            return false;
-        });
 
     });
-
-
-});
 </script>
+
 </head>
 <body>
     <div id="top-line">
@@ -60,6 +66,11 @@ $(document).ready(function(){
             <div>
                 <button id="subs-button"> Подписка на рассылку</button>
             </div>
+            <div id="vk_like"></div>
+            <script type="text/javascript">
+                VK.Widgets.Like("vk_like", {type: "mini", height: 20, pageUrl:"google.ru"});
+            </script>
+
         </header>
         <!--div id="filtr">
             <div id="admin" title="Вывести сообщения добавленные админом">
@@ -90,7 +101,7 @@ $(document).ready(function(){
                     <div > <img class="img-block" src="${events.img}"> </div>
                     <div class="text-block">
                         <div class="event-name"><c:out value="${events.name}"/></div>
-                        <div class="event-creator">новость добавил Mihail@1988</div>
+                        <!--div class="event-creator">новость добавил Mihail@1988</div-->
                         <div class="event-date"> <c:out value="${events.humanReadableDate}"/></div>
                         <div class="event-content"><c:out value="${events.description}"/></div>
                     </div>
