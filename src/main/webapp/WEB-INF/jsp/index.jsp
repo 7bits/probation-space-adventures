@@ -3,6 +3,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
+
 <!doctype html>
 <html>
 <head>
@@ -67,8 +68,7 @@ $(document).ready(function(){
 <span id="please-subs">Подпишись на рассылку и получай информацию о надвигающихся событиях космоса.</span>
 <div>
 <button id="subs-button"> Подписка на рассылку</button>
-</div>
-<div id="vk_like"></div>
+</div><div id="vk_like"></div>
 <script type="text/javascript">
 VK.Widgets.Like("vk_like", {type: "mini", height: 20, pageUrl:"google.ru"});
 </script>
@@ -89,11 +89,12 @@ VK.Widgets.Like("vk_like", {type: "mini", height: 20, pageUrl:"google.ru"});
  </div>
 
 <div id="subscribe-form-div">
+
 <form:form commandName="subscribeForm" id="subscribe-form" action="index.html">
 <div>
-<div id="form-name"> <label>Подписка на рассылку</label> </div>
+<div id="form-name"> <label>Подписка на рассылку</label> </div>  <div id="close"> x </div>
 <div id="form-content"> <img src="img/mail.png">
-<form:input path="email" placeholder="Введите свой e-mail" id="email-input" class="formSpace"/>
+<form:input type="email" path="email" placeholder="Введите свой e-mail" id="email-input" class="formSpace"/>
 </div>
 <div id="subscr-button-div"> <input type="submit" id ="submit-button-subscribe" value="Подписаться"/></div>
 </div>
@@ -101,11 +102,10 @@ VK.Widgets.Like("vk_like", {type: "mini", height: 20, pageUrl:"google.ru"});
 
 </div>
 
-
 <div id="content"> 
 
 
-        <c:forEach items="${events}" var="events">
+<c:forEach items="${events}" var="events">
         <div class="block">
 
         <div > <img class="img-block" src="img/1event.jpg"> </div>
@@ -118,7 +118,6 @@ VK.Widgets.Like("vk_like", {type: "mini", height: 20, pageUrl:"google.ru"});
 
         </div>
         </c:forEach>
-
 
 
 

@@ -46,15 +46,11 @@ public class WelcomeController {
 
     @RequestMapping(value = {"/index.html","/"}, method = RequestMethod.POST)
     public String addSubscribe(SubscribeForm subscribeForm) {
-        //model.addAttribute("email", subscribeForm.getEmail());
-
-
-
         Subscription subscription = new Subscription();
         subscription.setEmail(subscribeForm.getEmail());
         subscriptionDao.create(subscription);
+        subscribeForm.setEmail("");
         return "index";
-
     }
 
 

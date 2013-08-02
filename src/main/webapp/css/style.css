@@ -396,7 +396,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 
 #vk_like{
 	position:absolute;
-	right:0px;
+	right:-23px;
 	float:right;
 }
 
@@ -413,8 +413,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 	-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
 	border-radius: 6px;
-	
-	
+
+
 	background: -moz-linear-gradient(top,  rgba(228,221,233,0.95) 0%, rgba(120,117,122,0.95) 100%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(228,221,233,0.95)), color-stop(100%,rgba(120,117,122,0.95))); /* Chrome,Safari4+ */
 background: -webkit-linear-gradient(top,  rgba(228,221,233,0.95) 0%,rgba(120,117,122,0.95) 100%); /* Chrome10+,Safari5.1+ */
@@ -425,23 +425,22 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9e4dde9', e
 -webkit-box-shadow: 10px 10px 12px -1px rgba(0,0,0,0.46);
 -moz-box-shadow: 10px 10px 12px -1px rgba(0,0,0,0.46);
 box-shadow: 10px 10px 12px -1px rgba(0,0,0,0.46);
-	
+
 }
 
-#form-name{
-	font-size:17px;
-	margin:0px 14px -5px 17px;
-	padding-top:5px;	
-	color:#6c6a6a;
-	border-bottom: 1px solid #FFF ;
-	
+#form-name {
+    border-bottom: 1px solid #FFFFFF;
+    color: #6C6A6A;
+    font-size: 17px;
+    margin: 0 14px -5px 17px;
+    padding-top: 5px;
 }
 
 #email-input{
 	padding-left:5px;
 	-webkit-box-shadow:  inset 2px 3px 6px 1px rgba(0, 0, 0, 0.3);
     box-shadow:  inset 2px 3px 6px 1px rgba(0, 0, 0, 0.3);
-	background-color:#edebed;	
+	background-color:#edebed;
 	height:24px;
 	width:253px;
 	float:right;
@@ -454,15 +453,16 @@ box-shadow: 10px 10px 12px -1px rgba(0,0,0,0.46);
 
 form img {
 	float:left;
-	width:73px;
-	height:63px;
-	margin-top:10px;
+	width:75px;
+	height:70px;
+	margin-top:6px;
 	margin-left:6px;
 }
 
 #submit-button-subscribe{
+	cursor:pointer;
 	float:right;
-	color:#bab9b9;	
+	color:#bab9b9;
 	margin-right:12px;
 	margin-top:5px;
 	height:28px;
@@ -473,17 +473,17 @@ form img {
 	border:none;
 	text-align:center;
 	vertical-align:middle;
-	
+
 	text-shadow: 3px 4px 5px #424242;
         filter: dropshadow(color=#424242, offx=3, offy=4);
-	
-	
--webkit-box-shadow:  2px 3px 6px 1px rgba(0, 0, 0, 0.4);
-        
-        box-shadow:  2px 3px 6px 1px rgba(0, 0, 0, 0.4);
-	
 
-	
+
+-webkit-box-shadow:  2px 3px 6px 1px rgba(0, 0, 0, 0.4);
+
+        box-shadow:  2px 3px 6px 1px rgba(0, 0, 0, 0.4);
+
+
+
 background: #695f71; /* Old browsers */
 background: -moz-linear-gradient(top,  #695f71 0%, #302933 100%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#695f71), color-stop(100%,#302933)); /* Chrome,Safari4+ */
@@ -493,4 +493,14 @@ background: -ms-linear-gradient(top,  #695f71 0%,#302933 100%); /* IE10+ */
 background: linear-gradient(to bottom,  #695f71 0%,#302933 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#695f71', endColorstr='#302933',GradientType=0 ); /* IE6-9 */
 
+}
+
+#close {
+    color: #6C6A6A;
+    font-weight: bold;
+    position: absolute;
+    right: 12px;
+    top: 4px;
+    width: 10px;
+	cursor:pointer;
 }
