@@ -91,7 +91,7 @@ $(document).ready(function(){
                     <div class="text-block">
                         <div class="event-name"><c:out value="${events.name}"/></div>
                         <div class="event-creator">новость добавил Mihail@1988</div>
-                        <!--div class="event-date"> <c:out value="${events.date}"/></div-->
+                        <div class="event-date"> <c:out value="${events.humanReadableDate}"/></div>
                         <div class="event-content"><c:out value="${events.description}"/></div>
                     </div>
                 </div>

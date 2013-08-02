@@ -93,10 +93,10 @@ public class Event implements Serializable {
 
     @Transient
     public String getHumanReadableDate(){
-        if(date != null) return "";
+        if(date == null) return "";
         else {
             DateTime dateTime = new DateTime(date);
-            String buff = dateTime.toString("MM/dd/yyyy");
+            String buff = dateTime.toString("MM.dd.yyyy");
             return buff;
         }
     }
