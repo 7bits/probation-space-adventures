@@ -57,7 +57,7 @@
         </div>
     </div>
     <!--a href="javascript:scroll(0,0)" ><div id="go-top"> </div> </a-->
-    <p id="back-top"><a href="#top"><span> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> ВВЕРХ </span></a></p>
+    <p id="back-top"><a href="#top"><span> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> ВВЕРХ </span></a></p>
 
     <div id="container" class="container centr">
         <header>

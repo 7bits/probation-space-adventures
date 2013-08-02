@@ -362,7 +362,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#777373', end
 #back-top span{
 	
 	width:150px;
-	height:900px;
+	height:485px;
 	display:block;
 	color:#FFF;
 	
@@ -397,9 +397,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 
 
 #vk_like{
+    margin-bottom:-20px;
 	position:absolute;
 	right:-20px;
 	float:right;
+	bottom:-20px;
 }
 
 
