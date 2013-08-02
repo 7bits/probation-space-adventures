@@ -1,5 +1,7 @@
 package it.sevenbits.space.model;
 
+import org.joda.time.DateTime;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -13,17 +15,20 @@ public class Event implements Serializable {
     private boolean eye;
     private Long CreatorId;
     private String video;
+    private String img;
 
     //конструктор Event id создателя события и ссылка на видео закоменченны
     public Event(String name,
                  String description,
                  Long date,
-                 boolean eye
+                 boolean eye,
+                 String img
                  /*, Long CreatorId, String video*/) {
         this.name = name;
         this.description = description;
         this.date = date;
         this.eye = eye;
+        this.img = img;
         /*this.CreatorId = CreatorId;
         this.video = video; */
     }
@@ -77,6 +82,24 @@ public class Event implements Serializable {
         this.eye = eye;
     }
 
+    @Column(name = "img", length = 100, nullable = false)
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    @Transient
+    public String getHumanReadableDate(){
+        if(date != null) return "";
+        else {
+            DateTime dateTime = new DateTime(date);
+            String buff = dateTime.toString("MM/dd/yyyy");
+            return buff;
+        }
+    }
     /*
     @Column(name = "CreatorId")
     public Long getidCreator() {

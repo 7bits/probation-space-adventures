@@ -36,8 +36,6 @@
     </bean>
 
     <bean id="subscriptionDao" class="it.sevenbits.space.dao.impl.SubscriptionDaoImpl"/>
-    <tx:annotation-driven transaction-manager="transactionManager"/>
-
     <bean id="eventDao" class="it.sevenbits.space.dao.impl.EventDaoImpl"/>
     <tx:annotation-driven transaction-manager="transactionManager"/>
 

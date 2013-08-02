@@ -8,4 +8,6 @@ public interface EventDao {
     public void create(final Event event);
 
     public List<Event> getAllEvent();
+
+    public List<Event> searchEventByName(String name);
 }

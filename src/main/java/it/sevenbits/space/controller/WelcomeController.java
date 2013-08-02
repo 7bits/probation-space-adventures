@@ -2,17 +2,17 @@ package it.sevenbits.space.controller;
 
 import it.sevenbits.space.dao.EventDao;
 import it.sevenbits.space.dao.SubscriptionDao;
+import it.sevenbits.space.forms.SubscribeForm;
 import it.sevenbits.space.model.Event;
 import it.sevenbits.space.model.Subscription;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,7 +21,6 @@ import java.util.List;
 @Controller
 public class WelcomeController {
 
-    //private int visitorCount = 6;
     @Autowired
     @Qualifier("subscriptionDao")
     private SubscriptionDao subscriptionDao;
@@ -34,10 +33,56 @@ public class WelcomeController {
     @RequestMapping(value = {"/index.html","/"}, method = RequestMethod.GET)
     public ModelAndView listEvent() {
 
-        List<Event> results  = eventDao.getAllEvent();
+        ModelAndView modelAndView = new ModelAndView("index");
+        List<String> date = new ArrayList<String>();
 
-        return new ModelAndView("index", "events", results);
+        List<Event> results  = eventDao.getAllEvent();
+        /*for(Event item : results ){
+            DateTime dateTime = new DateTime(item.getDate());
+            String buff = dateTime.toString("MM/dd/yyyy");
+            date.add(buff);
+        } */
+
+        SubscribeForm subscribeForm = new SubscribeForm();
+        //SearchEventForm searchEventForm = new SearchEventForm();
+
+        modelAndView.addObject("subscribeForm", subscribeForm)
+                .addObject("events", results);
+                //.addObject("searchEventForm", searchEventForm)
+                //.addObject("date", date);
+
+        return modelAndView;
     }
+
+
+    @RequestMapping(value = {"/index.html","/"}, method = RequestMethod.POST)
+    public ModelAndView addSubscribe(SubscribeForm subscribeForm) {
+        //model.addAttribute("email", subscribeForm.getEmail());
+
+        Subscription subscription = new Subscription();
+        subscription.setEmail(subscribeForm.getEmail());
+        subscriptionDao.create(subscription);
+        subscribeForm.setEmail("");
+        return listEvent();
+    }
+
+    /*@RequestMapping(value = {"/index.html","/"}, method = RequestMethod.POST)
+    public ModelAndView seacEvent(SearchEventForm seachEventFormIn) {
+
+        ModelAndView modelAndView = new ModelAndView("index");
+
+        List<Event> results  = eventDao.searchEventByName(seachEventFormIn.getName());
+
+        SubscribeForm subscribeForm = new SubscribeForm();
+        SearchEventForm seachEventForm = new SearchEventForm();
+
+        modelAndView.addObject("subscribeForm", subscribeForm)
+                .addObject("events", results).addObject("\"seachEventForm", seachEventForm);
+
+        return modelAndView;
+    }
+
+
 
 
 
@@ -51,5 +96,5 @@ public class WelcomeController {
         subscription.setEmail("sldfjasldfkjasdlf");
         subscriptionDao.create(subscription);
         return "created";
-    }
+    }*/
 }
