@@ -7,7 +7,8 @@
 <head>
     <meta charset="utf-8">
     <title>Main</title>
-    <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
     <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
