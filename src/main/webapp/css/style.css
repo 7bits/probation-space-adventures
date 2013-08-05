@@ -208,8 +208,9 @@ border-top-right-radius: 5px;
 
 .img-block{
 	width:130px;
+	height:130px;
 	float:left;
-	margin: 8px 20px 10px 10px;
+	margin: 8px 10px 10px 10px;
 	/*border: solid 2px #000;
 	/*-webkit-border-top-right-radius: 80px;
 -moz-border-radius: 80px;
@@ -221,10 +222,10 @@ border-top-right-radius: 80px;*/
 
 
 .text-block{
-	padding:12px 0px 10px 10px;
+	padding:10px 0px 10px 0px;
 	color:#FFF;
 	float:left;
-	width:73%;
+	width:77%;
 }
 .event-name{
 	float:left;
@@ -234,7 +235,7 @@ border-top-right-radius: 80px;*/
 	margin-bottom:3px;
 }
 .event-creator{
-	float:left;
+	float:left;                 l
 	line-height:25px;
 	margin-bottom:3px;
 	color:#999;
@@ -254,14 +255,14 @@ border-top-right-radius: 80px;*/
 .event-content{
 	float:left;
 	font-size:14px;
-	height:94px;
+	height:98px;
 	overflow:hidden;
 	width:100%;
 }
 
 @-moz-document url-prefix() { /*правило для firefox*/
 .event-conent{
-	font-size:13px;
+	font-size:15px;
 }
 
 #top-menu{
