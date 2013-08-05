@@ -28,6 +28,11 @@
         <url-pattern>*.html</url-pattern>
     </servlet-mapping>
 
+    <!--servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>*.jpg</url-pattern>
+    </servlet-mapping-->
+
 
 
 

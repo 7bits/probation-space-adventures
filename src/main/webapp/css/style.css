@@ -246,8 +246,9 @@ border-top-right-radius: 80px;*/
 	line-height:25px;
 	margin-bottom:3px;
 	color:#999;
-	width:50px;
+	width:110px;
 	text-align:right;
+	font-size: 14px;
 	
 }
 .event-content{
@@ -334,9 +335,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#777373', end
 
 /*Стилизация кнопки ВВЕРХ */
 #back-top{	
-	position:absolute;
-	top:50px;
-	left:0px;
+    position:fixed;
+    top:50px;
+    left:0px;
+    bottom: 38px;
 
 }
 
@@ -360,7 +362,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#777373', end
 #back-top span{
 	
 	width:150px;
-	height:900px;
+	height:485px;
 	display:block;
 	color:#FFF;
 	
@@ -395,9 +397,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 
 
 #vk_like{
+    margin-bottom:-20px;
 	position:absolute;
-	right:-23px;
+	right:-20px;
 	float:right;
+	bottom:-20px;
 }
 
 

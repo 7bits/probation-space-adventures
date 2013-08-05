@@ -12,8 +12,7 @@ $(document).ready(function(){
 	
 	
 	$('#close').click(function(){
-		$("#subscribe-form").css("visibility", "hidden");
-		$("#dark-bg").remove();	
-	});
-	
-})	
+        $("#subscribe-form").css("visibility", "hidden");
+        $("#dark-bg").remove();
+    });
+})
