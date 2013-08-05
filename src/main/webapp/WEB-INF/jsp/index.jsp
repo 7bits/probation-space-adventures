@@ -49,6 +49,28 @@
 
 
     });
+
+
+     <script type="text/javascript">
+             function doAjaxPost() {
+             // get the form values
+             var email = $('#email').val();
+             $.ajax({
+             type: "POST",
+             url: "/space_adventures/index.html",
+             data: "email=" + email,
+             success: function(response){
+             // we have the response
+             $('#info').html(response);
+             $('#email').val('');
+             },
+             error: function(e){
+             alert('Error: ' + e);
+             }
+             });
+             }
+             </script>
+
 </script>
 
 </head>
@@ -94,8 +116,8 @@
                         <form:input path="email" placeholder="Введите свой e-mail" id="email-input" class="formSpace"/>
                      <!--div> <form:errors path="email" /> </div-->
                     </div>
-
-                    <div id="subscr-button-div"> <input type="submit" id ="submit-button-subscribe" value="Подписаться"/></div>
+                    <div id="info" style="color: green;"></div>
+                    <div id="subscr-button-div"> <input type="submit" id ="submit-button-subscribe" value="Подписаться" onclick="doAjaxPost()"/></div>
                 </div>
             </form:form>
         </div>

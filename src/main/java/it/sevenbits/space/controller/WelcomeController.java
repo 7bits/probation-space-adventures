@@ -9,11 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,6 +45,27 @@ public class WelcomeController {
         return modelAndView;
     }
 
+
+    @RequestMapping(value = {"/index.html","/"}, method = RequestMethod.POST)
+    public @ResponseBody
+    ModelAndView addSubscribe(@ModelAttribute(value="email") /*@Valid final*/ SubscribeForm subscribeForm, final BindingResult result) {
+        Subscription subscription = new Subscription();
+        subscription.setEmail(subscribeForm.getEmail());
+
+        if (!result.hasErrors()) {
+            subscriptionDao.create(subscription);
+            subscribeForm.setEmail("");
+            return listEvent();
+        }
+        return new ModelAndView("Sorry, an error has occur. User has not been added to list.");
+        // return listEvent();
+    }
+
+
+
+
+
+
    /* @RequestMapping(value = {"/index.html","/"}, method = RequestMethod.POST)
     public ModelAndView addSubscribe(SubscribeForm subscribeForm) {
         Subscription subscription = new Subscription();
@@ -56,7 +78,7 @@ public class WelcomeController {
 
 
 
-    @RequestMapping(value = {"/index.html","/"}, method = RequestMethod.POST)
+   /* @RequestMapping(value = {"/index.html","/"}, method = RequestMethod.POST)
     public ModelAndView addSubscribe(@Valid final SubscribeForm subscribeForm, final BindingResult result) {
         Subscription subscription = new Subscription();
         subscription.setEmail(subscribeForm.getEmail());
@@ -67,12 +89,12 @@ public class WelcomeController {
         subscriptionDao.create(subscription);
         subscribeForm.setEmail("");
         return listEvent();
-       // return listEvent();
-    }
-
+    }   // return listEvent();
+    }      */
 
 
 }
+
 
 
 
