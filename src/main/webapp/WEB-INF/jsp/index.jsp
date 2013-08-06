@@ -14,7 +14,8 @@
     <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
 
     <script type="text/javascript" src="//vk.com/js/api/openapi.js?98"></script>
     <script type="text/javascript">
@@ -22,34 +23,9 @@
     </script>
 
     <script src="script/subscribe-button.js"> </script>
-    <script>
-    $(document).ready(function(){
-        // появление/затухание кнопки #back-top
-        $(function (){
-            // прячем кнопку #back-top
-            $("#back-top").hide();
+    <script src="script/insert-form.js"> </script>
+    <script src="script/button-scroll-top.js"> </script>
 
-            $(window).scroll(function (){
-                if ($(this).scrollTop() > 100){
-                    $("#back-top").fadeIn();
-                } else{
-                    $("#back-top").fadeOut();
-                }
-            });
-
-            // при клике на ссылку плавно поднимаемся вверх
-            $("#back-top a").click(function (){
-                $("body,html").animate({
-                    scrollTop:0
-                }, 500);
-                return false;
-            });
-
-        });
-
-
-    });
-</script>
 
 </head>
 <body>
@@ -86,18 +62,13 @@
             </div>
         </div-->
 
-       <div id="subscribe-form-div">
-            <form:form commandName="subscribeForm" id="subscribe-form" action="index.html">
-                <div>
-                    <div id="form-name"> <label>Подписка на рассылку</label> </div>  <div id="close"> x </div>
-                    <div id="form-content"> <img src="img/mail.png">
-                        <form:input path="email" placeholder="Введите свой e-mail" id="email-input" class="formSpace"/>
-                     <div> <form:errors path="email"/> </div>
-                    </div>
 
-                    <div id="subscr-button-div"> <input type="submit" id ="submit-button-subscribe" value="Подписаться"/></div>
-                </div>
-            </form:form>
+        <div id="subscribe-form-div">
+
+        </div>
+
+        <div id="error">
+
         </div>
 
        <div id="content">
