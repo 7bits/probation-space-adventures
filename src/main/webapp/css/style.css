@@ -418,6 +418,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 	-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
 	border-radius: 6px;
+	z-index:50;
 
 
 	background: -moz-linear-gradient(top,  rgba(228,221,233,0.95) 0%, rgba(120,117,122,0.95) 100%); /* FF3.6+ */

@@ -3,6 +3,10 @@ $(document).ready(function(){
 
 $('#close').click(function(){
     closePost();
+
+    $("#dark-bg").css("visibility", "hidden");
+
+
     });
 
 })
