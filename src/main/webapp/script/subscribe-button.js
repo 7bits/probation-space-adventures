@@ -1,8 +1,8 @@
 $(document).ready(function(){
 	$('#subs-button').click(function(){
-		$("#subscribe-form").css("visibility", "visible"); 
-		$("#subscribe-form").css("z-index", "45"); 
-		$('<div id="dark-bg" style="position: absolute; z-index:40; opacity:0.2"></div>').insertBefore('body');  
+		$("#subscribe-form").css("visibility", "visible");
+		$("#subscribe-form").css("z-index", "45");
+		$('<div id="dark-bg" style="position: absolute; z-index:40; opacity:0.2"></div>').insertBefore('body');
 		$('#dark-bg').css({  
 				height: $(document).height(),  
 				width:  $(document).width(),  

@@ -23,28 +23,47 @@ import java.util.List;
 @Controller
 public class WelcomeController {
 
+
+
+
+
     @Autowired
     @Qualifier("subscriptionDao")
     private SubscriptionDao subscriptionDao;
-
 
     @Autowired
     @Qualifier("eventDao")
     private EventDao eventDao;
 
-    @RequestMapping(value = {"/index.html","/"}, method = RequestMethod.GET)
-    public ModelAndView listEvent() {
-
+    //метод, отвечающий за вывод списка событий и формы.
+    public ModelAndView ShowlistEvent(SubscribeForm subscribeForm) {
         ModelAndView modelAndView = new ModelAndView("index");
         List<String> date = new ArrayList<String>();
         List<Event> results  = eventDao.getAllEvent();
-        SubscribeForm subscribeForm = new SubscribeForm();
         modelAndView.addObject("subscribeForm", subscribeForm)
                 .addObject("events", results);
         return modelAndView;
     }
 
-   /* @RequestMapping(value = {"/index.html","/"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"/index.html","/"}, method = RequestMethod.GET)
+    public ModelAndView listEvent() {
+        SubscribeForm subscribeForm = new SubscribeForm();
+        return ShowlistEvent(subscribeForm);
+    }
+
+    @RequestMapping(value = {"/index.html","/"}, method = RequestMethod.POST)
+    public ModelAndView addSubscribe(@Valid final SubscribeForm subscribeForm, final BindingResult result) {
+        Subscription subscription = new Subscription();
+        subscription.setEmail(subscribeForm.getEmail());
+        if (result.hasErrors()) {
+            return ShowlistEvent(subscribeForm);
+        }
+        subscriptionDao.create(subscription);
+        subscribeForm.setEmail("");
+        return listEvent();
+    }
+
+     /* @RequestMapping(value = {"/index.html","/"}, method = RequestMethod.POST)
     public ModelAndView addSubscribe(SubscribeForm subscribeForm) {
         Subscription subscription = new Subscription();
         subscription.setEmail(subscribeForm.getEmail());
@@ -52,30 +71,6 @@ public class WelcomeController {
         subscribeForm.setEmail("");
         return listEvent();
     } */
-
-
-
-
-    @RequestMapping(value = {"/index.html","/"}, method = RequestMethod.POST)
-    public ModelAndView addSubscribe(@Valid final SubscribeForm subscribeForm, final BindingResult result) {
-        Subscription subscription = new Subscription();
-        subscription.setEmail(subscribeForm.getEmail());
-
-        if (result.hasErrors()) {
-            ModelAndView modelAndView = new ModelAndView("index");
-            List<String> date = new ArrayList<String>();
-            List<Event> results  = eventDao.getAllEvent();
-            modelAndView.addObject("subscribeForm", subscribeForm)
-                    .addObject("events", results);
-            return modelAndView;
-        }
-        subscriptionDao.create(subscription);
-        subscribeForm.setEmail("");
-        return listEvent();
-       // return listEvent();
-    }
-
-
 
 }
 
