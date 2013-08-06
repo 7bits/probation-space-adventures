@@ -62,7 +62,12 @@ public class WelcomeController {
         subscription.setEmail(subscribeForm.getEmail());
 
         if (result.hasErrors()) {
-            return new ModelAndView("index");
+            ModelAndView modelAndView = new ModelAndView("index");
+            List<String> date = new ArrayList<String>();
+            List<Event> results  = eventDao.getAllEvent();
+            modelAndView.addObject("subscribeForm", subscribeForm)
+                    .addObject("events", results);
+            return modelAndView;
         }
         subscriptionDao.create(subscription);
         subscribeForm.setEmail("");

@@ -1,8 +1,9 @@
 package it.sevenbits.space.forms;
-import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.*;
 
 public class SubscribeForm {
     @Email
+    @NotBlank
     private String email;
 
     public String getEmail() {
