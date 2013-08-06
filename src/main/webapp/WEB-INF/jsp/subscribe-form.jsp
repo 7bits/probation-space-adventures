@@ -1,6 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+     <script src="script/close-button.js"> </script>
+
 
 <form:form commandName="subscribeForm" id="subscribe-form" action="index.html">
     <div>
