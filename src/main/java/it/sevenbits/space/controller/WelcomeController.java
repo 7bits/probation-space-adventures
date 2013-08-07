@@ -30,11 +30,12 @@ public class WelcomeController {
     @Qualifier("eventDao")
     private EventDao eventDao;
 
+
+
     @RequestMapping(value = {"/index.html","/"}, method = RequestMethod.GET)
     public ModelAndView listEvent() {
 
         ModelAndView modelAndView = new ModelAndView("index");
-        //List<String> date = new ArrayList<String>();
         //String seach = modelAndView.getModel("search");
         List<Event> results  = eventDao.getAllEvent();
 
@@ -86,6 +87,16 @@ public class WelcomeController {
 
         return listEvent();
     }
+=======
+    @RequestMapping(value = {"/subscribe-form.html"}, method = RequestMethod.GET)
+    public ModelAndView addSubscribe() {
+        ModelAndView modelAndView = new ModelAndView("subscribe-form");
+        //modelAndView.addObject("subscribeForm", subscribeForm);
+        return modelAndView;
+        //return showForm(subscribeForm);
+    }
+}
+>>>>>>> Stashed changes
 
 
 
