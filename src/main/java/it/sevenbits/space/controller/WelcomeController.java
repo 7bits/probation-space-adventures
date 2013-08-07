@@ -70,7 +70,7 @@ public class WelcomeController {
     }
 
     @RequestMapping(value = {"/subscribe-form.html","/"}, method = RequestMethod.POST)
-    public ModelAndView addSubscribeForm(@Valid final SubscribeForm subscribeForm, final BindingResult result) {
+    public ModelAndView addSubscribe(@Valid final SubscribeForm subscribeForm, final BindingResult result) {
         Subscription subscription = new Subscription();
         subscription.setEmail(subscribeForm.getEmail());
         if (result.hasErrors()) {
