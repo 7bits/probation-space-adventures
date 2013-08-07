@@ -2,9 +2,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-
 <%@ page session="false"%>
-
 
 <!doctype html>
 <html>
@@ -12,19 +10,22 @@
     <meta charset="utf-8">
     <title>Main</title>
     <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-
     <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
     <script type="text/javascript" src="//vk.com/js/api/openapi.js?98"></script>
-    <script type="text/javascript">
-        VK.init({apiId: 3795826, onlyWidgets: true});
-    </script>
-
     <script src="script/subscribe-button.js"> </script>
     <script src="script/insert-form.js"> </script>
     <script src="script/button-scroll-top.js"> </script>
+    <script src="script/jquery.form.js"> </script>
+    <script src="script/form-actions.js"> </script>
+
+    <script type="text/javascript">
+            VK.init({apiId: 3795826, onlyWidgets: true});
+    </script>
+
+
+
 
 
 </head>

@@ -260,10 +260,21 @@ border-top-right-radius: 80px;*/
 	width:100%;
 }
 
+
+
+body:nth-of-type(1) .event-content{
+  height:99px;
+  font-size:14.5px;
+
+  }
+
 @-moz-document url-prefix() { /*правило для firefox*/
 .event-conent{
 	font-size:15px;
 }
+
+
+
 
 #top-menu{
 	float:right;

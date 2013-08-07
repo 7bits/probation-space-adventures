@@ -57,27 +57,20 @@ public class WelcomeController {
 
     @RequestMapping(value = {"/index.html","/"}, method = RequestMethod.POST)
     public ModelAndView addEventOnMain (@Valid final SubscribeForm subscribeForm, final BindingResult result) {
-        Subscription subscription = new Subscription();
-        subscription.setEmail(subscribeForm.getEmail());
         if (result.hasErrors()) {
             return showListEvent();
         }
+        Subscription subscription = new Subscription();
+        subscription.setEmail(subscribeForm.getEmail());
         subscriptionDao.create(subscription);
         return showListEvent();
     }
 
     @RequestMapping(value = {"/subscribe-form.html"}, method = RequestMethod.GET)
-    public ModelAndView addSubscribe(@Valid final SubscribeForm subscribeForm, final BindingResult result) {
-
-
-        if (result.hasErrors()) {
-            return showForm(subscribeForm);
-        }
-
+    public ModelAndView addSubscribe() {
+        SubscribeForm subscribeForm = new SubscribeForm();
         return showForm(subscribeForm);
     }
-
-
 }
 
 
