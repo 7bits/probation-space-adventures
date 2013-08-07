@@ -1,11 +1,51 @@
-/*$(document).ready(function() {
+  // prepare the form when the DOM is ready   !
+  $(document).ready(function() {
+      var options = {
+          beforeSubmit:  showRequest,  // pre-submit callback
+          success:       showResponse,  // post-submit callback
+          error:         showError
+      };
 
-     $('#subscribe-form').ajaxForm(function() {
-         alert("Thank you for your comment!");
-     });
- });
-             */
+      $('#subscribe-form').submit(function() {
+          $(this).ajaxSubmit(options);
+          // !!! Important !!!
+          // always return false to prevent standard browser submit and page navigation
+          return false;
+      });
+  });
 
+  function showError(formData, jqForm, options) {
+
+     alert("ERROR");
+
+  }
+
+  function showRequest(formData, jqForm, options) {
+      var queryString = $.param(formData);
+      alert('About to submit: \n\n' + queryString);
+      return true;
+  }
+
+  // post-submit callback
+  function showResponse(responseText, statusText, xhr, form)  {
+
+      alert('Всё хорошо');
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
   // prepare the form when the DOM is ready
   $(document).ready(function() {
       var options = {
@@ -43,4 +83,4 @@
       // is the json data object returned by the server
 
       alert('OK');
-  }
+  }          */

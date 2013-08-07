@@ -10,15 +10,15 @@
     <meta charset="utf-8">
     <title>Main</title>
     <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="/space_adventures/resources/css/style.css" type="text/css" media="screen" />
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script type="text/javascript" src="//vk.com/js/api/openapi.js?98"></script>
-    <script src="script/subscribe-button.js"> </script>
-    <script src="script/insert-form.js"> </script>
-    <script src="script/button-scroll-top.js"> </script>
-    <script src="script/jquery.form.js"> </script>
-    <script src="script/form-actions.js"> </script>
+    <script src="/space_adventures/resources/script/subscribe-button.js"> </script>
+    <script src="/space_adventures/resources/script/insert-form.js"> </script>
+    <script src="/space_adventures/resources/script/button-scroll-top.js"> </script>
+    <script src="/space_adventures/resources/script/jquery.form.js"> </script>
+    <script src="/space_adventures/resources/script/form-actions.js"> </script>
 
     <script type="text/javascript">
             VK.init({apiId: 3795826, onlyWidgets: true});

@@ -63,7 +63,7 @@ public class WelcomeController {
         Subscription subscription = new Subscription();
         subscription.setEmail(subscribeForm.getEmail());
         subscriptionDao.create(subscription);
-        return showListEvent();
+        return null;
     }
 
     @RequestMapping(value = {"/subscribe-form.html"}, method = RequestMethod.GET)

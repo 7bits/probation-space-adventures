@@ -1,11 +1,12 @@
 @charset "utf-8";
 
 body{
-	font-family: 'PT Sans', sans-serif;	width:100%;
+	font-family: Helvetica, sans-serif;;
 	height:100%;
 	margin:0px;
 	padding:0px;
 	background-image:url(../img/bg1.jpg);
+	background-color:grey;
 	background-attachment:fixed;
 	position:relative;
 }
@@ -252,9 +253,10 @@ border-top-right-radius: 80px;*/
 	font-size: 14px;
 	
 }
+
 .event-content{
 	float:left;
-	font-size:14px;
+	font-size:13px;
 	height:98px;
 	overflow:hidden;
 	width:100%;
@@ -262,11 +264,11 @@ border-top-right-radius: 80px;*/
 
 
 
-body:nth-of-type(1) .event-content{
+/*body:nth-of-type(1) .event-content{
   height:99px;
   font-size:14.5px;
 
-  }
+  }  */
 
 @-moz-document url-prefix() { /*правило для firefox*/
 .event-conent{
