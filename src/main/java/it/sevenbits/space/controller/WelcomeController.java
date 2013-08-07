@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Controller for main page (index.html).
  */
 @Controller
+//@SessionAttributes("search")
 public class WelcomeController {
 
     @Autowired
@@ -34,14 +34,18 @@ public class WelcomeController {
     public ModelAndView listEvent() {
 
         ModelAndView modelAndView = new ModelAndView("index");
-        List<String> date = new ArrayList<String>();
-
+        //List<String> date = new ArrayList<String>();
+        //String seach = modelAndView.getModel("search");
         List<Event> results  = eventDao.getAllEvent();
-        /*for(Event item : results ){
-            DateTime dateTime = new DateTime(item.getDate());
+
+        for(Event item : results ){
+            String img = item.getImg();
+            img = "/space_adventures/resources/" + img;
+            item.setImg(img);
+            /*DateTime dateTime = new DateTime(item.getDate());
             String buff = dateTime.toString("MM/dd/yyyy");
-            date.add(buff);
-        } */
+            date.add(buff);*/
+        }
 
         SubscribeForm subscribeForm = new SubscribeForm();
         //SearchEventForm searchEventForm = new SearchEventForm();
@@ -70,16 +74,17 @@ public class WelcomeController {
     public ModelAndView seacEvent(SearchEventForm seachEventFormIn) {
 
         ModelAndView modelAndView = new ModelAndView("index");
+        modelAndView.addObject("search", seachEventFormIn.getName());
 
         List<Event> results  = eventDao.searchEventByName(seachEventFormIn.getName());
 
-        SubscribeForm subscribeForm = new SubscribeForm();
+        /*SubscribeForm subscribeForm = new SubscribeForm();
         SearchEventForm seachEventForm = new SearchEventForm();
 
         modelAndView.addObject("subscribeForm", subscribeForm)
                 .addObject("events", results).addObject("\"seachEventForm", seachEventForm);
 
-        return modelAndView;
+        return listEvent();
     }
 
 
@@ -87,7 +92,7 @@ public class WelcomeController {
 
 
 
-    @RequestMapping(value = {"/foo.html"}, method = RequestMethod.GET)
+    /*@RequestMapping(value = {"/foo.html"}, method = RequestMethod.GET)
     @ResponseBody
     public String foo(Model model) {
         //model.addAttribute("visitorCount", visitorCount);
