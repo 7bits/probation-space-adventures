@@ -10,7 +10,7 @@
         <div id="form-name"> <label>Подписка на рассылку</label> </div>  <div id="close"> x </div>
         <div id="form-content"> <img src="img/mail.png">
             <form:input path="email" placeholder="Введите свой e-mail" id="email-input" class="formSpace"/>
-         <div> <form:errors path="email"/> </div>
+         <div id="error-message"> <form:errors path="email"/> </div>
         </div>
 
         <div id="subscr-button-div"> <input type="submit" id ="submit-button-subscribe" value="Подписаться"/></div>

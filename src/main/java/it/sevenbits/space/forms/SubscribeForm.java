@@ -6,8 +6,8 @@ import org.hibernate.validator.constraints.NotBlank;
 
 public class SubscribeForm {
     //@Unique
-    @Email
-    @NotBlank
+    @Email (message = "Введите корректный email")
+    @NotBlank (message = "Необходимо ввести email")
     private String email;
 
     public String getEmail() {
