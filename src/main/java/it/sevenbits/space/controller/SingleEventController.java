@@ -29,7 +29,7 @@ public class SingleEventController {
         ModelAndView modelAndView = new ModelAndView("event");
         Event result  = eventDao.searchEventById(id);
         String img = result.getImg();
-        img = "/space_adventures/resources/" + img;
+        img = "/space_adventures/resources/img/" + img;
         result.setImg(img);
         modelAndView.addObject("event", result);
         return modelAndView;

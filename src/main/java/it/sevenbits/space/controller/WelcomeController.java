@@ -40,7 +40,7 @@ public class WelcomeController {
 
         for(Event item : results ){
             String img = item.getImg();
-            img = "/space_adventures/resources/" + img;
+            img = "/space_adventures/resources/img/" + img;
             item.setImg(img);
             /*DateTime dateTime = new DateTime(item.getDate());
             String buff = dateTime.toString("MM/dd/yyyy");
