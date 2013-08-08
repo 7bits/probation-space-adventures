@@ -24,15 +24,11 @@
             VK.init({apiId: 3795826, onlyWidgets: true});
     </script>
 
-
-
-
-
 </head>
 <body>
     <div id="top-line">
         <div id="top-container" class="top-container centr">
-            <div id="logo"> Space adventure </div>
+            <a id="main-href" href="index.html"> <div id="logo"> Space adventure </div> </a>
             <div id="top-menu">
                 Главная	 &nbsp;&nbsp;&nbsp;&nbsp;  Добавить событие &nbsp;&nbsp;&nbsp;&nbsp; Регистрация &nbsp;&nbsp;&nbsp;&nbsp;  Вход
             </div>
@@ -48,7 +44,7 @@
             <div>
                 <button id="subs-button"> Подписка на рассылку</button>
             </div>
-            <div id="vk_like"></div>
+            <div id="vk_like" class="vk_like"></div>
             <script type="text/javascript">
                 VK.Widgets.Like("vk_like", {type: "mini", height: 20, pageUrl:"google.ru"});
             </script>
