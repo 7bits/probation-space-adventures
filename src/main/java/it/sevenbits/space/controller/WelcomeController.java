@@ -43,9 +43,6 @@ public class WelcomeController {
             String img = item.getImg();
             img = "/space_adventures/resources/img/" + img;
             item.setImg(img);
-            /*DateTime dateTime = new DateTime(item.getDate());
-            String buff = dateTime.toString("MM/dd/yyyy");
-            date.add(buff);*/
         }
 
         SubscribeForm subscribeForm = new SubscribeForm();
@@ -53,17 +50,12 @@ public class WelcomeController {
 
         modelAndView.addObject("subscribeForm", subscribeForm)
                 .addObject("events", results);
-                //.addObject("searchEventForm", searchEventForm)
-                //.addObject("date", date);
-
         return modelAndView;
     }
 
 
     @RequestMapping(value = {"/index.html","/"}, method = RequestMethod.POST)
     public ModelAndView addSubscribe(SubscribeForm subscribeForm) {
-        //model.addAttribute("email", subscribeForm.getEmail());
-
         Subscription subscription = new Subscription();
         subscription.setEmail(subscribeForm.getEmail());
         subscriptionDao.create(subscription);
@@ -71,48 +63,5 @@ public class WelcomeController {
         return listEvent();
     }
 
-    /*@RequestMapping(value = {"/index.html","/"}, method = RequestMethod.POST)
-    public ModelAndView seacEvent(SearchEventForm seachEventFormIn) {
-
-        ModelAndView modelAndView = new ModelAndView("index");
-        modelAndView.addObject("search", seachEventFormIn.getName());
-
-        List<Event> results  = eventDao.searchEventByName(seachEventFormIn.getName());
-
-        /*SubscribeForm subscribeForm = new SubscribeForm();
-        SearchEventForm seachEventForm = new SearchEventForm();
-
-        modelAndView.addObject("subscribeForm", subscribeForm)
-                .addObject("events", results).addObject("\"seachEventForm", seachEventForm);
-
-        return listEvent();
-<<<<<<< HEAD
-    }
-=======
-    @RequestMapping(value = {"/subscribe-form.html"}, method = RequestMethod.GET)
-    public ModelAndView addSubscribe() {
-        ModelAndView modelAndView = new ModelAndView("subscribe-form");
-        //modelAndView.addObject("subscribeForm", subscribeForm);
-        return modelAndView;
-        //return showForm(subscribeForm);
-    }
-}
->>>>>>> Stashed changes
-
-
-
-
-
-
-    /*@RequestMapping(value = {"/foo.html"}, method = RequestMethod.GET)
-    @ResponseBody
-    public String foo(Model model) {
-        //model.addAttribute("visitorCount", visitorCount);
-        //model.addAttribute("message", "Hello Spring MVC Framework!");
-        Subscription subscription = new Subscription();
-        subscription.setEmail("sldfjasldfkjasdlf");
-        subscriptionDao.create(subscription);
-        return "created";
-    }*/
 }
 
