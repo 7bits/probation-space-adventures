@@ -41,7 +41,7 @@ public class WelcomeController {
 
         for(Event item : results ){
             String img = item.getImg();
-            img = "/space_adventures/resources/" + img;
+            img = "/space_adventures/resources/img/" + img;
             item.setImg(img);
             /*DateTime dateTime = new DateTime(item.getDate());
             String buff = dateTime.toString("MM/dd/yyyy");
@@ -86,6 +86,7 @@ public class WelcomeController {
                 .addObject("events", results).addObject("\"seachEventForm", seachEventForm);
 
         return listEvent();
+<<<<<<< HEAD
     }
 =======
     @RequestMapping(value = {"/subscribe-form.html"}, method = RequestMethod.GET)
@@ -114,3 +115,4 @@ public class WelcomeController {
         return "created";
     }*/
 }
+

@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class SubscriptionController {
     //private Repository repo = new Repository();
 
-    @RequestMapping("/subscriptions.html")
+    @RequestMapping("/sub.html")
     //public ModelAndView listSubscriptions(Model it.sevenbits.space.model) {
     public String listSubscriptions(Model model) {
 
@@ -32,5 +32,5 @@ public class SubscriptionController {
             model.addAttribute("subscriptions",u.toString());
         } */
 
-        return "subscriptions";         }
+        return "sub";         }
 }

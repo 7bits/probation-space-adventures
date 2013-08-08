@@ -18,6 +18,7 @@
     </script>
 
     <script src="script/subscribe-button.js"> </script>
+    <script src="script/event-request.js"> </script>
     <script>
     $(document).ready(function(){
         // появление/затухание кнопки #back-top
@@ -95,20 +96,19 @@
         </div>
 
        <div id="content">
-
             <c:forEach items="${events}" var="events">
-                <div class="block">
-
-                    <div > <img type="image/jpeg" class="img-block" src="${events.img}"> </div>
-                    <div class="text-block">
-                        <div class="event-name"><c:out value="${events.name}"/></div>
-                        <!--div class="event-creator">новость добавил Mihail@1988</div-->
-                        <div class="event-date"> <c:out value="${events.humanReadableDate}"/></div>
-                        <div class="event-content"><c:out value="${events.description}"/></div>
+                <a href="event.html?id=${events.id}">
+                    <div id="event-block" class="block">
+                        <div > <img type="image/jpeg" class="img-block" src="${events.img}"> </div>
+                        <div class="text-block">
+                            <div class="event-name"><c:out value="${events.name}"/></div>
+                            <!--div class="event-creator">новость добавил <c:out value="${events.id}"/></div-->
+                            <div class="event-date"> <c:out value="${events.humanReadableDate}"/></div>
+                            <div class="event-content"><c:out value="${events.description}"/></div>
+                        </div>
                     </div>
-                </div>
+                </a>
             </c:forEach>
-
        </div>
     </div>
 

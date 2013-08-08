@@ -10,4 +10,6 @@ public interface EventDao {
     public List<Event> getAllEvent();
 
     public List<Event> searchEventByName(String name);
+
+    public Event searchEventById(Long id);
 }
