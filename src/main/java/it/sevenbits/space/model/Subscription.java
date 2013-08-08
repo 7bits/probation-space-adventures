@@ -31,7 +31,7 @@ public class Subscription implements Serializable {
         return id;
     }
 
-    @Column(name = "email", length = 128, nullable = false)
+    @Column(name = "email", length = 128, nullable = false, unique = true)
     public String getEmail() {
         return email;
     }

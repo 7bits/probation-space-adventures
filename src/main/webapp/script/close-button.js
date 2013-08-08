@@ -20,8 +20,7 @@ function closePost() {
             $('#subscribe-form-div').empty();
         },
         error: function(e){
-            alert('Ошибка close-buttom. Всё плохо. Иди домой.');
-            $("#dark-bg").css("visibility", "hidden");
+            alert('Ошибка. Всё плохо. Иди домой.');
         }
     })
 }

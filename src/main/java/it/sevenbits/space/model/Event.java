@@ -17,7 +17,7 @@ public class Event implements Serializable {
     private String video;
     private String img;
 
-    //конструктор Event id создателя события и ссылка на видео закоменченны
+    //конструктор Event. id создателя события и ссылка на видео закоменченны
     public Event(String name,
                  String description,
                  Long date,

@@ -8,60 +8,69 @@ import it.sevenbits.space.model.Subscription;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.util.List;
 
-/**
- * Controller for main page (index.html).
- */
 @Controller
-//@SessionAttributes("search")
 public class WelcomeController {
 
     @Autowired
     @Qualifier("subscriptionDao")
     private SubscriptionDao subscriptionDao;
 
-
     @Autowired
     @Qualifier("eventDao")
     private EventDao eventDao;
 
-
-
+    //ПОКАЗЫВАЕТ ФОРМУ
+    public ModelAndView showForm(SubscribeForm subscribeForm) {
+        ModelAndView modelAndView = new ModelAndView("subscribe-form");
+        modelAndView.addObject("subscribeForm", subscribeForm);
+        return modelAndView;
+    }
+    //показать списко событий
     @RequestMapping(value = {"/index.html","/"}, method = RequestMethod.GET)
-    public ModelAndView listEvent() {
-
+    public ModelAndView showListEvent() {
         ModelAndView modelAndView = new ModelAndView("index");
-        //String seach = modelAndView.getModel("search");
+        //List<String> date = new ArrayList<String>();
         List<Event> results  = eventDao.getAllEvent();
+
 
         for(Event item : results ){
             String img = item.getImg();
             img = "/space_adventures/resources/img/" + img;
             item.setImg(img);
         }
-
-        SubscribeForm subscribeForm = new SubscribeForm();
-        //SearchEventForm searchEventForm = new SearchEventForm();
-
-        modelAndView.addObject("subscribeForm", subscribeForm)
-                .addObject("events", results);
+        
+        modelAndView.addObject("events", results);
         return modelAndView;
     }
 
-
     @RequestMapping(value = {"/index.html","/"}, method = RequestMethod.POST)
-    public ModelAndView addSubscribe(SubscribeForm subscribeForm) {
+    public ModelAndView addEventOnMain (@Valid final SubscribeForm subscribeForm, final BindingResult result) {
+        if (result.hasErrors()) {
+            return showForm(subscribeForm);
+        }
         Subscription subscription = new Subscription();
+
+
+        /*if (subscriptionDao.searchIdbyEmail(subscribeForm.getEmail())==null){
+            return showForm(subscribeForm);
+        }  */
+
         subscription.setEmail(subscribeForm.getEmail());
         subscriptionDao.create(subscription);
-        subscribeForm.setEmail("");
-        return listEvent();
+        return null;
     }
 
+    @RequestMapping(value = {"/subscribe-form.html"}, method = RequestMethod.GET)
+    public ModelAndView addSubscribe() {
+        SubscribeForm subscribeForm = new SubscribeForm();
+        return showForm(subscribeForm);
+    }
 }
-

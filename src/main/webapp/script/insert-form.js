@@ -22,11 +22,8 @@ function doAjaxPost() {
             $('#subscribe-form-div').html(data);
         },
         error: function(e){
-            alert('Ошибка insert-form. Всё плохо. Иди домой.');
-            $("#dark-bg").css("visibility", "hidden");
+            alert('Ошибка. Всё плохо. Иди домой.');
         }
     })
 }
-
-
 

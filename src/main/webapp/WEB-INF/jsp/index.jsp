@@ -2,51 +2,31 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ page session="false"%>
+
 <!doctype html>
 <html>
 <head>
     <meta charset="utf-8">
     <title>Main</title>
     <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/space_adventures/resources/css/style.css" type="text/css" media="screen" />
 
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script type="text/javascript" src="//vk.com/js/api/openapi.js?98"></script>
+    <script src="/space_adventures/resources/script/subscribe-button.js"> </script>
+    <script src="/space_adventures/resources/script/insert-form.js"> </script>
+    <script src="/space_adventures/resources/script/button-scroll-top.js"> </script>
+    <script src="/space_adventures/resources/script/jquery.form.js"> </script>
+    <script src="/space_adventures/resources/script/form-actions.js"> </script>
+
     <script type="text/javascript">
-        VK.init({apiId: 3795826, onlyWidgets: true});
+            VK.init({apiId: 3795826, onlyWidgets: true});
     </script>
 
-    <script src="script/subscribe-button.js"> </script>
-    <script src="script/event-request.js"> </script>
-    <script>
-    $(document).ready(function(){
-        // появление/затухание кнопки #back-top
-        $(function (){
-            // прячем кнопку #back-top
-            $("#back-top").hide();
-
-            $(window).scroll(function (){
-                if ($(this).scrollTop() > 100){
-                    $("#back-top").fadeIn();
-                } else{
-                    $("#back-top").fadeOut();
-                }
-            });
-
-            // при клике на ссылку плавно поднимаемся вверх
-            $("#back-top a").click(function (){
-                $("body,html").animate({
-                    scrollTop:0
-                }, 500);
-                return false;
-            });
-
-        });
 
 
-    });
-</script>
+
 
 </head>
 <body>
@@ -83,34 +63,31 @@
             </div>
         </div-->
 
-       <div id="subscribe-form-div">
-            <form:form commandName="subscribeForm" id="subscribe-form" action="index.html">
-                <div>
-                    <div id="form-name"> <label>Подписка на рассылку</label> </div>  <div id="close"> x </div>
-                    <div id="form-content"> <img src="img/mail.png">
-                        <form:input path="email" placeholder="Введите свой e-mail" id="email-input" class="formSpace"/>
-                    </div>
-                    <div id="subscr-button-div"> <input type="submit" id ="submit-button-subscribe" value="Подписаться"/></div>
-                </div>
-            </form:form>
+
+        <div id="subscribe-form-div">
+
         </div>
 
-       <div id="content">
-            <c:forEach items="${events}" var="events">
-                <a href="event.html?id=${events.id}">
-                    <div id="event-block" class="block">
-                        <div > <img type="image/jpeg" class="img-block" src="${events.img}"> </div>
-                        <div class="text-block">
-                            <div class="event-name"><c:out value="${events.name}"/></div>
-                            <!--div class="event-creator">новость добавил <c:out value="${events.id}"/></div-->
-                            <div class="event-date"> <c:out value="${events.humanReadableDate}"/></div>
-                            <div class="event-content"><c:out value="${events.description}"/></div>
-                        </div>
-                    </div>
-                </a>
-            </c:forEach>
+        <div id="error">
+
+        </div>
+
+   <div id="content">
+               <c:forEach items="${events}" var="events">
+                   <a href="event.html?id=${events.id}">
+                       <div id="event-block" class="block">
+                           <div > <img type="image/jpeg" class="img-block" src="${events.img}"> </div>
+                           <div class="text-block">
+                               <div class="event-name"><c:out value="${events.name}"/></div>
+                               <!--div class="event-creator">новость добавил <c:out value="${events.id}"/></div-->
+                               <div class="event-date"> <c:out value="${events.humanReadableDate}"/></div>
+                               <div class="event-content"><c:out value="${events.description}"/></div>
+                           </div>
+                       </div>
+                   </a>
+               </c:forEach>
+          </div>
        </div>
-    </div>
 
 <div id="footer">
 <div id="top-container" class="top-container centr">
