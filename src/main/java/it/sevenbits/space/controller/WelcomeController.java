@@ -85,21 +85,5 @@ public class WelcomeController {
                 .addObject("events", results).addObject("\"seachEventForm", seachEventForm);
 
         return listEvent();
-    }
-
-
-
-
-
-
-    /*@RequestMapping(value = {"/foo.html"}, method = RequestMethod.GET)
-    @ResponseBody
-    public String foo(Model model) {
-        //model.addAttribute("visitorCount", visitorCount);
-        //model.addAttribute("message", "Hello Spring MVC Framework!");
-        Subscription subscription = new Subscription();
-        subscription.setEmail("sldfjasldfkjasdlf");
-        subscriptionDao.create(subscription);
-        return "created";
-    }*/
+    } */
 }
