@@ -5,6 +5,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 
 public class SubscribeForm {
+    //@Unique
     @Email
     @NotBlank
     private String email;

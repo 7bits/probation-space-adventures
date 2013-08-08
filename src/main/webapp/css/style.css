@@ -271,8 +271,8 @@ border-top-right-radius: 80px;*/
   }  */
 
 @-moz-document url-prefix() { /*правило для firefox*/
-.event-conent{
-	font-size:15px;
+.event-content{
+	font-size:14.5px;
 }
 
 

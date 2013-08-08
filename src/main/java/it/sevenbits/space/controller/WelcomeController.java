@@ -30,8 +30,6 @@ public class WelcomeController {
     @Qualifier("eventDao")
     private EventDao eventDao;
 
-
-
     //ПОКАЗЫВАЕТ ФОРМУ
     public ModelAndView showForm(SubscribeForm subscribeForm) {
         ModelAndView modelAndView = new ModelAndView("subscribe-form");
@@ -58,7 +56,7 @@ public class WelcomeController {
     @RequestMapping(value = {"/index.html","/"}, method = RequestMethod.POST)
     public ModelAndView addEventOnMain (@Valid final SubscribeForm subscribeForm, final BindingResult result) {
         if (result.hasErrors()) {
-            return showListEvent();
+            return showForm(subscribeForm);
         }
         Subscription subscription = new Subscription();
         subscription.setEmail(subscribeForm.getEmail());
