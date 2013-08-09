@@ -29,7 +29,7 @@
 <div id="wrap">
     <div id="top-line">
         <div id="top-container" class="top-container centr">
-            <a id="main-href" href="index.html"> <div id="logo"> Space adventure </div> </a>
+            <a id="main-href" href="index.html"> <div id="logo"><img src="img/logo.png" alt="logo"> </div> </a>
             <div id="top-menu">
                 Главная	 &nbsp;&nbsp;&nbsp;&nbsp;  Добавить событие &nbsp;&nbsp;&nbsp;&nbsp; Регистрация &nbsp;&nbsp;&nbsp;&nbsp;  Вход
             </div>
@@ -88,7 +88,7 @@
 </div>
 <div id="footer">
 <div id="top-container" class="top-container centr">
-<div id="logo">  Space adventure </div>
+ <a id="main-href" href="index.html"> <div id="logo"><img src="img/logo.png" alt="logo"> </div> </a>
 <div id="top-menu">
 copyright (c)       |       contacts
 </div>
