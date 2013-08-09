@@ -26,6 +26,7 @@
 
 </head>
 <body>
+<div id="wrap">
     <div id="top-line">
         <div id="top-container" class="top-container centr">
             <a id="main-href" href="index.html"> <div id="logo"> Space adventure </div> </a>
@@ -84,7 +85,7 @@
                </c:forEach>
           </div>
        </div>
-
+</div>
 <div id="footer">
 <div id="top-container" class="top-container centr">
 <div id="logo">  Space adventure </div>

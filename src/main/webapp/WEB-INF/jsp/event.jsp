@@ -19,12 +19,23 @@
     <script src="/space_adventures/resources/script/jquery.form.js"> </script>
     <script src="/space_adventures/resources/script/form-actions.js"> </script>
 
+    <script type="text/javascript" src="//vk.com/js/api/openapi.js?98"></script>
+
+    <script type="text/javascript">
+      VK.init({apiId: 3795826, onlyWidgets: true});
+    </script>
+
     <script type="text/javascript">
             VK.init({apiId: 3795826, onlyWidgets: true});
     </script>
 
 </head>
 <body>
+
+
+
+
+<div id="wrap">
     <div id="top-line">
         <div id="top-container" class="top-container centr">
             <a id="main-href" href="index.html"> <div id="logo"> Space adventure </div> </a>
@@ -82,7 +93,16 @@
 
 
       </div>
+      <div id="vk_comments" class="vk_comments"></div>
+                   <script type="text/javascript">
+                   VK.Widgets.Comments("vk_comments", {limit: 15, width: "700", attach: "photo,video,audio"});
+            </script>
+
    </div>
+
+</div>
+
+
 
 <div id="footer">
 <div id="top-container" class="top-container centr">
