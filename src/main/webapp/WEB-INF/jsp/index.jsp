@@ -36,11 +36,12 @@
         </div>
     </div>
     <!--a href="javascript:scroll(0,0)" ><div id="go-top"> </div> </a-->
-    <p id="back-top"><a href="#top"><span> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> ВВЕРХ </span></a></p>
+    <p id="back-top"><a href="#top">
+    <span> ВВЕРХ </span></a></p>
 
     <div id="container" class="container centr">
         <header>
-            <div id="zagolovok">Узнавай о событиях космоса и спеши наблюдать</div>
+            <div id="header-text">Узнавай о событиях космоса и спеши наблюдать</div>
             <span id="please-subs">Подпишись на рассылку и получай информацию о надвигающихся событиях космоса.</span>
             <div>
                 <button id="subs-button"> Подписка на рассылку</button>
@@ -86,13 +87,13 @@
           </div>
        </div>
 </div>
-<div id="footer">
+<footer>
 <div id="top-container" class="top-container centr">
  <a id="main-href" href="index.html"> <div id="logo"><img src="img/logo.png" alt="logo"> </div> </a>
 <div id="top-menu">
 copyright (c)       |       contacts
 </div>
 </div>
-</div>
+</footer>
 </body>
 </html>
