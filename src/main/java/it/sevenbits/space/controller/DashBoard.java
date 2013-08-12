@@ -19,7 +19,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-public class WelcomeController {
+public class DashBoard {
 
     @Autowired
     private SubscriptionDao subscriptionDao;
