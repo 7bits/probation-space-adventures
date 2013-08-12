@@ -13,9 +13,6 @@ import java.util.List;
 @Repository
 public class EventDaoImpl extends DaoTemplate implements EventDao{
 
-
-
-
     @Transactional
     @Override
     public void create(final Event event) {
@@ -26,9 +23,7 @@ public class EventDaoImpl extends DaoTemplate implements EventDao{
     @Override
     public List<Event> getAllEvent() {
 
-
         EntityManager entityManager = this.getEntityManager();
-
 
         if(entityManager != null) {
             TypedQuery<Event> query  = entityManager.createQuery("select e from Event e ", Event.class);

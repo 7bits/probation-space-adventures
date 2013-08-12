@@ -5,10 +5,13 @@ import it.sevenbits.space.dao.SubscriptionDao;
 import it.sevenbits.space.forms.SubscribeForm;
 import it.sevenbits.space.model.Event;
 import it.sevenbits.space.model.Subscription;
+import it.sevenbits.space.validators.SubscribeVaildator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -26,6 +29,9 @@ public class WelcomeController {
     @Autowired
     @Qualifier("eventDao")
     private EventDao eventDao;
+
+    @Autowired
+    private SubscribeVaildator subscribeVaildator;
 
     //ПОКАЗЫВАЕТ ФОРМУ
     public ModelAndView showForm(SubscribeForm subscribeForm) {
@@ -51,18 +57,20 @@ public class WelcomeController {
         return modelAndView;
     }
 
+    @InitBinder
+    protected void initBinder(WebDataBinder binder) {
+
+        binder.setValidator(subscribeVaildator);
+    }
+
     @RequestMapping(value = {"/index.html","/"}, method = RequestMethod.POST)
     public ModelAndView addEventOnMain (@Valid final SubscribeForm subscribeForm, final BindingResult result) {
         if (result.hasErrors()) {
             return showForm(subscribeForm);
         }
+
+
         Subscription subscription = new Subscription();
-
-
-        /*if (subscriptionDao.searchIdbyEmail(subscribeForm.getEmail())==null){
-            return showForm(subscribeForm);
-        }  */
-
         subscription.setEmail(subscribeForm.getEmail());
         subscriptionDao.create(subscription);
         return null;

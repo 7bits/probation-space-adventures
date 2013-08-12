@@ -8,6 +8,7 @@ package it.sevenbits.space.model;
  */
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
@@ -31,6 +32,7 @@ public class Subscription implements Serializable {
         return id;
     }
 
+    @NotNull
     @Column(name = "email", length = 128, nullable = false, unique = true)
     public String getEmail() {
         return email;

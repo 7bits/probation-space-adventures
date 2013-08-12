@@ -29,7 +29,7 @@ public class SubscriptionDaoImpl extends DaoTemplate implements SubscriptionDao 
         EntityManager entityManager = this.getEntityManager();
 
         if(entityManager != null) {
-            TypedQuery<Subscription> query  = entityManager.createQuery("select e from subscription e ", Subscription.class);
+            TypedQuery<Subscription> query  = entityManager.createQuery("select e from Subscription e ", Subscription.class);
             List<Subscription> results = (List<Subscription>) query.getResultList();
             return results;
         } else {
@@ -40,12 +40,35 @@ public class SubscriptionDaoImpl extends DaoTemplate implements SubscriptionDao 
 
     @Transactional
     @Override
-    public Long searchIdbyEmail(String email){
+    public Subscription searchIdbyEmail(String email){
         Subscription result =
-                getEntityManager().createQuery("select e from subscription e where e.email = :email", Subscription.class).
+                getEntityManager().createQuery("select s from Subscription s where s.email = :email", Subscription.class).
                         setParameter("email", email).getSingleResult();
-        return result.getId();
+        return result;
     }
+
+    @Transactional
+    @Override
+    public String searchEmailbyString(String email){
+        Subscription result =
+                getEntityManager().createQuery("select s from Subscription s where s.email = :email", Subscription.class).
+                        setParameter("email", email).getSingleResult();
+        return result.getEmail();
+    }
+
+    @Transactional
+    @Override
+    public boolean isInBase(String email){
+        EntityManager entityManager = this.getEntityManager();
+        List<Subscription> result =
+                getEntityManager().createQuery("select s from Subscription s where s.email = :email", Subscription.class).
+                        setParameter("email", email).getResultList();
+
+        return result.size() == 0;
+    }
+
+
+
 
 
 }

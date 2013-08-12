@@ -37,6 +37,7 @@
 
     <bean id="subscriptionDao" class="it.sevenbits.space.dao.impl.SubscriptionDaoImpl"/>
     <bean id="eventDao" class="it.sevenbits.space.dao.impl.EventDaoImpl"/>
+    <!--bean id="subscriptionValidator" class="it.sevenbits.space.validators.SubscribeVaildator" /-->
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
     <mvc:annotation-driven />
