@@ -3,7 +3,7 @@ $(document).ready(function(){
         doAjaxPost();
 
 
-        $('<div id="dark-bg" style="position: absolute; z-index:20; opacity:0.2"></div>').insertBefore('body');
+        $('<div id="dark-bg"></div>').insertBefore('body');
         		$('#dark-bg').css({
         				height: $(document).height(),
         				width:  $(document).width(),
