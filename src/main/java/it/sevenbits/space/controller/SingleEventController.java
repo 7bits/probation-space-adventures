@@ -10,18 +10,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-/**
- * Created with IntelliJ IDEA.
- * User: denis
- * Date: 8/7/13
- * Time: 3:17 PM
- * To change this template use File | Settings | File Templates.
- */
 @Controller
 public class SingleEventController {
 
     @Autowired
-    @Qualifier("eventDao")
     private EventDao eventDao;
 
     @RequestMapping(value = "/event.html", method = RequestMethod.GET)

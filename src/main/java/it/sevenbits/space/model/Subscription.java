@@ -22,10 +22,6 @@ public class Subscription implements Serializable {
     private Long id;
     private String email;
 
-    public Subscription(final String email) {
-        this.email = email;
-    }
-
     public Subscription() {
     }
 

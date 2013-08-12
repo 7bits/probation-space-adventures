@@ -6,10 +6,7 @@ import java.util.List;
 
 public interface EventDao {
     public void create(final Event event);
-
     public List<Event> getAllEvent();
-
     public List<Event> searchEventByName(final String name);
-
     public Event searchEventById(final Long id);
 }

@@ -13,7 +13,6 @@ import java.util.List;
 @Repository
 public class SubscriptionDaoImpl extends DaoTemplate implements SubscriptionDao {
 
-
     @Transactional
     @Override
     public void create(final Subscription subscription) {
@@ -24,16 +23,12 @@ public class SubscriptionDaoImpl extends DaoTemplate implements SubscriptionDao 
     @Transactional
     @Override
     public List<Subscription> getAllSubscription() {
-
-
         EntityManager entityManager = this.getEntityManager();
-
         if (entityManager != null) {
             TypedQuery<Subscription> query  = entityManager.createQuery("select e from Subscription e ", Subscription.class);
             List<Subscription> results = (List<Subscription>) query.getResultList();
             return results;
         } else {
-
             return null;
         }
     }
@@ -51,8 +46,8 @@ public class SubscriptionDaoImpl extends DaoTemplate implements SubscriptionDao 
     @Override
     public String searchEmailbyString(final String email) {
         Subscription result =
-                getEntityManager().createQuery("select s from Subscription s where s.email = :email", Subscription.class).
-                        setParameter("email", email).getSingleResult();
+            getEntityManager().createQuery("select s from Subscription s where s.email = :email", Subscription.class).
+                setParameter("email", email).getSingleResult();
         return result.getEmail();
     }
 
@@ -61,9 +56,8 @@ public class SubscriptionDaoImpl extends DaoTemplate implements SubscriptionDao 
     public boolean isInBase(final String email) {
         EntityManager entityManager = this.getEntityManager();
         List<Subscription> result =
-                getEntityManager().createQuery("select s from Subscription s where s.email = :email", Subscription.class).
-                        setParameter("email", email).getResultList();
-
+            getEntityManager().createQuery("select s from Subscription s where s.email = :email", Subscription.class).
+                setParameter("email", email).getResultList();
         return result.size() == 0;
     }
 

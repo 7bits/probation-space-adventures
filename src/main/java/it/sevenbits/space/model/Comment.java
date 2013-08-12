@@ -20,25 +20,6 @@ public class Comment implements Serializable {
     private Long vkId;
     private String img;
 
-
-    public Comment(final Long id,
-                   final String body,
-                   final Long date,
-                   final String email,
-                   final Long userId,
-                   final Long eventId,
-                   final Long vkId,
-                   final String img) {
-        this.id = id;
-        this.body = body;
-        this.date = date;
-        this.email = email;
-        this.userId = userId;
-        this.eventId = eventId;
-        this.vkId = vkId;
-        this.img = img;
-    }
-
     public Comment() {
     }
 

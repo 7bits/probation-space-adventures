@@ -30,7 +30,6 @@ public class EventDaoImpl extends DaoTemplate implements EventDao {
             List<Event> results = (List<Event>) query.getResultList();
             return results;
         } else {
-
             return null;
         }
     }
@@ -40,8 +39,8 @@ public class EventDaoImpl extends DaoTemplate implements EventDao {
     public List<Event> searchEventByName(final String name) {
 
         List<Event> result =
-                getEntityManager().createQuery("select e from Event e where e.name = :name", Event.class).
-                        setParameter("name", name).getResultList();
+            getEntityManager().createQuery("select e from Event e where e.name = :name", Event.class).
+                setParameter("name", name).getResultList();
         return result;
     }
 
@@ -50,10 +49,8 @@ public class EventDaoImpl extends DaoTemplate implements EventDao {
     public Event searchEventById(final Long id) {
 
         Event result =
-                getEntityManager().createQuery("select e from Event e where e.id = :id", Event.class).
-                        setParameter("id", id).getSingleResult();
+            getEntityManager().createQuery("select e from Event e where e.id = :id", Event.class).
+                setParameter("id", id).getSingleResult();
         return result;
     }
-
-
 }

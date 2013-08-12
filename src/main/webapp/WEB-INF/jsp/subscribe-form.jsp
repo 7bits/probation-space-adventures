@@ -13,7 +13,9 @@
              <div id="error-message"> <form:errors path="email"/> </div>
         </div>
 
-        <div id="subscr-button-div"> <input type="submit" id ="submit-button-subscribe" value="Подписаться"/></div>
+        <div id="subscr-button-div">
+            <input type="submit" id ="submit-button-subscribe" value="Подписаться"/>
+        </div>
     </div>
 </form:form>
 

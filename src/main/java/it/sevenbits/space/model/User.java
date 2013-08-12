@@ -17,19 +17,8 @@ public class User implements Serializable {
     private boolean eye;
     private String role;
 
-    public User(final Long id,
-                final String name,
-                final String email,
-                final boolean eye,
-                final String role) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.eye = eye;
-        this.role = role;
+    public User() {
     }
-
-    public User(){}
 
     @Id
     @GeneratedValue

@@ -22,22 +22,6 @@ public class Event implements Serializable {
     private String video;
     private String img;
 
-    //конструктор Event. id создателя события и ссылка на видео закоменченны
-    public Event(final String name,
-                 final String description,
-                 final Long date,
-                 final boolean eye,
-                 final String img
-                 /*, Long CreatorId, String video*/) {
-        this.name = name;
-        this.description = description;
-        this.date = date;
-        this.eye = eye;
-        this.img = img;
-        /*this.CreatorId = CreatorId;
-        this.video = video; */
-    }
-
     public Event() {
     }
 
