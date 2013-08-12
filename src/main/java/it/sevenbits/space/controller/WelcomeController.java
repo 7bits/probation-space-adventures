@@ -34,7 +34,7 @@ public class WelcomeController {
     private SubscribeVaildator subscribeVaildator;
 
     //ПОКАЗЫВАЕТ ФОРМУ
-    public ModelAndView showForm(SubscribeForm subscribeForm) {
+    public ModelAndView showForm(final SubscribeForm subscribeForm) {
         ModelAndView modelAndView = new ModelAndView("subscribe-form");
         modelAndView.addObject("subscribeForm", subscribeForm);
         return modelAndView;
@@ -47,7 +47,7 @@ public class WelcomeController {
         List<Event> results  = eventDao.getAllEvent();
 
 
-        for(Event item : results ){
+        for (Event item : results) {
             String img = item.getImg();
             img = "/space_adventures/resources/img/" + img;
             item.setImg(img);
@@ -58,13 +58,13 @@ public class WelcomeController {
     }
 
     @InitBinder
-    protected void initBinder(WebDataBinder binder) {
+    protected void initBinder(final WebDataBinder binder) {
 
         binder.setValidator(subscribeVaildator);
     }
 
     @RequestMapping(value = {"/index.html","/"}, method = RequestMethod.POST)
-    public ModelAndView addEventOnMain (@Valid final SubscribeForm subscribeForm, final BindingResult result) {
+    public ModelAndView addEventOnMain(@Valid final SubscribeForm subscribeForm, final BindingResult result) {
         if (result.hasErrors()) {
             return showForm(subscribeForm);
         }
@@ -76,7 +76,7 @@ public class WelcomeController {
         return null;
     }
 
-    @RequestMapping(value = {"/subscribe-form.html"}, method = RequestMethod.GET)
+    @RequestMapping(value = "/subscribe-form.html", method = RequestMethod.GET)
     public ModelAndView addSubscribe() {
         SubscribeForm subscribeForm = new SubscribeForm();
         return showForm(subscribeForm);

@@ -1,6 +1,10 @@
 package it.sevenbits.space.model;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Column;
 import java.io.Serializable;
 
 @Entity
@@ -17,7 +21,14 @@ public class Comment implements Serializable {
     private String img;
 
 
-    public Comment(Long id, String body, Long date, String email, Long userId, Long eventId, Long vkId, String img) {
+    public Comment(final Long id,
+                   final String body,
+                   final Long date,
+                   final String email,
+                   final Long userId,
+                   final Long eventId,
+                   final Long vkId,
+                   final String img) {
         this.id = id;
         this.body = body;
         this.date = date;
@@ -38,16 +49,16 @@ public class Comment implements Serializable {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 
-    @Column(name = "body", nullable = false, columnDefinition="TEXT")
+    @Column(name = "body", nullable = false, columnDefinition = "TEXT")
     public String getBody() {
         return body;
     }
 
-    public void setBody(String body) {
+    public void setBody(final String body) {
         this.body = body;
     }
 
@@ -56,7 +67,7 @@ public class Comment implements Serializable {
         return date;
     }
 
-    public void setDate(Long date) {
+    public void setDate(final Long date) {
         this.date = date;
     }
 
@@ -65,7 +76,7 @@ public class Comment implements Serializable {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(final String email) {
         this.email = email;
     }
 
@@ -75,7 +86,7 @@ public class Comment implements Serializable {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(final Long userId) {
         this.userId = userId;
     }
 
@@ -85,7 +96,7 @@ public class Comment implements Serializable {
         return eventId;
     }
 
-    public void setEventId(Long eventId) {
+    public void setEventId(final Long eventId) {
         this.eventId = eventId;
     }
 
@@ -95,7 +106,7 @@ public class Comment implements Serializable {
         return vkId;
     }
 
-    public void setVkId(Long vkId) {
+    public void setVkId(final Long vkId) {
         this.vkId = vkId;
     }
 
@@ -104,7 +115,7 @@ public class Comment implements Serializable {
         return img;
     }
 
-    public void setImg(String img) {
+    public void setImg(final String img) {
         this.img = img;
     }
 }

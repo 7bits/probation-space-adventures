@@ -25,7 +25,7 @@ public class SingleEventController {
     private EventDao eventDao;
 
     @RequestMapping(value = "/event.html", method = RequestMethod.GET)
-    public ModelAndView listEvent(@RequestParam /*@PathVariable("id")*/ Long id) {
+    public ModelAndView listEvent(@RequestParam final Long id) {
         ModelAndView modelAndView = new ModelAndView("event");
         Event result  = eventDao.searchEventById(id);
         String img = result.getImg();

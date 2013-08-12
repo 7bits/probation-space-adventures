@@ -11,7 +11,7 @@ import java.util.List;
 
 
 @Repository
-public class EventDaoImpl extends DaoTemplate implements EventDao{
+public class EventDaoImpl extends DaoTemplate implements EventDao {
 
     @Transactional
     @Override
@@ -25,7 +25,7 @@ public class EventDaoImpl extends DaoTemplate implements EventDao{
 
         EntityManager entityManager = this.getEntityManager();
 
-        if(entityManager != null) {
+        if (entityManager != null) {
             TypedQuery<Event> query  = entityManager.createQuery("select e from Event e ", Event.class);
             List<Event> results = (List<Event>) query.getResultList();
             return results;
@@ -37,7 +37,7 @@ public class EventDaoImpl extends DaoTemplate implements EventDao{
 
     @Transactional
     @Override
-    public List<Event> searchEventByName(String name) {
+    public List<Event> searchEventByName(final String name) {
 
         List<Event> result =
                 getEntityManager().createQuery("select e from Event e where e.name = :name", Event.class).
@@ -47,7 +47,7 @@ public class EventDaoImpl extends DaoTemplate implements EventDao{
 
     @Transactional
     @Override
-    public Event searchEventById(Long id) {
+    public Event searchEventById(final Long id) {
 
         Event result =
                 getEntityManager().createQuery("select e from Event e where e.id = :id", Event.class).

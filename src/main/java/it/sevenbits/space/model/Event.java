@@ -2,7 +2,12 @@ package it.sevenbits.space.model;
 
 import org.joda.time.DateTime;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Column;
+import javax.persistence.Transient;
 import java.io.Serializable;
 
 @Entity
@@ -18,11 +23,11 @@ public class Event implements Serializable {
     private String img;
 
     //конструктор Event. id создателя события и ссылка на видео закоменченны
-    public Event(String name,
-                 String description,
-                 Long date,
-                 boolean eye,
-                 String img
+    public Event(final String name,
+                 final String description,
+                 final Long date,
+                 final boolean eye,
+                 final String img
                  /*, Long CreatorId, String video*/) {
         this.name = name;
         this.description = description;
@@ -42,7 +47,7 @@ public class Event implements Serializable {
     public Long getId() {
         return id;
     }
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 
@@ -51,16 +56,16 @@ public class Event implements Serializable {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
-    @Column(name = "description", nullable = false, columnDefinition="TEXT")
+    @Column(name = "description", nullable = false, columnDefinition = "TEXT")
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(final String description) {
         this.description = description;
     }
 
@@ -69,7 +74,7 @@ public class Event implements Serializable {
         return date;
     }
 
-    public void setDate(Long date) {
+    public void setDate(final Long date) {
         this.date = date;
     }
 
@@ -78,7 +83,7 @@ public class Event implements Serializable {
         return eye;
     }
 
-    public void setEye(boolean eye) {
+    public void setEye(final boolean eye) {
         this.eye = eye;
     }
 
@@ -87,14 +92,15 @@ public class Event implements Serializable {
         return img;
     }
 
-    public void setImg(String img) {
+    public void setImg(final String img) {
         this.img = img;
     }
 
     @Transient
-    public String getHumanReadableDate(){
-        if(date == null) return "";
-        else {
+    public String getHumanReadableDate() {
+        if (date == null) {
+            return "";
+        } else {
             DateTime dateTime = new DateTime(date);
             String buff = dateTime.toString("MM.dd.yyyy");
             return buff;

@@ -9,7 +9,7 @@ public interface EventDao {
 
     public List<Event> getAllEvent();
 
-    public List<Event> searchEventByName(String name);
+    public List<Event> searchEventByName(final String name);
 
-    public Event searchEventById(Long id);
+    public Event searchEventById(final Long id);
 }

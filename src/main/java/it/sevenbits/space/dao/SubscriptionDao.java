@@ -8,7 +8,7 @@ public interface SubscriptionDao {
 
     public void create(final Subscription subscription);
     public List<Subscription> getAllSubscription();
-    public Subscription searchIdbyEmail(String Email);
-    public String searchEmailbyString(String email);
-    public boolean isInBase(String email);
+    public Subscription searchIdbyEmail(final String Email);
+    public String searchEmailbyString(final String email);
+    public boolean isInBase(final String email);
 }

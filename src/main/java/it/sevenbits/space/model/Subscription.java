@@ -7,7 +7,11 @@ package it.sevenbits.space.model;
  * Time: 2:58 PM
  */
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Column;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
@@ -18,7 +22,7 @@ public class Subscription implements Serializable {
     private Long id;
     private String email;
 
-    public Subscription(String email) {
+    public Subscription(final String email) {
         this.email = email;
     }
 
@@ -38,11 +42,11 @@ public class Subscription implements Serializable {
         return email;
     }
 
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(final String email) {
         this.email = email;
     }
 }

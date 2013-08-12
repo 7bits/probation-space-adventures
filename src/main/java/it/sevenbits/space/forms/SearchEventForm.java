@@ -13,11 +13,11 @@ public class SearchEventForm {
         this.name = name;
     } */
 
-    public void setName(String name){
+    public void setName(final String name) {
         this.name = name;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 }

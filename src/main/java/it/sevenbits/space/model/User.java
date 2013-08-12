@@ -1,6 +1,10 @@
 package it.sevenbits.space.model;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Column;
 import java.io.Serializable;
 
 @Entity
@@ -13,7 +17,11 @@ public class User implements Serializable {
     private boolean eye;
     private String role;
 
-    public User(Long id, String name, String email, boolean eye, String role) {
+    public User(final Long id,
+                final String name,
+                final String email,
+                final boolean eye,
+                final String role) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -30,7 +38,7 @@ public class User implements Serializable {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 
@@ -39,7 +47,7 @@ public class User implements Serializable {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -48,7 +56,7 @@ public class User implements Serializable {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(final String email) {
         this.email = email;
     }
 
@@ -57,7 +65,7 @@ public class User implements Serializable {
         return eye;
     }
 
-    public void setEye(boolean eye) {
+    public void setEye(final boolean eye) {
         this.eye = eye;
     }
 
@@ -66,7 +74,7 @@ public class User implements Serializable {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(final String role) {
         this.role = role;
     }
 }
