@@ -19,7 +19,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-public class DashBoard {
+public class DashboardController {
 
     //public final String IMG_SRC = "/space_adventures/resources/img/";
 
