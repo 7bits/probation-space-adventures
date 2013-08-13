@@ -168,6 +168,7 @@ header{
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     border-radius: 6px;
+    padding: 2px 0;
 }
 
 .block:hover {
@@ -176,7 +177,7 @@ header{
 }
 
 #header-text{
-    font-size:26px;
+    font-size:30px;
     margin-top:50px;
     text-align:center;
     text-shadow:1px 1px 4px black;
@@ -380,11 +381,6 @@ header{
     //right:-20px;
     //float:right;
     bottom:15x;
-}
-
-.vk_comments {
-    border-radius: 6px 6px 6px 6px;
-    padding-top: 35px;
 }
 
 

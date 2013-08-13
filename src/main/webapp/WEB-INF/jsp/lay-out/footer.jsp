@@ -7,7 +7,7 @@
             </div>
         </a>
         <div id="top-menu">
-            copyright (c)|contacts
+            copyright (c) | contacts
         </div>
     </div>
 </footer>
