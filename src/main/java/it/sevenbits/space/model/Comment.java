@@ -1,10 +1,6 @@
 package it.sevenbits.space.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Column;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -19,9 +15,6 @@ public class Comment implements Serializable {
     private Long eventId;
     private Long vkId;
     private String img;
-
-    public Comment() {
-    }
 
     @Id
     @GeneratedValue

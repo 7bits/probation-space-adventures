@@ -30,14 +30,18 @@
         </property>
     </bean>
 
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/space-adventures?useUnicode=true&amp;characterEncoding=UTF-8"/>
+        <property name="username" value="spaceuser" />
+        <property name="password" value="spacepass" />
+    </bean>
+
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory" />
         <property name="dataSource" ref="dataSource" />
     </bean>
 
-    <bean id="subscriptionDao" class="it.sevenbits.space.dao.impl.SubscriptionDaoImpl"/>
-    <bean id="eventDao" class="it.sevenbits.space.dao.impl.EventDaoImpl"/>
-    <!--bean id="subscriptionValidator" class="it.sevenbits.space.validators.SubscriptionVaildatortor" /-->
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
     <mvc:annotation-driven />

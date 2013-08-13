@@ -8,7 +8,6 @@
             </div>
          </a>
          <div id="top-menu">
-          Главная	 &nbsp;&nbsp;&nbsp;&nbsp;  Добавить событие &nbsp;&nbsp;&nbsp;&nbsp; Регистрация &nbsp;&nbsp;&nbsp;&nbsp;  Вход
          </div>
     </div>
 </div>

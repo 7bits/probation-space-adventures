@@ -263,6 +263,12 @@ header{
     width:100%;
 }
 
+@media all and (-webkit-min-device-pixel-ratio:0) {
+  .event-content{
+      font-size:14px;
+  }
+}
+
 @-moz-document url-prefix() { /*правило для firefox*/
     .event-content{
        font-size:14.5px;
@@ -369,18 +375,11 @@ header{
 
 
 .vk_like{
-    margin-bottom:-20px;
+    margin-bottom:-10px;
     position:absolute;
-    right:-20px;
-    float:right;
-    bottom:-20px;
-}
-
-.single-vk_like{
-    position: absolute !important;
-    right:0;
-    float:right;
-    bottom:15px;
+    //right:-20px;
+    //float:right;
+    bottom:15x;
 }
 
 .vk_comments {

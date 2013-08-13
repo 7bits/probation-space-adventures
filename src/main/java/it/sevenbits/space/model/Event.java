@@ -2,17 +2,13 @@ package it.sevenbits.space.model;
 
 import org.joda.time.DateTime;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Column;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "event")
 public class Event implements Serializable {
+
     private Long id;
     private String name;
     private String description;
@@ -22,15 +18,13 @@ public class Event implements Serializable {
     private String video;
     private String img;
 
-    public Event() {
-    }
-
     @Id
     @GeneratedValue
     @Column(name = "id")
     public Long getId() {
         return id;
     }
+
     public void setId(final Long id) {
         this.id = id;
     }

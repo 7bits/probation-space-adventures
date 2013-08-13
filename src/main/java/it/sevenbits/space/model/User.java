@@ -1,10 +1,6 @@
 package it.sevenbits.space.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Column;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -16,9 +12,6 @@ public class User implements Serializable {
     private String email;
     private boolean eye;
     private String role;
-
-    public User() {
-    }
 
     @Id
     @GeneratedValue
