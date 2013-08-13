@@ -73,7 +73,8 @@ margin-top:-32767px;/* thank you Erik J - negate effect of float*/
     background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.8) 30%,rgba(0,0,0,0.8) 60%,rgba(0,0,0,0) 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
 }
-/*ширина блока и выравнивание по центру*/
+
+/*шириа блоков и выравнивание по центру*/
 .centr{
 	margin: 0 auto;
 	width: 700px;
@@ -96,11 +97,6 @@ margin-top:-32767px;/* thank you Erik J - negate effect of float*/
     background: linear-gradient(to bottom,  rgba(119,115,115,1) 0%,rgba(0,0,0,1) 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#777373', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
 
-}
-
-#top-container{
-	
-	
 }
 
 
@@ -225,9 +221,6 @@ header{
 	cursor:pointer;
 		
 }
-
-
-
 
 #header-text{
 	font-size:26px;
@@ -457,255 +450,9 @@ header{
     padding-top: 35px;
 }
 
-/* ----------------BEGIN СТИЛИ ДЛЯ ФОРМЫ--------------------------------------*/
-
-#subscribe-form{
-
-	//visibility: hidden;
-	position:fixed;
-	left:37%;
-	top:30%;
-	width:360px;
-	height:140px;
-	background-color:#CCC;
-	z-index:50;
-
-	-webkit-border-radius: 6px;
-	-moz-border-radius: 6px;
-	border-radius: 6px;
-
-    background: -moz-linear-gradient(top,  rgba(228,221,233,0.95) 0%, rgba(120,117,122,0.95) 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(228,221,233,0.95)), color-stop(100%,rgba(120,117,122,0.95))); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top,  rgba(228,221,233,0.95) 0%,rgba(120,117,122,0.95) 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  rgba(228,221,233,0.95) 0%,rgba(120,117,122,0.95) 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  rgba(228,221,233,0.95) 0%,rgba(120,117,122,0.95) 100%); /* IE10+ */
-    background: linear-gradient(to bottom,  rgba(228,221,233,0.95) 0%,rgba(120,117,122,0.95) 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9e4dde9', endColorstr='#d978757a',GradientType=0 ); /* IE6-9 */
-
-    -webkit-box-shadow: 10px 10px 12px -1px rgba(0,0,0,0.46);
-    -moz-box-shadow: 10px 10px 12px -1px rgba(0,0,0,0.46);
-    box-shadow: 10px 10px 12px -1px rgba(0,0,0,0.46);
-
-}
-
-#form-name {
-    border-bottom: 1px solid #FFFFFF;
-    color: #6C6A6A;
-    font-size: 17px;
-    margin: 0 14px -5px 17px;
-    padding-top: 5px;
-}
-
-#email-input{
-	padding-left:5px;
-
-	-webkit-box-shadow:  inset 2px 3px 6px 1px rgba(0, 0, 0, 0.3);
-    box-shadow:  inset 2px 3px 6px 1px rgba(0, 0, 0, 0.3);
-
-	background-color:#edebed;
-	height:24px;
-	width:253px;
-	float:right;
-	margin: 29px 12px 7px 0px;
-
-	-webkit-border-radius: 6px;
-	-moz-border-radius: 6px;
-	border-radius: 6px;
-	border:none;
-
-}
-
-form img {
-	float:left;
-	width:75px;
-	height:70px;
-	margin-top:6px;
-	margin-left:6px;
-}
-
-#submit-button-subscribe{
-	cursor:pointer;
-	float:right;
-	color:#bab9b9;
-	margin-right:12px;
-	margin-top:5px;
-	height:28px;
-	width:100px;
-	-webkit-border-radius: 6px;
-	-moz-border-radius: 6px;
-	border-radius: 6px;
-	border:none;
-	text-align:center;
-	vertical-align:middle;
-
-	text-shadow: 3px 4px 5px #424242;
-    filter: dropshadow(color=#424242, offx=3, offy=4);
-    -webkit-box-shadow:  2px 3px 6px 1px rgba(0, 0, 0, 0.4);
-
-    box-shadow:  2px 3px 6px 1px rgba(0, 0, 0, 0.4);
-    background: #695f71; /* Old browsers */
-    background: -moz-linear-gradient(top,  #695f71 0%, #302933 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#695f71), color-stop(100%,#302933)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top,  #695f71 0%,#302933 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  #695f71 0%,#302933 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  #695f71 0%,#302933 100%); /* IE10+ */
-    background: linear-gradient(to bottom,  #695f71 0%,#302933 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#695f71', endColorstr='#302933',GradientType=0 ); /* IE6-9 */
-}
-
-#close {
-    color: #6C6A6A;
-    font-weight: bold;
-    position: absolute;
-    right: 12px;
-    top: 4px;
-    width: 10px;
-	cursor:pointer;
-}
-
-#error-message{
-    /*position: absolute;
-    left: 91px;
-    bottom: 92px;
-    color: rgb(139, 11, 78);
-    font-size: 14px;    */
-
-    position: absolute;
-    left: 35px;
-    bottom: 28px;
-    color: rgb(160, 8, 32);
-    font-size: 14px;
-
-}
 
 
-/* *****************************END СТИЛИ ДЛЯ ФОРМЫ*****************************************/
-
-#single-block-footer{
-    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.8);
-    bottom: 0;
-    height: 24px;
-    left: -30px;
-    padding: 9px 0 16px;
-    position: relative;
-    width: 700px;
-    border-radius: 0px 0px 6px 6px;
-    }
-
-/*#single-block-footer:nth-child(1){}    */
 
 
-.single-block {
-    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.7);
-    border-radius: 6px 6px 6px 6px;
-    height: auto;
-    margin-top: 19px;
-    overflow: hidden;
-    padding: 0px 30px 0px 30px;
-}
 
-
-.single-text-block {
-     color: #FFFFFF;
-     float: left;
-     width: 100%;
-}
- @media all and (-webkit-min-device-pixel-ratio:10000), not all and (-webkit-min-device-pixel-ratio:0) {
-
-    .single-event-title {
-      background: none repeat scroll 0 0 rgba(0, 0, 0, 0.8);
-      height: 36px;
-      margin: 0 -30px 0 30px;
-      padding: 11px 0 4px;
-      width: 700px;
-     // float: left;
-      border-radius: 6px 6px 0px 0px;
-      position: relative;
-      left: -60px;
-    }
-}
-
-.single-event-title {
-      background: none repeat scroll 0 0 rgba(0, 0, 0, 0.8);
-      height: 36px;
-      margin: 0 -90px 0 30px;
-      padding: 11px 0 4px;
-      width: 700px;
-     // float: left;
-      border-radius: 6px 6px 0px 0px;
-      position: relative;
-      left: -60px;
-    }
-
-.single-img-block{
-
-}
-
-.single-event-img{
-	width:130px;
-	height:130px;
-	float:left;
-	margin: 40px 48px 39px 5px;
-}
-
-
-.single-event-name{
-	float: left;
-        font-size: 22px;
-        margin-left: 35px;
-        margin-top: 3px;
-}
-.single-event-creator{
-	float:left;                 l
-	line-height:25px;
-	margin-bottom:3px;
-	color:#999;
-	width:300px;
-}
-
-.single-event-date{
- color: #999999;
-    float:left;
-    font-size: 12px;
-    line-height: 35px;
-    text-align: right;
-    width: 110px;
-}
-
-.single-event-content{
-	font-size:14px;
-	//height:98px;
-    margin: 40px 35px 35px 0;
-	width:100%;
-}
-
-@-moz-document url-prefix() { /*правило для firefox*/
-.single-event-content{
-	font-size:14.5px;
-}
-
-#singleplease-subs{
-
-	font-size:14px;
-	text-shadow:1px 1px 2px black;
-}
-
-#single-container{
-
-     //margin-top: 50px;
-
-}
-
-/*.single-event-title:nth-child(1){
-    bottom: 31px;
-    float: right;
-}
-       */
-
-
-#single-event-img-comment{
-margin: 0 auto;
-width: 300px;
-height:50px;
-}
 

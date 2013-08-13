@@ -1,19 +1,17 @@
 package it.sevenbits.space.validators;
 
 import it.sevenbits.space.dao.SubscriptionDao;
-import it.sevenbits.space.forms.SubscribeForm;
+import it.sevenbits.space.forms.SubscriptionForm;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 
 import java.util.regex.Pattern;
 
 @Component
-public class SubscribeVaildator implements org.springframework.validation.Validator {
+public class SubscriptionVaildator implements org.springframework.validation.Validator {
 
     @Autowired
-    @Qualifier("subscriptionDao")
     private SubscriptionDao subscriptionDao;
 
     private final static Pattern EMAIL_PATTERN = Pattern.compile("^[_A-Za-z0-9-]+(\\." +
@@ -22,7 +20,7 @@ public class SubscribeVaildator implements org.springframework.validation.Valida
 
     @Override
     public boolean supports(final Class<?> aClass) {
-        return aClass.isAssignableFrom(SubscribeForm.class);
+        return aClass.isAssignableFrom(SubscriptionForm.class);
     }
 
     @Override
@@ -30,28 +28,26 @@ public class SubscribeVaildator implements org.springframework.validation.Valida
 
 
 
-        SubscribeForm subscribeForm = (SubscribeForm) obj;
-        String email = subscribeForm.getEmail();
+        SubscriptionForm subscriptionForm = (SubscriptionForm) obj;
+        String email = subscriptionForm.getEmail();
         validateEmail(email, errors);
     }
 
     private void validateEmail(final String email, final Errors errors) {
 
-        if (!isEmail(email)) {
-            errors.rejectValue("email", "email.invalid", "Email is invalid");
+        if (!correctEmail(email)) {
+            errors.rejectValue("email", "email.invalid", "Некорректный email");
         }
-        if (!isUnExsist(email)) {
-            errors.rejectValue("email", "email.required", "Email already exist");
+        if (existEmail(email)) {
+            errors.rejectValue("email", "email.required", "Такой email уже существут");
         }
     }
 
-    private boolean isUnExsist(final String email) {
-
-        return subscriptionDao.isInBase(email);
+    private boolean existEmail(final String email) {
+        return (!subscriptionDao.exist(email));
     }
 
-    private boolean isEmail(final String value) {
-
+    private boolean correctEmail(final String value) {
         return EMAIL_PATTERN.matcher(value).matches();
     }
 

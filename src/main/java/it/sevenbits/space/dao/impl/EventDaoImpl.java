@@ -37,7 +37,6 @@ public class EventDaoImpl extends DaoTemplate implements EventDao {
     @Transactional
     @Override
     public List<Event> searchEventByName(final String name) {
-
         List<Event> result =
             getEntityManager().createQuery("select e from Event e where e.name = :name", Event.class).
                 setParameter("name", name).getResultList();
@@ -47,7 +46,6 @@ public class EventDaoImpl extends DaoTemplate implements EventDao {
     @Transactional
     @Override
     public Event searchEventById(final Long id) {
-
         Event result =
             getEntityManager().createQuery("select e from Event e where e.id = :id", Event.class).
                 setParameter("id", id).getSingleResult();

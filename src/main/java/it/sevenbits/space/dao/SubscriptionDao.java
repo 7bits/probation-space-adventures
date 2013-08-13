@@ -5,9 +5,9 @@ import it.sevenbits.space.model.Subscription;
 import java.util.List;
 
 public interface SubscriptionDao {
-    public void create(final Subscription subscription);
-    public List<Subscription> getAllSubscription();
-    public Subscription searchIdbyEmail(final String Email);
-    public String searchEmailbyString(final String email);
-    public boolean isInBase(final String email);
+    void create(final Subscription subscription);
+    List<Subscription> getAllSubscription();
+    Subscription fetchByEmail(final String Email);
+    String fetchByString(final String email);
+    boolean exist(final String email);
 }

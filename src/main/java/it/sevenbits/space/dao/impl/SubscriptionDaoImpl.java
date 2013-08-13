@@ -35,7 +35,7 @@ public class SubscriptionDaoImpl extends DaoTemplate implements SubscriptionDao 
 
     @Transactional
     @Override
-    public Subscription searchIdbyEmail(final String email) {
+    public Subscription fetchByEmail(final String email) {
         Subscription result =
                 getEntityManager().createQuery("select s from Subscription s where s.email = :email", Subscription.class).
                         setParameter("email", email).getSingleResult();
@@ -44,7 +44,7 @@ public class SubscriptionDaoImpl extends DaoTemplate implements SubscriptionDao 
 
     @Transactional
     @Override
-    public String searchEmailbyString(final String email) {
+    public String fetchByString(final String email) {
         Subscription result =
             getEntityManager().createQuery("select s from Subscription s where s.email = :email", Subscription.class).
                 setParameter("email", email).getSingleResult();
@@ -53,7 +53,7 @@ public class SubscriptionDaoImpl extends DaoTemplate implements SubscriptionDao 
 
     @Transactional
     @Override
-    public boolean isInBase(final String email) {
+    public boolean exist(final String email) {
         EntityManager entityManager = this.getEntityManager();
         List<Subscription> result =
             getEntityManager().createQuery("select s from Subscription s where s.email = :email", Subscription.class).

@@ -5,8 +5,8 @@ import it.sevenbits.space.model.Event;
 import java.util.List;
 
 public interface EventDao {
-    public void create(final Event event);
-    public List<Event> getAllEvent();
-    public List<Event> searchEventByName(final String name);
-    public Event searchEventById(final Long id);
+    void create(final Event event);
+    List<Event> getAllEvent();
+    List<Event> searchEventByName(final String name);
+    Event searchEventById(final Long id);
 }

@@ -1,11 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-     <script src="/space_adventures/resources/script/close-button.js"> </script>
-     <script src="/space_adventures/resources/script/jquery.form.js"> </script>
-     <script src="/space_adventures/resources/script/form-actions.js"> </script>
 
-<form:form commandName="subscribeForm" id="subscribe-form" action="index.html">
+<script src="/space_adventures/resources/js/close-button.js"> </script>
+<script src="/space_adventures/resources/js/form-actions.js"> </script>
+
+<form:form commandName="subscriptionForm" id="subscribe-form" action="index.html">
     <div>
         <div id="form-name"> <label>Подписка на рассылку</label> </div>  <div id="close"> x </div>
         <div id="form-content"> <img src="img/mail.png">

@@ -22,7 +22,7 @@ function doAjaxPost() {
             $('#subscribe-form-div').html(data);
         },
         error: function(e){
-            alert('Ошибка insert-form. Всё плохо. Иди домой.');
+            alert('Ошибка доступа к subscribe-form.html через insert-form.');
             $("#dark-bg").css("visibility", "hidden");
         }
     })
