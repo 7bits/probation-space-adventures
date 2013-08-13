@@ -90,13 +90,15 @@ public class Event implements Serializable {
             return buff;
         }
     }
+
+    //поля для создателя события и ссылки на видео
     /*
     @Column(name = "CreatorId")
-    public Long getidCreator() {
+    public Long getIdCreator() {
         return CreatorId;
     }
 
-    public void setidCreator(Long id_creator) {
+    public void setIdCreator(Long id_creator) {
         this.CreatorId = CreatorId;
     }
 

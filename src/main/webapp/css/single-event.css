@@ -59,26 +59,26 @@
 }
 
 .single-event-img{
-	width:130px;
-	height:130px;
-	float:left;
-	margin: 40px 48px 39px 5px;
+    width:130px;
+    height:130px;
+    float:left;
+    margin: 40px 48px 39px 5px;
 }
 
 
 .single-event-name{
-	float: left;
-        font-size: 22px;
-        margin-left: 35px;
-        margin-top: 3px;
+    float: left;
+    font-size: 22px;
+    margin-left: 35px;
+    margin-top: 3px;
 }
 .single-event-creator{
-	float:left;                 l
-	line-height:25px;
-	margin-bottom:3px;
-	color:#999;
-	width:300px;
-}
+    float:left;
+    line-height:25px;
+    margin-bottom:3px;
+    color:#999;
+    width:300px;
+    }
 
 .single-event-date{
  color: #999999;
@@ -90,38 +90,29 @@
 }
 
 .single-event-content{
-	font-size:14px;
-	//height:98px;
+    font-size:14px;
+    //height:98px;
     margin: 40px 35px 35px 0;
-	width:100%;
+    width:100%;
 }
 
 @-moz-document url-prefix() { /*правило для firefox*/
-.single-event-content{
-	font-size:14.5px;
+    .single-event-content{
+      font-size:14.5px;
+    }
 }
 
 #singleplease-subs{
-
-	font-size:14px;
-	text-shadow:1px 1px 2px black;
+    font-size:14px;
+    text-shadow:1px 1px 2px black;
 }
 
 #single-container{
-
-     //margin-top: 50px;
-
+    //margin-top: 50px;
 }
-
-/*.single-event-title:nth-child(1){
-    bottom: 31px;
-    float: right;
-}
-       */
-
 
 #single-event-img-comment{
-margin: 0 auto;
-width: 300px;
-height:50px;
+    margin: 0 auto;
+    width: 300px;
+    height:50px;
 }

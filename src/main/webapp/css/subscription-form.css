@@ -1,17 +1,15 @@
 #subscribe-form{
+    position:fixed;
+    left:37%;
+    top:30%;
+    width:360px;
+    height:140px;
+    background-color:#CCC;
+    z-index:50;
 
-	//visibility: hidden;
-	position:fixed;
-	left:37%;
-	top:30%;
-	width:360px;
-	height:140px;
-	background-color:#CCC;
-	z-index:50;
-
-	-webkit-border-radius: 6px;
-	-moz-border-radius: 6px;
-	border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
 
     background: -moz-linear-gradient(top,  rgba(228,221,233,0.95) 0%, rgba(120,117,122,0.95) 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(228,221,233,0.95)), color-stop(100%,rgba(120,117,122,0.95))); /* Chrome,Safari4+ */
@@ -36,48 +34,47 @@
 }
 
 #email-input{
-	padding-left:5px;
+    padding-left:5px;
 
-	-webkit-box-shadow:  inset 2px 3px 6px 1px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow:  inset 2px 3px 6px 1px rgba(0, 0, 0, 0.3);
     box-shadow:  inset 2px 3px 6px 1px rgba(0, 0, 0, 0.3);
+    background-color:#edebed;
+    height:24px;
+    width:253px;
+    float:right;
+    margin: 29px 12px 7px 0px;
 
-	background-color:#edebed;
-	height:24px;
-	width:253px;
-	float:right;
-	margin: 29px 12px 7px 0px;
-
-	-webkit-border-radius: 6px;
-	-moz-border-radius: 6px;
-	border-radius: 6px;
-	border:none;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    border:none;
 
 }
 
 form img {
-	float:left;
-	width:75px;
-	height:70px;
-	margin-top:6px;
-	margin-left:6px;
-}
+    float:left;
+    width:75px;
+    height:70px;
+    margin-top:6px;
+    margin-left:6px;
+    }
 
 #submit-button-subscribe{
-	cursor:pointer;
-	float:right;
-	color:#bab9b9;
-	margin-right:12px;
-	margin-top:5px;
-	height:28px;
-	width:100px;
-	-webkit-border-radius: 6px;
-	-moz-border-radius: 6px;
-	border-radius: 6px;
-	border:none;
-	text-align:center;
-	vertical-align:middle;
+    cursor:pointer;
+    float:right;
+    color:#bab9b9;
+    margin-right:12px;
+    margin-top:5px;
+    height:28px;
+    width:100px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    border:none;
+    text-align:center;
+    vertical-align:middle;
 
-	text-shadow: 3px 4px 5px #424242;
+    text-shadow: 3px 4px 5px #424242;
     filter: dropshadow(color=#424242, offx=3, offy=4);
     -webkit-box-shadow:  2px 3px 6px 1px rgba(0, 0, 0, 0.4);
 
@@ -99,20 +96,47 @@ form img {
     right: 12px;
     top: 4px;
     width: 10px;
-	cursor:pointer;
+    cursor:pointer;
 }
 
 #error-message{
-    /*position: absolute;
-    left: 91px;
-    bottom: 92px;
-    color: rgb(139, 11, 78);
-    font-size: 14px;    */
-
     position: absolute;
     left: 35px;
     bottom: 28px;
     color: rgb(160, 8, 32);
     font-size: 14px;
+}
 
+#subscribe-notification-text{
+    margin: 60px 0 0;
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+}
+
+#subscribe-notification{
+    position: fixed;
+    visibility:hidden;
+    position:fixed;
+    left:37%;
+    top:30%;
+    width:360px;
+    height:140px;
+    background-color:#CCC;
+    z-index:52;
+
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+
+    background: -moz-linear-gradient(top,  rgba(228,221,233,0.95) 0%, rgba(120,117,122,0.95) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(228,221,233,0.95)), color-stop(100%,rgba(120,117,122,0.95))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(228,221,233,0.95) 0%,rgba(120,117,122,0.95) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(228,221,233,0.95) 0%,rgba(120,117,122,0.95) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(228,221,233,0.95) 0%,rgba(120,117,122,0.95) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(228,221,233,0.95) 0%,rgba(120,117,122,0.95) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9e4dde9', endColorstr='#d978757a',GradientType=0 ); /* IE6-9 */
+
+    -webkit-box-shadow: 10px 10px 12px -1px rgba(0,0,0,0.46);
+    -moz-box-shadow: 10px 10px 12px -1px rgba(0,0,0,0.46);
+    box-shadow: 10px 10px 12px -1px rgba(0,0,0,0.46);
 }

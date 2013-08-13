@@ -15,7 +15,10 @@
 <div id="wrap">
 
    <jsp:include page="/WEB-INF/jsp/lay-out/top-of-page.jsp"/>
-
+   <div id="vk_like" class="vk_like"></div>
+       <script type="text/javascript">
+           VK.Widgets.Like("vk_like", {type: "mini", height: 20, pageImage:"${event.img}"});
+       </script>
    <div id="content">
                <c:forEach items="${events}" var="events">
                    <a href="event.html?id=${events.id}">

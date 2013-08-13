@@ -21,6 +21,8 @@ import java.util.List;
 @Controller
 public class DashBoard {
 
+    //public final String IMG_SRC = "/space_adventures/resources/img/";
+
     @Autowired
     private SubscriptionDao subscriptionDao;
 

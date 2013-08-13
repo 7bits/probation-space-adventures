@@ -9,12 +9,12 @@ function showResponse(responseText, statusText, xhr, form)  {
     console.log(responseText);
  if (responseText.length==0)  {
 
-    $('<div id="subscribe-notification"> Подписка прошла успешно </div>').insertBefore('body');  //create notification div in body
+    $('<div id="subscribe-notification"> <div id="subscribe-notification-text"> Подписка прошла успешно </div> </div>').insertBefore('body');  //create notification div in body
     $("#subscribe-notification").css("visibility", "visible").fadeTo('fast', '1'); //show notification div
     setTimeout(function(){
         $("#dark-bg").css("visibility", "hidden"); //hide dark background
         $("#subscribe-notification").css("visibility", "hidden").fadeOut('slow', '0'); //hide notification
-    }, 1000);                          //hide after 1000 ms
+    }, 1000);                          //hide after 800 ms
     $('#subscribe-form-div').empty();
 
  } else {

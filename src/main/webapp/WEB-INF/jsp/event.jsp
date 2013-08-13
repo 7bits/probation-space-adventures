@@ -10,6 +10,12 @@
    <title><c:out value="${event.name}"/></title>
    <jsp:include page="/WEB-INF/jsp/lay-out/head.jsp"/>
 
+ <script type="text/javascript" src="//vk.com/js/api/openapi.js?98"></script>
+
+ <script type="text/javascript">
+   VK.init({apiId: 3795826, onlyWidgets: true});
+ </script>
+
 </head>
 <body>
      <div id="wrap">
@@ -41,9 +47,9 @@
             </div>
           </div>
           <div id="vk_comments" class="vk_comments"></div>
-                       <script type="text/javascript">
-                       VK.Widgets.Comments("vk_comments", {limit: 15, width: "700", attach: "photo,video,audio"});
-                </script>
+              <script type="text/javascript">
+                    VK.Widgets.Comments("vk_comments", {limit: 15, width: "700", attach: "*"});
+              </script>
        </div>
     </div>
 
