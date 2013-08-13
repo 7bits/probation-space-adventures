@@ -8,6 +8,7 @@ body{
     background-image:url(../img/bg1.jpg);
     background-color:grey;
     background-attachment:fixed;
+    background-position: center top;
     //position:relative;
 }
 

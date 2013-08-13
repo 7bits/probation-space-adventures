@@ -23,4 +23,5 @@
 
     <context:component-scan base-package="it.sevenbits.space" />
 
+
 </beans>

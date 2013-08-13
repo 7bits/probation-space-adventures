@@ -1,6 +1,5 @@
 package it.sevenbits.space.forms;
 
-@SuppressWarnings("unchecked")
 public class SearchEventForm {
 
     private String name;

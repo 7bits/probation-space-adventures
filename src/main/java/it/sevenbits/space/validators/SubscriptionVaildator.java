@@ -33,6 +33,12 @@ public class SubscriptionVaildator implements org.springframework.validation.Val
         validateEmail(email, errors);
     }
 
+    /**
+     * <p> Проверка формы на валидность </p>
+     * @param email Электронный адресс
+     * @param errors
+     */
+
     private void validateEmail(final String email, final Errors errors) {
 
         if (!isValid(email)) {
@@ -42,6 +48,7 @@ public class SubscriptionVaildator implements org.springframework.validation.Val
             errors.rejectValue("email", "email.required", "Такой email уже существут");
         }
     }
+
 
     private boolean isUnique(final String email) {
         return !ISubscriptionDao.exists(email);

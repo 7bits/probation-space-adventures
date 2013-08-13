@@ -1,12 +1,5 @@
 package it.sevenbits.space.model;
 
-/**
- * Created with IntelliJ IDEA.
- * User: denis
- * Date: 7/23/13
- * Time: 2:58 PM
- */
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;

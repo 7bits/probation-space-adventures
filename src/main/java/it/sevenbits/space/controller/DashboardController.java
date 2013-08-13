@@ -32,6 +32,11 @@ public class DashboardController {
     @Autowired
     private SubscriptionVaildator subscriptionVaildator;
 
+    /**
+     * <p>Отображает список событий на главной страницк</p>
+     *
+     */
+
     @RequestMapping(value = {"/index.html"}, method = RequestMethod.GET)
     public ModelAndView showListEvent() {
         ModelAndView modelAndView = new ModelAndView("index");
@@ -45,6 +50,11 @@ public class DashboardController {
         return modelAndView;
     }
 
+    /**
+     * <p>КДобавление электронного адресса подписчика в базу данных,
+     * в случае успешной валидации. В противном случае, отрисовывается форма с ошибкой</p>
+     * @param subscriptionForm объект - форма подписки
+     */
     @RequestMapping(value = {"/index.html"}, method = RequestMethod.POST)
     public ModelAndView addEventOnMain(@Valid final SubscriptionForm subscriptionForm, final BindingResult result) {
         if (result.hasErrors()) {
@@ -58,6 +68,9 @@ public class DashboardController {
         return null;
     }
 
+    /**
+     * Отрисовка формы
+     */
     @RequestMapping(value = "/subscribe-form.html", method = RequestMethod.GET)
     public ModelAndView addSubscription() {
         SubscriptionForm subscriptionForm = new SubscriptionForm();

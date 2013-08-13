@@ -8,10 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
+/**
+ * <p>Контроллер, отвечающий за отображение страницы одного события</p>
+ */
 @Controller
 public class SingleEventController {
-
+    //@Value("#{appl['img-url']")
+    //@Value("${appl.img-url}")
+    public static final String IMG_URL = "/space_adventures/resources/img/";
     @Autowired
     private IEventDao IEventDao;
 
@@ -20,7 +24,7 @@ public class SingleEventController {
         ModelAndView modelAndView = new ModelAndView("event");
         Event result  = IEventDao.searchEventById(id);
         String img = result.getImg();
-        img = "/space_adventures/resources/img/" + img;
+        img = IMG_URL + img;
         result.setImg(img);
         modelAndView.addObject("event", result);
         return modelAndView;
