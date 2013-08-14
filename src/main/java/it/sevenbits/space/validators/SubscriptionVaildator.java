@@ -2,21 +2,19 @@ package it.sevenbits.space.validators;
 
 import it.sevenbits.space.dao.ISubscriptionDao;
 import it.sevenbits.space.forms.SubscriptionForm;
+import org.apache.commons.validator.routines.EmailValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 
-import java.util.regex.Pattern;
-
+/**
+ * validation of email from org.apache.commons.validator.routines.EmailValidator library
+ */
 @Component
 public class SubscriptionVaildator implements org.springframework.validation.Validator {
 
     @Autowired
     private ISubscriptionDao ISubscriptionDao;
-
-    private final static Pattern EMAIL_PATTERN = Pattern.compile("^[_A-Za-z0-9-]+(\\." +
-            "[_A-Z a-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*" +
-            "(\\.[A-Za-z]{2,})$");
 
     @Override
     public boolean supports(final Class<?> aClass) {
@@ -25,23 +23,22 @@ public class SubscriptionVaildator implements org.springframework.validation.Val
 
     @Override
     public void validate(final Object obj, final Errors errors) {
-
-
-
         SubscriptionForm subscriptionForm = (SubscriptionForm) obj;
         String email = subscriptionForm.getEmail();
         validateEmail(email, errors);
     }
 
     /**
-     * <p> Проверка формы на валидность </p>
+     * <p> Проверка формы на валидность  </p>
      * @param email Электронный адресс
      * @param errors
      */
 
     private void validateEmail(final String email, final Errors errors) {
 
-        if (!isValid(email)) {
+        boolean isValidEmail = EmailValidator.getInstance().isValid(email);
+
+        if (!isValidEmail) {
             errors.rejectValue("email", "email.invalid", "Некорректный email");
         }
         if (!isUnique(email)) {
@@ -54,8 +51,5 @@ public class SubscriptionVaildator implements org.springframework.validation.Val
         return !ISubscriptionDao.exists(email);
     }
 
-    private boolean isValid(final String value) {
-        return EMAIL_PATTERN.matcher(value).matches();
-    }
 
 }
