@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 
 /**
- * validation of email from org.apache.commons.validator.routines.EmailValidator library
+ * validation of email via org.apache.commons.validator.routines.EmailValidator library
  */
 @Component
 public class SubscriptionVaildator implements org.springframework.validation.Validator {

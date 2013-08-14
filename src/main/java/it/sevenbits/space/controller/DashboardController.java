@@ -32,18 +32,22 @@ public class DashboardController {
     @Autowired
     private SubscriptionVaildator subscriptionVaildator;
 
+    //@Value('${img.url}') private String imgSrc;
+
+
     /**
      * <p>Отображает список событий на главной страницк</p>
      *
      */
 
-    @RequestMapping(value = {"/index.html"}, method = RequestMethod.GET)
+    @RequestMapping(value = "/index.html", method = RequestMethod.GET)
     public ModelAndView showListEvent() {
         ModelAndView modelAndView = new ModelAndView("index");
         List<Event> results  = IEventDao.getAllEvent();
         for (Event item : results) {
             String img = item.getImg();
             img = "/space_adventures/resources/img/" + img;
+            //img = imgSrc + img;
             item.setImg(img);
         }
         modelAndView.addObject("events", results);
@@ -55,7 +59,7 @@ public class DashboardController {
      * в случае успешной валидации. В противном случае, отрисовывается форма с ошибкой</p>
      * @param subscriptionForm объект - форма подписки
      */
-    @RequestMapping(value = {"/index.html"}, method = RequestMethod.POST)
+    @RequestMapping(value = "/index.html", method = RequestMethod.POST)
     public ModelAndView addEventOnMain(@Valid final SubscriptionForm subscriptionForm, final BindingResult result) {
         if (result.hasErrors()) {
             ModelAndView modelAndView = new ModelAndView("subscribe-form");
