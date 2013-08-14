@@ -17,12 +17,12 @@ public class SingleEventController {
     //@Value("${appl.img-url}")
     public static final String IMG_URL = "/space_adventures/resources/img/";
     @Autowired
-    private IEventDao IEventDao;
+    private IEventDao iEventDao;
 
     @RequestMapping(value = "/event.html", method = RequestMethod.GET)
     public ModelAndView listEvent(@RequestParam final Long id) {
         ModelAndView modelAndView = new ModelAndView("event");
-        Event result  = IEventDao.searchEventById(id);
+        Event result  = iEventDao.searchEventById(id);
         String img = result.getImg();
         img = IMG_URL + img;
         result.setImg(img);
