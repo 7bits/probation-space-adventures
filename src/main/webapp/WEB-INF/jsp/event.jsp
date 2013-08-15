@@ -10,12 +10,7 @@
     <title><c:out value="${event.name}"/></title>
     <jsp:include page="/WEB-INF/jsp/lay-out/head.jsp"/>
 
-    <script type="text/javascript" src="//vk.com/js/api/openapi.js?98"></script>
     <script src="/space_adventures/resources/js/back-button-create.js"> </script>
-
-    <script type="text/javascript">
-      VK.init({apiId: 3822633, onlyWidgets: true});
-    </script>
 
 </head>
 <body>

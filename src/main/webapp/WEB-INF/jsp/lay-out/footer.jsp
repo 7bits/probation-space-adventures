@@ -7,7 +7,7 @@
             </div>
         </a>
         <div id="top-menu">
-            copyright (c) | contacts
+            © 2013 7bits | contacts
         </div>
     </div>
 </footer>
