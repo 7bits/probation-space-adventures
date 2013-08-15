@@ -7,15 +7,15 @@
 <!doctype html>
 <html>
 <head>
-   <title><c:out value="${event.name}"/></title>
-   <jsp:include page="/WEB-INF/jsp/lay-out/head.jsp"/>
+    <title><c:out value="${event.name}"/></title>
+    <jsp:include page="/WEB-INF/jsp/lay-out/head.jsp"/>
 
- <script type="text/javascript" src="//vk.com/js/api/openapi.js?98"></script>
- <script src="/space_adventures/resources/js/back-button-create.js"> </script>
+    <script type="text/javascript" src="//vk.com/js/api/openapi.js?98"></script>
+    <script src="/space_adventures/resources/js/back-button-create.js"> </script>
 
- <script type="text/javascript">
-   VK.init({apiId: 3795826, onlyWidgets: true});
- </script>
+    <script type="text/javascript">
+      VK.init({apiId: 3822633, onlyWidgets: true});
+    </script>
 
 </head>
 <body>
@@ -48,10 +48,12 @@
                 </div>
             </div>
           </div>
+
           <div id="vk_comments" class="vk_comments"></div>
-              <script type="text/javascript">
-                    VK.Widgets.Comments("vk_comments", {limit: 15, width: "700", attach: "*"});
-              </script>
+          <script type="text/javascript">
+          VK.Widgets.Comments("vk_comments", {limit: 15, width: "700", attach: "photo,video,audio"});
+          </script>
+
        </div>
     </div>
 
