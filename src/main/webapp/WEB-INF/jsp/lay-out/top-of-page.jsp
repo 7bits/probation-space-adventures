@@ -7,6 +7,10 @@
                 <img src="resources/img/logo.png" alt="logo">
             </div>
          </a>
+         <div id="search">
+            <input type="text" id="search-text" placeholder="Поиск...">
+            <input type="submit" id="search-button" value=""/>
+         </div>
          <div id="top-menu">
          </div>
     </div>

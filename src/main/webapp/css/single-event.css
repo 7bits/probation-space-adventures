@@ -132,18 +132,18 @@
 #back-button{
     border-left: 1px solid grey;
     border-right: 1px solid grey;
-    float: right;
+    float: left;
     font-size: 14px;
-    height: 22px;
-    margin: -7px 0 0;
-    padding-top: 11px;
+    margin: 2px 0 1px 256px;
     position: relative;
     text-align: center;
-    width: 118px;
+    width: 83px;
     z-index: 100;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.95);
 }
 
 #back-arrow{
+    margin-top: 2px;
     float: left;
     height: 17px;
     margin-left: 20px;

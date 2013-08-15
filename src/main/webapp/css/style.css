@@ -32,13 +32,52 @@ footer {position: relative;
     }
 
 /*Opera Fix*/
-body:before {/* thanks to Maleika (Kohoutec)*/
-content:"";
-height:100%;
-float:left;
-width:0;
-margin-top:-32767px;/* thank you Erik J - negate effect of float*/
+    body:before {/* thanks to Maleika (Kohoutec)*/
+    content:"";
+    height:100%;
+    float:left;
+    width:0;
+    margin-top:-32767px;/* thank you Erik J - negate effect of float*/
 }
+
+#search{
+    width:224px;
+    height:23px;
+    float:right;
+    margin-top: -3px;
+
+}
+
+
+#search-text{
+    color:white;
+    background-color: #3e3c43;
+    padding-left: 5px;
+    margin-right: -4px;
+    margin-top: 2px;
+    height:22px;
+    width:179px;
+    border: 1px solid #50454D;
+
+    -webkit-border-radius: 5px 0px 0px 5px;
+    -moz-border-radius: 5px 0px 0px 5px;
+    border-radius: 5px 0px 0px 5px;
+
+    box-shadow: 2px -2px 11px 1px rgba(0, 0, 0, 0.5) inset;
+    -webkit-box-shadow:  2px -2px 11px 1px rgba(0, 0, 0, 0.5) inset;
+
+}
+
+#search-button{
+    width:37px;
+    height:25px;
+    background-image:url(../img/search.jpg);
+    -webkit-border-radius: 0 9px 9px 1px;
+    -moz-border-radius: 0 9px 9px 1px;
+    border-radius: 0 9px 9px 1px;
+    border:none;
+}
+
 
 
 #go-top{
@@ -135,7 +174,7 @@ header{
     -moz-border-radius: 6px;
     border-radius: 6px;
 }
-
+/*
 #search{
     width:550px;
     padding:10px;
@@ -143,8 +182,8 @@ header{
     color:#FFF;
     border:none;
     font-size:14px;
-}
-#search-button{
+}       */
+/*#search-button{
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     border-radius: 6px;
@@ -160,7 +199,7 @@ header{
     opacity:1;
     cursor:pointer;
     background: rgba(0,0,0,1);
-}
+}     */
 
 .block{
     height: 152px;
@@ -192,8 +231,6 @@ header{
 #subs-button:hover{
     background-image:url(../img/sub-button-hover.png);
 }
-
-
 
 #subs-button{
     border: medium none;
