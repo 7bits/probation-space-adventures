@@ -4,7 +4,7 @@
     <div id="top-container" class="top-container centr">
          <a id="main-href" href="index.html">
             <div id="logo">
-                <img src="resources/img/logo.png" alt="logo">
+                <img src="/space_adventures/resources/img/logo.png" alt="logo">
             </div>
          </a>
          <div id="search">
@@ -22,11 +22,11 @@
 </p>
 <div id="single-container" class="container centr">
     <header>
-                <div id="header-text">Узнавай о событиях космоса и спеши наблюдать</div>
-                <span id="please-subs">Подпишись на рассылку и получай информацию о надвигающихся событиях космоса.</span>
-                <div>
-                    <button id="subs-button"> Подписка на рассылку</button>
-                </div>
+        <div id="header-text">Узнавай о событиях космоса и спеши наблюдать</div>
+        <span id="please-subs">Подпишись на рассылку и получай информацию о надвигающихся событиях космоса.</span>
+        <div>
+            <button id="subs-button"> Подписка на рассылку</button>
+        </div>
     </header>
 <div id="subscribe-form-div"> </div>
 <div id="error"> </div>

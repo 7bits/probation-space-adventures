@@ -80,12 +80,12 @@
     }
 
 .single-event-date{
- color: #999999;
+    color: #999999;
     float:left;
     font-size: 15px;
     line-height: 35px;
     text-align: right;
-    width: 120px;
+    margin-left:20px;
 }
 
 .single-event-content{

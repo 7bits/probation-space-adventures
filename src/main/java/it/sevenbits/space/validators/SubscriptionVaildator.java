@@ -42,7 +42,7 @@ public class SubscriptionVaildator implements org.springframework.validation.Val
             errors.rejectValue("email", "email.invalid", "Некорректный email");
         }
         if (!isUnique(email)) {
-            errors.rejectValue("email", "email.required", "Такой email уже существут");
+            errors.rejectValue("email", "email.required", "Такой email уже существует");
         }
     }
 
