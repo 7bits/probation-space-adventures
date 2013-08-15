@@ -7,6 +7,7 @@ import it.sevenbits.space.model.Event;
 import it.sevenbits.space.model.Subscription;
 import it.sevenbits.space.validators.SubscriptionVaildator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
@@ -32,7 +33,22 @@ public class DashboardController {
     @Autowired
     private SubscriptionVaildator subscriptionVaildator;
 
-    //@Value('${img.url}') private String imgSrc;
+    /*@Value(value = "${img.url}")
+    public static String IMG_SRC;*/
+
+    @Value("${app.img.url}")
+    public static String IMG_SRC;
+    @Value("#{app.img.url}")
+    public static String IMG_SRC2;
+    @Value("${img.url}")
+    public static String IMG_SRC3;
+    @Value("#{img.url}")
+    public static String IMG_SRC4;
+
+    /*@Autowired
+    private Environment env;
+    public static String IMG_SRC1; = env.getProperty("img.url")*/
+
 
 
     /**
@@ -42,12 +58,24 @@ public class DashboardController {
 
     @RequestMapping(value = "/index.html", method = RequestMethod.GET)
     public ModelAndView showListEvent() {
+
+        /*Properties prop = new Properties();
+        try {
+            InputStream inStream = getClass().getClassLoader().getResourceAsStream("app.properties");
+            prop.load(inStream);
+            inStream.close();
+        } catch (IOException e) {
+            //return DEFAULT_PAGE_SIZE;
+        }
+        String str = prop.getProperty("img.url");
+        String IMG_SRC = str.substring(1, str.length() - 1); */
+
         ModelAndView modelAndView = new ModelAndView("index");
         List<Event> results  = IEventDao.getAllEvent();
         for (Event item : results) {
             String img = item.getImg();
-            img = "/space_adventures/resources/img/" + img;
-            //img = imgSrc + img;
+            //img = "/space_adventures/resources/img/" + img;
+            img = IMG_SRC + img;
             item.setImg(img);
         }
         modelAndView.addObject("events", results);
