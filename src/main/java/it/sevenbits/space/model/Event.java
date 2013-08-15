@@ -80,7 +80,7 @@ public class Event implements Serializable {
             return "";
         } else {
             DateTime dateTime = new DateTime(date);
-            String buff = dateTime.toString("MM.dd.yyyy");
+            String buff = dateTime.toString("dd MMMM yyyy");
             return buff;
         }
     }

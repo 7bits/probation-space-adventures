@@ -50,13 +50,15 @@ footer {position: relative;
 
 
 #search-text{
+    float:left;
+
     color:white;
     background-color: #3e3c43;
     padding-left: 5px;
     margin-right: -4px;
-    margin-top: 2px;
+    margin-top: 1px;
     height:22px;
-    width:179px;
+    width: 179px;
     border: 1px solid #50454D;
 
     -webkit-border-radius: 5px 0px 0px 5px;
@@ -65,10 +67,11 @@ footer {position: relative;
 
     box-shadow: 2px -2px 11px 1px rgba(0, 0, 0, 0.5) inset;
     -webkit-box-shadow:  2px -2px 11px 1px rgba(0, 0, 0, 0.5) inset;
-
 }
 
 #search-button{
+    float:left;
+
     width:37px;
     height:25px;
     background-image:url(../img/search.jpg);
@@ -174,32 +177,6 @@ header{
     -moz-border-radius: 6px;
     border-radius: 6px;
 }
-/*
-#search{
-    width:550px;
-    padding:10px;
-    background: rgba(0,0,0,0);
-    color:#FFF;
-    border:none;
-    font-size:14px;
-}       */
-/*#search-button{
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    border-radius: 6px;
-    float:right;
-    color:#FFF;
-    height:40px;
-    width:125px;
-    background: rgba(0,0,0,0.8);
-    opacity:0.8;
-    border:none;
-}
-#search-button:hover{
-    opacity:1;
-    cursor:pointer;
-    background: rgba(0,0,0,1);
-}     */
 
 .block{
     height: 152px;
@@ -337,14 +314,6 @@ header{
 #filtr div:hover{
     background: rgba(256,256,256,1);
 }
-
-#filtr #admin{
-    /*background-color: #099;*/
-}
-#filtr #user{
-    /*background-color: #06C;*/
-}
-
 
 #wrapper{
     margin:0 auto;

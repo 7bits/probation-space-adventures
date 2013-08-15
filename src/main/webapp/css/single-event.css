@@ -61,7 +61,7 @@
     width:130px;
     height:130px;
     float:left;
-    margin: 25px 48px 39px 5px;
+    margin: 25px 39px 30px 5px;
 }
 
 
@@ -82,10 +82,10 @@
 .single-event-date{
  color: #999999;
     float:left;
-    font-size: 12px;
+    font-size: 15px;
     line-height: 35px;
     text-align: right;
-    width: 110px;
+    width: 120px;
 }
 
 .single-event-content{
@@ -93,6 +93,8 @@
     //height:98px;
     margin: 25px 35px 35px 0;
     width:100%;
+    line-height: 23px;
+    text-align: left;
 }
 
 @-moz-document url-prefix() { /*правило для firefox*/
