@@ -47,7 +47,7 @@
           <div id="vk_comments" class="vk_comments"></div>
           <script type="text/javascript">
           VK.Widgets.Comments("vk_comments", {limit: 15, width: "700", attach: "photo,video,audio"});
-          </script>
+          </script>*
 
        </div>
     </div>

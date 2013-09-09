@@ -14,7 +14,7 @@ $('#close').click(function(){
 function closePost() {
     $.ajax({
         type: "GET",
-        url: "/space_adventures/subscribe-form.html",
+        url: "subscribe-form.html",
         success: function(data){
             $('#subscribe-form-div').empty();
         },
