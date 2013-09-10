@@ -1,11 +1,11 @@
-package it.sevenbits.space.controller;
+package it.sevenbits.space.web.controller;
 
 import it.sevenbits.space.dao.IEventDao;
 import it.sevenbits.space.dao.ISubscriptionDao;
-import it.sevenbits.space.forms.SubscriptionForm;
+import it.sevenbits.space.web.form.SubscriptionForm;
 import it.sevenbits.space.model.Event;
 import it.sevenbits.space.model.Subscription;
-import it.sevenbits.space.validators.SubscriptionVaildator;
+import it.sevenbits.space.web.validator.SubscriptionVaildator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -40,7 +40,7 @@ public class DashboardController {
     @RequestMapping(value = {"/index.html"}, method = RequestMethod.GET)
     public ModelAndView showListEvent() {
         ModelAndView modelAndView = new ModelAndView("index");
-        List<Event> results  = IEventDao.getAllEvent();
+        List<Event> results  = IEventDao.findAllEvents();
         for (Event item : results) {
             String img = item.getImg();
             img = "/space_adventures/resources/img/" + img;
@@ -64,7 +64,7 @@ public class DashboardController {
         }
         Subscription subscription = new Subscription();
         subscription.setEmail(subscriptionForm.getEmail());
-        ISubscriptionDao.create(subscription);
+        ISubscriptionDao.addSubscription(subscription);
         return null;
     }
 

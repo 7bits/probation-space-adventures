@@ -1,4 +1,4 @@
-package it.sevenbits.space.dao.impl;
+package it.sevenbits.space.dao.hibernate;
 
 import it.sevenbits.space.dao.ISubscriptionDao;
 import it.sevenbits.space.model.Subscription;
@@ -14,8 +14,23 @@ public class SubscriptionDao extends DaoTemplate implements ISubscriptionDao {
 
     @Transactional
     @Override
-    public void create(final Subscription subscription) {
+    public void addSubscription(final Subscription subscription) {
         getEntityManager().persist(subscription);
+    }
+
+    @Override
+    public List<Subscription> findAllSubscriptions() {
+        return null;  //To Do.
+    }
+
+    @Override
+    public void removeSubscription(Long id) {
+        //To Do.
+    }
+
+    @Override
+    public Subscription findSubscriptionById(Long id) {
+        return null;  //To Do.
     }
 
     @Transactional
@@ -27,9 +42,4 @@ public class SubscriptionDao extends DaoTemplate implements ISubscriptionDao {
                 setParameter("email", email).getResultList();
         return !result.isEmpty();
     }
-
-
-
-
-
 }

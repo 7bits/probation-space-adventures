@@ -1,7 +1,7 @@
-package it.sevenbits.space.validators;
+package it.sevenbits.space.web.validator;
 
 import it.sevenbits.space.dao.ISubscriptionDao;
-import it.sevenbits.space.forms.SubscriptionForm;
+import it.sevenbits.space.web.form.SubscriptionForm;
 import org.apache.commons.validator.routines.EmailValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

@@ -1,4 +1,4 @@
-package it.sevenbits.space.dao.impl;
+package it.sevenbits.space.dao.hibernate;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

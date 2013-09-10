@@ -1,4 +1,4 @@
-package it.sevenbits.space.forms;
+package it.sevenbits.space.web.form;
 
 public class SearchEventForm {
 

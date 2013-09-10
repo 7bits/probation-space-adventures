@@ -1,4 +1,4 @@
-package it.sevenbits.space.controller;
+package it.sevenbits.space.web.controller;
 
 import it.sevenbits.space.dao.IEventDao;
 import it.sevenbits.space.model.Event;
@@ -22,7 +22,7 @@ public class SingleEventController {
     @RequestMapping(value = "/event.html", method = RequestMethod.GET)
     public ModelAndView listEvent(@RequestParam final Long id) {
         ModelAndView modelAndView = new ModelAndView("event");
-        Event result  = iEventDao.searchEventById(id);
+        Event result  = iEventDao.findEventById(id);
         String img = result.getImg();
         img = IMG_URL + img;
         result.setImg(img);
