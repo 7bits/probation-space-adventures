@@ -8,10 +8,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 
 /**
- * validation of email from org.apache.commons.validator.routines.EmailValidator library
+ * Validation of email from org.apache.commons.validator.routines.EmailValidator library
  */
 @Component
-public class SubscriptionVaildator implements org.springframework.validation.Validator {
+public class SubscriptionValidator implements org.springframework.validation.Validator {
 
     @Autowired
     private ISubscriptionDao ISubscriptionDao;
@@ -29,11 +29,10 @@ public class SubscriptionVaildator implements org.springframework.validation.Val
     }
 
     /**
-     * <p> Проверка формы на валидность  </p>
-     * @param email Электронный адресс
+     * Checks subscription information.
+     * @param email subscriber email.
      * @param errors
      */
-
     private void validateEmail(final String email, final Errors errors) {
 
         boolean isValidEmail = EmailValidator.getInstance().isValid(email);
@@ -46,7 +45,11 @@ public class SubscriptionVaildator implements org.springframework.validation.Val
         }
     }
 
-
+    /**
+     * Checks if the email is not already exist in database.
+     * @param email email to check.
+     * @return true if it is new email, false else.
+     */
     private boolean isUnique(final String email) {
         return !ISubscriptionDao.exists(email);
     }

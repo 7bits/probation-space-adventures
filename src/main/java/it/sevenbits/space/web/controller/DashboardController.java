@@ -5,7 +5,7 @@ import it.sevenbits.space.dao.ISubscriptionDao;
 import it.sevenbits.space.web.form.SubscriptionForm;
 import it.sevenbits.space.model.Event;
 import it.sevenbits.space.model.Subscription;
-import it.sevenbits.space.web.validator.SubscriptionVaildator;
+import it.sevenbits.space.web.validator.SubscriptionValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -30,13 +30,12 @@ public class DashboardController {
     private IEventDao IEventDao;
 
     @Autowired
-    private SubscriptionVaildator subscriptionVaildator;
+    private SubscriptionValidator subscriptionValidator;
 
     /**
-     * <p>Отображает список событий на главной страницк</p>
-     *
+     * Displays a list of events on the main page.
+     * @return index page view.
      */
-
     @RequestMapping(value = {"/index.html"}, method = RequestMethod.GET)
     public ModelAndView showListEvent() {
         ModelAndView modelAndView = new ModelAndView("index");
@@ -51,12 +50,14 @@ public class DashboardController {
     }
 
     /**
-     * <p>КДобавление электронного адресса подписчика в базу данных,
-     * в случае успешной валидации. В противном случае, отрисовывается форма с ошибкой</p>
-     * @param subscriptionForm объект - форма подписки
+     * Saves an subscriber email in the database in case of successful validation.
+     * In case of an error displays alert form.
+     * @param subscriptionForm Object with subscription information.
+     * @param result result of email validation.
+     * @return null if success, subscription form view else.
      */
     @RequestMapping(value = {"/index.html"}, method = RequestMethod.POST)
-    public ModelAndView addEventOnMain(@Valid final SubscriptionForm subscriptionForm, final BindingResult result) {
+    public ModelAndView addSubscription(@Valid final SubscriptionForm subscriptionForm, final BindingResult result) {
         if (result.hasErrors()) {
             ModelAndView modelAndView = new ModelAndView("subscribe-form");
             modelAndView.addObject("subscriptionForm", subscriptionForm);
@@ -69,10 +70,11 @@ public class DashboardController {
     }
 
     /**
-     * Отрисовка формы
+     * Displays subscription form.
+     * @return subscription form view.
      */
     @RequestMapping(value = "/subscribe-form.html", method = RequestMethod.GET)
-    public ModelAndView addSubscription() {
+    public ModelAndView displaySubscription() {
         SubscriptionForm subscriptionForm = new SubscriptionForm();
         ModelAndView modelAndView = new ModelAndView("subscribe-form");
         modelAndView.addObject("subscriptionForm", subscriptionForm);
@@ -81,6 +83,6 @@ public class DashboardController {
 
     @InitBinder
     protected void initBinder(final WebDataBinder binder) {
-        binder.setValidator(subscriptionVaildator);
+        binder.setValidator(subscriptionValidator);
     }
 }

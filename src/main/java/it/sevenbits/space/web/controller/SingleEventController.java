@@ -8,8 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
 /**
- * <p>Контроллер, отвечающий за отображение страницы одного события</p>
+ * The controller is responsible for displaying the page of one event.
  */
 @Controller
 public class SingleEventController {
@@ -19,6 +20,11 @@ public class SingleEventController {
     @Autowired
     private IEventDao iEventDao;
 
+    /**
+     * Displays page with one event.
+     * @param id event primary key.
+     * @return page view.
+     */
     @RequestMapping(value = "/event.html", method = RequestMethod.GET)
     public ModelAndView listEvent(@RequestParam final Long id) {
         ModelAndView modelAndView = new ModelAndView("event");
