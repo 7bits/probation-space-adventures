@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface ISubscriptionDao {
 
-    void addSubscription(final Subscription subscription);
+    Subscription addSubscription(final Subscription subscription);
+
+    boolean removeSubscription(final Long id);
 
     List<Subscription> findAllSubscriptions();
-
-    void removeSubscription(final Long id);
 
     Subscription findSubscriptionById(final Long id);
 

@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface IEventDao {
 
-    void addEvent(final Event event);
+    Event addEvent(final Event event);
+
+    boolean removeEvent(final Long id);
 
     List<Event> findAllEvents();
-
-    void removeEvent(final Long id);
 
     Event findEventById(final Long id);
 }

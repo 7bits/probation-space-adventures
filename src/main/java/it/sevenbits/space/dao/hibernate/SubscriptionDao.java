@@ -6,16 +6,21 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
-
 @Repository
-public class SubscriptionDao extends DaoTemplate implements ISubscriptionDao {
+public class SubscriptionDao implements ISubscriptionDao {
+
+    @PersistenceContext
+    private EntityManager entityManager;
 
     @Transactional
     @Override
-    public void addSubscription(final Subscription subscription) {
-        getEntityManager().persist(subscription);
+    public Subscription addSubscription(final Subscription subscription) {
+        entityManager.persist(subscription);
+        entityManager.flush();
+        return entityManager.find(Subscription.class, subscription.getId());
     }
 
     @Override
@@ -24,22 +29,28 @@ public class SubscriptionDao extends DaoTemplate implements ISubscriptionDao {
     }
 
     @Override
-    public void removeSubscription(Long id) {
+    public boolean removeSubscription(Long id) {
         //To Do.
+        return false;
     }
 
+    @Transactional
     @Override
     public Subscription findSubscriptionById(Long id) {
-        return null;  //To Do.
+        Subscription result = entityManager.
+                createQuery("select s from Subscription s where s.id = :id", Subscription.class).
+                setParameter("id", id).
+                getSingleResult();
+        return result;
     }
 
     @Transactional
     @Override
     public boolean exists(final String email) {
-        EntityManager entityManager = this.getEntityManager();
-        List<Subscription> result =
-            getEntityManager().createQuery("select s from Subscription s where s.email = :email", Subscription.class).
-                setParameter("email", email).getResultList();
+        List<Subscription> result = entityManager.
+                createQuery("select s from Subscription s where s.email = :email", Subscription.class).
+                setParameter("email", email).
+                getResultList();
         return !result.isEmpty();
     }
 }
