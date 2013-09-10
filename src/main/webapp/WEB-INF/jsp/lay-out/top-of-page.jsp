@@ -6,13 +6,17 @@
             <div id="logo">
                 <img src="/space_adventures/resources/img/logo.png" alt="logo">
             </div>
-         </a>
-         <div id="search">
-            <input type="text" id="search-text" placeholder="Поиск...">
-            <input type="submit" id="search-button" value=""/>
-         </div>
-         <div id="top-menu">
-         </div>
+        </a>
+
+
+            <form:form commandName="searchEventForm" id="search">
+                <form:input path="email" type="text" id="search-text" placeholder="Поиск..."/>        </form:form>
+                <form:input type="submit" id="search-button" value=""/>
+            </form:form>
+
+
+        <div id="top-menu">
+        </div>
     </div>
 </div>
 <p id="back-top">
