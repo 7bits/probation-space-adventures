@@ -2,9 +2,9 @@ package it.sevenbits.space.web.controller;
 
 import it.sevenbits.space.dao.IEventDao;
 import it.sevenbits.space.dao.ISubscriptionDao;
-import it.sevenbits.space.web.form.SubscriptionForm;
 import it.sevenbits.space.model.Event;
 import it.sevenbits.space.model.Subscription;
+import it.sevenbits.space.web.form.SubscriptionForm;
 import it.sevenbits.space.web.validator.SubscriptionValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -39,6 +39,7 @@ public class DashboardController {
     @RequestMapping(value = {"/index.html"}, method = RequestMethod.GET)
     public ModelAndView showListEvent() {
         ModelAndView modelAndView = new ModelAndView("index");
+
         List<Event> results  = IEventDao.findAllEvents();
         for (Event item : results) {
             String img = item.getImg();
