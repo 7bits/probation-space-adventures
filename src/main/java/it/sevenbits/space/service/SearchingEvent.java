@@ -20,7 +20,7 @@ public class SearchingEvent {
     @PersistenceContext          //предназаначена для автоматического связывания менеджера сущностей с бином.
     private EntityManager entityManager;
 
-    public List<Event> searchEvent(String searchingText) {
+    public List<Event> findEvents(final String searchingText) {
         List<Event> results = new LinkedList<Event>();
         if (entityManager != null) {
             //выбираем элементы списка, совпадающие с текстом, занесённым в форму поиска. для экронирования используем setParameter
@@ -30,17 +30,3 @@ public class SearchingEvent {
         return results;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

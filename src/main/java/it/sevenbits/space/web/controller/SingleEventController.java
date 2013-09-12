@@ -25,7 +25,7 @@ public class SingleEventController {
      * @param id event primary key.
      * @return page view.
      */
-    @RequestMapping(value = "/event.html", method = RequestMethod.GET)
+    @RequestMapping(value = "/event", method = RequestMethod.GET)
     public ModelAndView listEvent(@RequestParam final Long id) {
         ModelAndView modelAndView = new ModelAndView("event");
         Event result  = iEventDao.findEventById(id);

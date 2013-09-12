@@ -21,7 +21,7 @@
        </script>
    <div id="content">
                <c:forEach items="${events}" var="events">
-                   <a href="event.html?id=${events.id}">
+                   <a href="event?id=${events.id}">
                        <div id="event-block" class="block">
                            <div > <img type="image/jpeg" class="img-block" src="${events.img}"> </div>
                            <div class="text-block">

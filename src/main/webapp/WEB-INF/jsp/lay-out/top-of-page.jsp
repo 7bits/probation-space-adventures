@@ -11,7 +11,7 @@
             </div>
         </a>
 
-        <form:form commandName="searchEventForm" id="search" action="index.html">
+        <form:form commandName="searchEventForm" id="search" action="index.html?search=true">
             <input path="name" placeholder="Поиск..." id="search-text"/>
             <input type="submit" id="search-button" value=""/>
         </form:form>

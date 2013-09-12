@@ -4,6 +4,8 @@ import it.sevenbits.space.dao.IEventDao;
 import it.sevenbits.space.dao.ISubscriptionDao;
 import it.sevenbits.space.model.Event;
 import it.sevenbits.space.model.Subscription;
+import it.sevenbits.space.service.SearchingEvent;
+import it.sevenbits.space.web.form.SearchEventForm;
 import it.sevenbits.space.web.form.SubscriptionForm;
 import it.sevenbits.space.web.validator.SubscriptionValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
@@ -32,21 +35,41 @@ public class DashboardController {
     @Autowired
     private SubscriptionValidator subscriptionValidator;
 
+    SearchEventForm searchEventForm = new SearchEventForm();
+
+    @RequestMapping(value = {"/index.html", "/"}, params = "search=true", method = RequestMethod.POST)
+    public ModelAndView searchPage() {
+        ModelAndView modelAndView = new ModelAndView("index");
+        return modelAndView;
+    }
+
     /**
      * Displays a list of events on the main page.
      * @return index page view.
      */
-    @RequestMapping(value = {"/index.html"}, method = RequestMethod.GET)
-    public ModelAndView showListEvent() {
-        ModelAndView modelAndView = new ModelAndView("index");
+    @RequestMapping(value = {"/index.html", "/"}, method = RequestMethod.GET)
+    public ModelAndView showListEvent(@RequestParam(value = "search", required = false) boolean search) {
 
-        List<Event> results  = IEventDao.findAllEvents();
+        ModelAndView modelAndView = new ModelAndView("index");
+        SearchingEvent searchingEvent = new SearchingEvent();
+        SearchEventForm searchEventForm = new SearchEventForm();
+
+        List<Event> results  = null;
+
+
+        if (search == true){
+            results  = searchingEvent.findEvents(searchEventForm.getName());
+        } else {
+            results  = IEventDao.findAllEvents();
+        }
+
         for (Event item : results) {
             String img = item.getImg();
             img = "/space_adventures/resources/img/" + img;
             item.setImg(img);
         }
         modelAndView.addObject("events", results);
+
         return modelAndView;
     }
 
