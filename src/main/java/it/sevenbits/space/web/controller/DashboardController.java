@@ -40,6 +40,7 @@ public class DashboardController {
     @RequestMapping(value = {"/index.html", "/"}, params = "search=true", method = RequestMethod.POST)
     public ModelAndView searchPage() {
         ModelAndView modelAndView = new ModelAndView("index");
+        //searchEventForm.setName();
         return modelAndView;
     }
 
@@ -52,15 +53,13 @@ public class DashboardController {
 
         ModelAndView modelAndView = new ModelAndView("index");
         SearchingEvent searchingEvent = new SearchingEvent();
-        SearchEventForm searchEventForm = new SearchEventForm();
 
         List<Event> results  = null;
 
-
-        if (search == true){
-            results  = searchingEvent.findEvents(searchEventForm.getName());
+        if (search == true && searchEventForm.getName()!=null && searchEventForm.getName()!="" ){
+            results = IEventDao.findEventsByString(searchEventForm.getName());
         } else {
-            results  = IEventDao.findAllEvents();
+            results = IEventDao.findAllEvents();
         }
 
         for (Event item : results) {

@@ -32,4 +32,6 @@ public interface IEventDao {
      * @return Event if success, null else.
      */
     Event findEventById(final Long id);
+
+    List<Event> findEventsByString(String searchingText);
 }
