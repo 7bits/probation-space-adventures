@@ -1,7 +1,7 @@
 package it.sevenbits.space.dao.hibernate;
 
 import it.sevenbits.space.dao.IEventDao;
-import it.sevenbits.space.model.Event;
+import it.sevenbits.space.domain.Event;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 

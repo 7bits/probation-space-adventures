@@ -1,7 +1,7 @@
 package it.sevenbits.space.web.controller;
 
 import it.sevenbits.space.dao.IEventDao;
-import it.sevenbits.space.model.Event;
+import it.sevenbits.space.domain.Event;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

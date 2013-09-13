@@ -2,30 +2,24 @@
 <beans:beans xmlns="http://www.springframework.org/schema/security"
     xmlns:beans="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="
-        http://www.springframework.org/schema/beans
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
         http://www.springframework.org/schema/security
         http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 
-    <!--<http pattern="/css/**" security="none" />-->
+    <http pattern="/css/**" security="none"/>
+    <http pattern="/img/**" security="none"/>
+    <http pattern="/js/**" security="none"/>
 
     <http auto-config='true'>
-        <!--<intercept-url pattern="/css/**" filters="none"/>-->
-        <intercept-url pattern="/index.*" access="ROLE_ANONYMOUS, ROLE_USER" />
-        <intercept-url pattern="/subscribe-form.*" access="ROLE_USER" />
-        <intercept-url pattern="/event.*" access="ROLE_ADMIN" />
-        <!--<intercept-url pattern="/**" access="ROLE_ANONYMOUS"/>-->
-        <anonymous username="guest" granted-authority="ROLE_ANONYMOUS"/>
+        <intercept-url pattern="/event.htm*" access="ROLE_USER"/>
+        <form-login login-page="/signin.html"
+                    authentication-failure-url="/signin-failure.html"
+                    default-target-url="/index.html" />
     </http>
 
     <authentication-manager>
-        <authentication-provider>
-            <user-service>
-                <user name="admin" password="adminpassword" authorities="ROLE_USER, ROLE_ADMIN" />
-                <user name="user" password="userpassword" authorities="ROLE_USER" />
-            </user-service>
-        </authentication-provider>
+        <authentication-provider user-service-ref="customUserDetailsService"/>
     </authentication-manager>
 
 </beans:beans>

@@ -1,6 +1,6 @@
 package it.sevenbits.space.dao;
 
-import it.sevenbits.space.model.Subscription;
+import it.sevenbits.space.domain.Subscription;
 
 import java.util.List;
 
