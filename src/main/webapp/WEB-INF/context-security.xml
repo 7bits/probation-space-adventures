@@ -7,15 +7,16 @@
         http://www.springframework.org/schema/security
         http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 
-    <http pattern="/css/**" security="none"/>
-    <http pattern="/img/**" security="none"/>
-    <http pattern="/js/**" security="none"/>
+    <!--<http pattern="/css/**" security="none"/>-->
+    <!--<http pattern="/img/**" security="none"/>-->
+    <!--<http pattern="/js/**" security="none"/>-->
 
     <http auto-config='true'>
         <intercept-url pattern="/event.htm*" access="ROLE_USER"/>
         <form-login login-page="/signin.html"
                     authentication-failure-url="/signin-failure.html"
                     default-target-url="/index.html" />
+        <logout logout-success-url="/index.html" />
     </http>
 
     <authentication-manager>

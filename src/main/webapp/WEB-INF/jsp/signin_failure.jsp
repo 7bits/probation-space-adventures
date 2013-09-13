@@ -8,5 +8,6 @@
 </head>
 <body>
 	<h1>Spring Security - Sign In Failure</h1>
+	<a href="<c:url value="/index.html" />" > index</a>
 </body>
 </html>

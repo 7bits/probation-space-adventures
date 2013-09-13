@@ -2,7 +2,7 @@
 
 <div id="top-line">
     <div id="top-container" class="top-container centr">
-         <a id="main-href" href="index.html">
+         <a id="main-href" href="user.html">
             <div id="logo">
                 <img src="/space_adventures/resources/img/logo.png" alt="logo">
             </div>
