@@ -11,8 +11,9 @@
     <!--<http pattern="/img/**" security="none"/>-->
     <!--<http pattern="/js/**" security="none"/>-->
 
-    <http auto-config='true'>
-        <intercept-url pattern="/event.htm*" access="ROLE_USER, ROLE_MODERATOR, ROLE_ADMIN"/>
+    <http auto-config="true" use-expressions="true">
+        <!--<intercept-url pattern="/event.htm*" access="ROLE_USER, ROLE_MODERATOR, ROLE_ADMIN"/>-->
+        <intercept-url pattern="/event.htm*" access="hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')"/>
         <form-login login-page="/signin.html"
                     authentication-failure-url="/signin-failure.html"
                     default-target-url="/index.html" />

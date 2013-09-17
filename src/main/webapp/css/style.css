@@ -40,6 +40,17 @@ footer {position: relative;
     margin-top:-32767px;/* thank you Erik J - negate effect of float*/
 }
 
+#security-nav{
+    float: left;
+    margin-left: 40px;
+    margin-right: -240px;
+}
+
+#security-nav a {
+    text-decoration: none;
+    color: white;
+}
+
 #search{
     width:224px;
     height:23px;
