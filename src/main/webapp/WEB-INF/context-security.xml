@@ -12,7 +12,7 @@
     <!--<http pattern="/js/**" security="none"/>-->
 
     <http auto-config='true'>
-        <intercept-url pattern="/event.htm*" access="ROLE_USER"/>
+        <intercept-url pattern="/event.htm*" access="ROLE_USER, ROLE_MODERATOR, ROLE_ADMIN"/>
         <form-login login-page="/signin.html"
                     authentication-failure-url="/signin-failure.html"
                     default-target-url="/index.html" />

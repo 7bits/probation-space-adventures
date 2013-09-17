@@ -2,9 +2,9 @@ package it.sevenbits.space.web.controller;
 
 import it.sevenbits.space.dao.IEventDao;
 import it.sevenbits.space.dao.ISubscriptionDao;
-import it.sevenbits.space.web.form.SubscriptionForm;
 import it.sevenbits.space.domain.Event;
 import it.sevenbits.space.domain.Subscription;
+import it.sevenbits.space.web.form.SubscriptionForm;
 import it.sevenbits.space.web.validator.SubscriptionValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
