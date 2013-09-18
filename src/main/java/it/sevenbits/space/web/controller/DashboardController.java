@@ -35,12 +35,25 @@ public class DashboardController {
     @Autowired
     private SubscriptionValidator subscriptionValidator;
 
+    String search = new String();
+
     SearchEventForm searchEventForm = new SearchEventForm();
 
-    @RequestMapping(value = {"/index.html", "/"}, params = "search=true", method = RequestMethod.POST)
-    public ModelAndView searchPage() {
+    @RequestMapping(value = {"/index.html", "/"}, method = RequestMethod.POST)
+    public ModelAndView searchPage(final SearchEventForm searchEventForm) {
         ModelAndView modelAndView = new ModelAndView("index");
         //searchEventForm.setName();
+
+        search = searchEventForm.getName();
+        List<Event> results  = null;
+        results = IEventDao.findEventsByString(search);
+        for (Event item : results) {
+            String img = item.getImg();
+            img = "/space_adventures/resources/img/" + img;
+            item.setImg(img);
+        }
+        modelAndView.addObject("events", results);
+
         return modelAndView;
     }
 
@@ -49,18 +62,16 @@ public class DashboardController {
      * @return index page view.
      */
     @RequestMapping(value = {"/index.html", "/"}, method = RequestMethod.GET)
-    public ModelAndView showListEvent(@RequestParam(value = "search", required = false) boolean search) {
+    public ModelAndView showListEvent(/*@RequestParam(value = "search", required = false, defaultValue="") String search*/) {
 
         ModelAndView modelAndView = new ModelAndView("index");
-        SearchingEvent searchingEvent = new SearchingEvent();
-
         List<Event> results  = null;
 
-        if (search == true && searchEventForm.getName()!=null && searchEventForm.getName()!="" ){
-            results = IEventDao.findEventsByString(searchEventForm.getName());
-        } else {
+//        if (search == "" ){
             results = IEventDao.findAllEvents();
-        }
+//        } else {
+//            results = IEventDao.findEventsByString(search);
+//        }
 
         for (Event item : results) {
             String img = item.getImg();
@@ -79,7 +90,7 @@ public class DashboardController {
      * @param result result of email validation.
      * @return null if success, subscription form view else.
      */
-    @RequestMapping(value = {"/index.html"}, method = RequestMethod.POST)
+    /*@RequestMapping(value = {"/index.html"}, method = RequestMethod.POST)
     public ModelAndView addSubscription(@Valid final SubscriptionForm subscriptionForm, final BindingResult result) {
         if (result.hasErrors()) {
             ModelAndView modelAndView = new ModelAndView("subscribe-form");
@@ -90,22 +101,22 @@ public class DashboardController {
         subscription.setEmail(subscriptionForm.getEmail());
         ISubscriptionDao.addSubscription(subscription);
         return null;
-    }
-
-    /**
-     * Displays subscription form.
-     * @return subscription form view.
-     */
-    @RequestMapping(value = "/subscribe-form.html", method = RequestMethod.GET)
-    public ModelAndView displaySubscription() {
-        SubscriptionForm subscriptionForm = new SubscriptionForm();
-        ModelAndView modelAndView = new ModelAndView("subscribe-form");
-        modelAndView.addObject("subscriptionForm", subscriptionForm);
-        return modelAndView;
-    }
-
-    @InitBinder
-    protected void initBinder(final WebDataBinder binder) {
-        binder.setValidator(subscriptionValidator);
-    }
+    }                    */
+//
+//    /**
+//     * Displays subscription form.
+//     * @return subscription form view.
+//     */
+//    @RequestMapping(value = "/subscribe-form.html", method = RequestMethod.GET)
+//    public ModelAndView displaySubscription() {
+//        SubscriptionForm subscriptionForm = new SubscriptionForm();
+//        ModelAndView modelAndView = new ModelAndView("subscribe-form");
+//        modelAndView.addObject("subscriptionForm", subscriptionForm);
+//        return modelAndView;
+//    }
+//
+//    @InitBinder
+//    protected void initBinder(final WebDataBinder binder) {
+//        binder.setValidator(subscriptionValidator);
+//    }
 }
