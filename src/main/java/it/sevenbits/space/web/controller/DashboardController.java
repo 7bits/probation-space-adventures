@@ -35,8 +35,6 @@ public class DashboardController {
     @Autowired
     private SubscriptionValidator subscriptionValidator;
 
-    String search = new String();
-
     SearchEventForm searchEventForm = new SearchEventForm();
 
     @RequestMapping(value = {"/index.html", "/"}, method = RequestMethod.POST)
@@ -44,15 +42,6 @@ public class DashboardController {
         ModelAndView modelAndView = new ModelAndView("index");
         //searchEventForm.setName();
 
-        search = searchEventForm.getName();
-        List<Event> results  = null;
-        results = IEventDao.findEventsByString(search);
-        for (Event item : results) {
-            String img = item.getImg();
-            img = "/space_adventures/resources/img/" + img;
-            item.setImg(img);
-        }
-        modelAndView.addObject("events", results);
 
         return modelAndView;
     }
@@ -62,16 +51,18 @@ public class DashboardController {
      * @return index page view.
      */
     @RequestMapping(value = {"/index.html", "/"}, method = RequestMethod.GET)
-    public ModelAndView showListEvent(/*@RequestParam(value = "search", required = false, defaultValue="") String search*/) {
+    public ModelAndView showListEvent(@RequestParam(value = "search", required = false, defaultValue="") String search, final SearchEventForm searchEventForm) {
 
         ModelAndView modelAndView = new ModelAndView("index");
+        SearchingEvent searchingEvent = new SearchingEvent();
+
         List<Event> results  = null;
 
-//        if (search == "" ){
+        if (search == "" ){
             results = IEventDao.findAllEvents();
-//        } else {
-//            results = IEventDao.findEventsByString(search);
-//        }
+        } else {
+            results = IEventDao.findEventsByString(search);
+        }
 
         for (Event item : results) {
             String img = item.getImg();
