@@ -3,7 +3,8 @@
     left:37%;
     top:30%;
     width:360px;
-    height:140px;
+    //height:140px;
+    padding-bottom: 15px;
     background-color:#CCC;
     z-index:50;
 
@@ -51,6 +52,76 @@
 
 }
 
+.popup-form-input-head{
+    padding-left:5px;
+
+    -webkit-box-shadow:  inset 2px 3px 6px 1px rgba(0, 0, 0, 0.3);
+    box-shadow:  inset 2px 3px 6px 1px rgba(0, 0, 0, 0.3);
+    background-color:#edebed;
+    height:24px;
+    width:253px;
+    float:right;
+    margin: 29px 12px 7px 0px;
+
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    border:none;
+
+}
+
+.popup-form-input{
+    padding-left:5px;
+
+    -webkit-box-shadow:  inset 2px 3px 6px 1px rgba(0, 0, 0, 0.3);
+    box-shadow:  inset 2px 3px 6px 1px rgba(0, 0, 0, 0.3);
+    background-color:#edebed;
+    height:24px;
+    width:253px;
+    float:right;
+    margin: 10px 12px 7px 0px;
+
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    border:none;
+
+}
+
+#j_username{
+    padding-left:5px;
+
+    -webkit-box-shadow:  inset 2px 3px 6px 1px rgba(0, 0, 0, 0.3);
+    box-shadow:  inset 2px 3px 6px 1px rgba(0, 0, 0, 0.3);
+    background-color:#edebed;
+    height:24px;
+    width:253px;
+    float:right;
+    margin: 29px 12px 7px 0px;
+
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    border:none;
+}
+
+#j_password{
+    padding-left:5px;
+
+    -webkit-box-shadow:  inset 2px 3px 6px 1px rgba(0, 0, 0, 0.3);
+    box-shadow:  inset 2px 3px 6px 1px rgba(0, 0, 0, 0.3);
+    background-color:#edebed;
+    height:24px;
+    width:253px;
+    float:right;
+    margin: 10px 12px 7px 0px;
+
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    border:none;
+}
+
 form img {
     float:left;
     width:75px;
@@ -66,7 +137,9 @@ form img {
     margin-right:12px;
     margin-top:5px;
     height:28px;
-    width:100px;
+    //width:100px;
+    min-width: 100px;
+    padding: 0px 10px;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     border-radius: 6px;
