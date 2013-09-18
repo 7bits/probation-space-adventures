@@ -35,34 +35,38 @@ public class DashboardController {
     @Autowired
     private SubscriptionValidator subscriptionValidator;
 
-    SearchEventForm searchEventForm = new SearchEventForm();
+    //String search = new String();
 
-    @RequestMapping(value = {"/index.html", "/"}, method = RequestMethod.POST)
-    public ModelAndView searchPage(final SearchEventForm searchEventForm) {
-        ModelAndView modelAndView = new ModelAndView("index");
-        //searchEventForm.setName();
+   /* SearchEventForm searchEventForm = new SearchEventForm();
 
 
-        return modelAndView;
-    }
+    protected ModelAndView onSubmit(HttpServletRequest request,
+		HttpServletResponse response, Object command, BindException errors)
+		throws Exception {
+
+		Customer customer = (Customer)command;
+		System.out.println(customer);
+		return new ModelAndView("CustomerSuccess","customer",customer);
+	}
+     */
+
+
 
     /**
      * Displays a list of events on the main page.
      * @return index page view.
      */
     @RequestMapping(value = {"/index.html", "/"}, method = RequestMethod.GET)
-    public ModelAndView showListEvent(@RequestParam(value = "search", required = false, defaultValue="") String search, final SearchEventForm searchEventForm) {
+    public ModelAndView showListEvent(@RequestParam(value = "search", required = false, defaultValue="") String search) {
 
         ModelAndView modelAndView = new ModelAndView("index");
-        SearchingEvent searchingEvent = new SearchingEvent();
-
         List<Event> results  = null;
 
-        if (search == "" ){
+//        if (search == "" ){
             results = IEventDao.findAllEvents();
-        } else {
-            results = IEventDao.findEventsByString(search);
-        }
+//        } else {
+//            results = IEventDao.findEventsByString(search);
+//        }
 
         for (Event item : results) {
             String img = item.getImg();
@@ -81,7 +85,7 @@ public class DashboardController {
      * @param result result of email validation.
      * @return null if success, subscription form view else.
      */
-    /*@RequestMapping(value = {"/index.html"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"/index.html"}, method = RequestMethod.POST)
     public ModelAndView addSubscription(@Valid final SubscriptionForm subscriptionForm, final BindingResult result) {
         if (result.hasErrors()) {
             ModelAndView modelAndView = new ModelAndView("subscribe-form");
@@ -92,22 +96,22 @@ public class DashboardController {
         subscription.setEmail(subscriptionForm.getEmail());
         ISubscriptionDao.addSubscription(subscription);
         return null;
-    }                    */
-//
-//    /**
-//     * Displays subscription form.
-//     * @return subscription form view.
-//     */
-//    @RequestMapping(value = "/subscribe-form.html", method = RequestMethod.GET)
-//    public ModelAndView displaySubscription() {
-//        SubscriptionForm subscriptionForm = new SubscriptionForm();
-//        ModelAndView modelAndView = new ModelAndView("subscribe-form");
-//        modelAndView.addObject("subscriptionForm", subscriptionForm);
-//        return modelAndView;
-//    }
-//
-//    @InitBinder
-//    protected void initBinder(final WebDataBinder binder) {
-//        binder.setValidator(subscriptionValidator);
-//    }
+    }
+
+    /**
+     * Displays subscription form.
+     * @return subscription form view.
+     */
+    @RequestMapping(value = "/subscribe-form.html", method = RequestMethod.GET)
+    public ModelAndView displaySubscription() {
+        SubscriptionForm subscriptionForm = new SubscriptionForm();
+        ModelAndView modelAndView = new ModelAndView("subscribe-form");
+        modelAndView.addObject("subscriptionForm", subscriptionForm);
+        return modelAndView;
+    }
+
+    @InitBinder
+    protected void initBinder(final WebDataBinder binder) {
+        binder.setValidator(subscriptionValidator);
+    }
 }

@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 
@@ -11,9 +11,9 @@
             </div>
         </a>
 
-        <form:form commandName="searchEventForm" id="search" action="index.html">
-            <input path="name" placeholder="Поиск..." id="search-text"/>
-            <input type="submit" id="search-button" value=""/>
+        <form:form commandName="searchForm" id="search" method="GET" action="index.html">
+            <form:input path="query" placeholder="Поиск..." id="search-text"/>
+            <form:input type="submit" id="search-button" value=""/>
         </form:form>
 
         <div id="top-menu">
