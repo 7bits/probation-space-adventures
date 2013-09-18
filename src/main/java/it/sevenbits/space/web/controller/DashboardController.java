@@ -3,22 +3,16 @@ package it.sevenbits.space.web.controller;
 import it.sevenbits.space.dao.IEventDao;
 import it.sevenbits.space.dao.ISubscriptionDao;
 import it.sevenbits.space.model.Event;
-import it.sevenbits.space.model.Subscription;
 import it.sevenbits.space.service.SearchingEvent;
 import it.sevenbits.space.web.form.SearchEventForm;
-import it.sevenbits.space.web.form.SubscriptionForm;
 import it.sevenbits.space.web.validator.SubscriptionValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -35,7 +29,7 @@ public class DashboardController {
     @Autowired
     private SubscriptionValidator subscriptionValidator;
 
-    SearchEventForm searchEventForm = new SearchEventForm();
+
 
     @RequestMapping(value = {"/index.html", "/"}, method = RequestMethod.POST)
     public ModelAndView searchPage(final SearchEventForm searchEventForm) {
@@ -51,9 +45,11 @@ public class DashboardController {
      * @return index page view.
      */
     @RequestMapping(value = {"/index.html", "/"}, method = RequestMethod.GET)
-    public ModelAndView showListEvent(@RequestParam(value = "search", required = false, defaultValue="") String search, final SearchEventForm searchEventForm) {
-
+    public ModelAndView showListEvent(@RequestParam(value = "query", required = false, defaultValue="") String search) {
+        SearchEventForm searchEventForm = new SearchEventForm();
         ModelAndView modelAndView = new ModelAndView("index");
+        modelAndView.addObject("subscriptionForm", searchEventForm);
+
         SearchingEvent searchingEvent = new SearchingEvent();
 
         List<Event> results  = null;
@@ -61,7 +57,7 @@ public class DashboardController {
         if (search == "" ){
             results = IEventDao.findAllEvents();
         } else {
-            results = IEventDao.findEventsByString(search);
+            results = IEventDao.findEventsByString(searchEventForm.getQuery());
         }
 
         for (Event item : results) {
