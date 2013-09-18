@@ -7,6 +7,14 @@ $(document).ready(function() {
         getSigninForm();
     });
 
+    var signin = getParameterByName("signin");
+
+    if (signin == 1) {
+
+        setDarkBg();
+        getSigninForm();
+    }
+
     $("#register-href").click(function() {
 
         event.preventDefault();
@@ -14,6 +22,14 @@ $(document).ready(function() {
         getRegisterForm();
     });
 });
+
+function getParameterByName(name) {
+
+    name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
 
 function getSigninForm() {
 

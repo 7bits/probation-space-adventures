@@ -14,8 +14,8 @@
     <http auto-config="true" use-expressions="true">
         <!--<intercept-url pattern="/event.htm*" access="ROLE_USER, ROLE_MODERATOR, ROLE_ADMIN"/>-->
         <intercept-url pattern="/event.htm*" access="hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')"/>
-        <form-login login-page="/signin.html"
-                    authentication-failure-url="/signin-failure.html"
+        <form-login login-page="/index.html?signin=1"
+                    authentication-failure-url="/index.html?login-error=1"
                     default-target-url="/index.html" />
         <logout logout-success-url="/index.html" />
     </http>
