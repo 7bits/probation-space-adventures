@@ -1,6 +1,6 @@
 package it.sevenbits.space.dao;
 
-import it.sevenbits.space.model.Event;
+import it.sevenbits.space.domain.Event;
 
 import java.util.List;
 

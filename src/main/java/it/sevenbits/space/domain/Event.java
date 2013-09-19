@@ -1,4 +1,4 @@
-package it.sevenbits.space.model;
+package it.sevenbits.space.domain;
 
 import org.joda.time.DateTime;
 
