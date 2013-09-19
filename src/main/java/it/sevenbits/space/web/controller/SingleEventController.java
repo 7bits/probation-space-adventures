@@ -15,8 +15,6 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class SingleEventController {
-    //@Value("#{appl['img-url']")
-    //@Value("${appl.img-url}")
     public static final String IMG_URL = "/space_adventures/resources/img/";
     @Autowired
     private IEventDao iEventDao;

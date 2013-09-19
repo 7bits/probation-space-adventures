@@ -32,17 +32,6 @@ public class DashboardController {
     @Autowired
     private SubscriptionValidator subscriptionValidator;
 
-
-
-    /*@RequestMapping(value = {"/index.html", "/"}, method = RequestMethod.POST)
-    public ModelAndView searchPage(final SearchEventForm searchEventForm) {
-        ModelAndView modelAndView = new ModelAndView("index");
-        //searchEventForm.setName();
-
-
-        return modelAndView;
-    }               */
-
     /**
      * Displays a list of events on the main page.
      * @return index page view.
@@ -77,8 +66,8 @@ public class DashboardController {
      * @param subscriptionForm Object with subscription information.
      * @param result result of email validation.
      * @return null if success, subscription form view else.
-//     */
-    @RequestMapping(value = {"/subsribe.html"/*"/index.html"*/}, /*params="subscr=true",*/ method = RequestMethod.POST)
+    */
+    @RequestMapping(value = {"/subsribe.html"}, method = RequestMethod.POST)
     public ModelAndView addSubscription(@Valid final SubscriptionForm subscriptionForm, final BindingResult result) {
         if (result.hasErrors()) {
             ModelAndView modelAndView = new ModelAndView("subscribe-form");
