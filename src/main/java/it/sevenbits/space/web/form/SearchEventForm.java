@@ -2,14 +2,14 @@ package it.sevenbits.space.web.form;
 
 public class SearchEventForm {
 
-    private String name;
+    private String query;
 
-    public void setName(final String name) {
-        this.name = name;
+    public void setQuery(final String query) {
+        this.query = query;
     }
 
-    public String getName() {
-        return name;
+    public String getQuery() {
+        return query;
     }
 }
 

@@ -246,6 +246,21 @@ header{
     margin-right:15px;
     margin-bottom:3px;
 }
+
+.search-failure{
+    text-decoration: none;
+}
+
+.search-failure #search-failure-text{
+    color:white;
+    width: 459px;
+    margin: 50px auto;
+    font-size: 16px;
+    text-align:center;
+
+}
+
+
 .event-creator{
     float:left;
     line-height:25px;

@@ -1,4 +1,7 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
 
 <div id="top-line">
     <div id="top-container" class="top-container centr">
@@ -6,13 +9,15 @@
             <div id="logo">
                 <img src="/space_adventures/resources/img/logo.png" alt="logo">
             </div>
-         </a>
-         <div id="search">
-            <input type="text" id="search-text" placeholder="Поиск...">
+        </a>
+
+        <form:form commandName="searchEventForm" id="search" method="GET" action="index.html">
+            <form:input path="query" placeholder="Поиск..." id="search-text"/>
             <input type="submit" id="search-button" value=""/>
-         </div>
-         <div id="top-menu">
-         </div>
+        </form:form>
+
+        <div id="top-menu">
+        </div>
     </div>
 </div>
 <p id="back-top">

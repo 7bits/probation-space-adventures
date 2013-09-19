@@ -2,17 +2,17 @@ package it.sevenbits.space.web.controller;
 
 import it.sevenbits.space.dao.IEventDao;
 import it.sevenbits.space.dao.ISubscriptionDao;
+import it.sevenbits.space.domain.Event;
+import it.sevenbits.space.domain.Subscription;
+import it.sevenbits.space.web.form.SearchEventForm;
 import it.sevenbits.space.web.form.SubscriptionForm;
-import it.sevenbits.space.model.Event;
-import it.sevenbits.space.model.Subscription;
 import it.sevenbits.space.web.validator.SubscriptionValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
@@ -32,20 +32,42 @@ public class DashboardController {
     @Autowired
     private SubscriptionValidator subscriptionValidator;
 
+
+
+    /*@RequestMapping(value = {"/index.html", "/"}, method = RequestMethod.POST)
+    public ModelAndView searchPage(final SearchEventForm searchEventForm) {
+        ModelAndView modelAndView = new ModelAndView("index");
+        //searchEventForm.setName();
+
+
+        return modelAndView;
+    }               */
+
     /**
      * Displays a list of events on the main page.
      * @return index page view.
      */
-    @RequestMapping(value = {"/index.html"}, method = RequestMethod.GET)
-    public ModelAndView showListEvent() {
+    @RequestMapping(value = {"/index.html", "/"}, method = RequestMethod.GET)
+    public ModelAndView showListEvent(@RequestParam(value = "query", required = false, defaultValue="") String search) {
+        SearchEventForm searchEventForm = new SearchEventForm();
         ModelAndView modelAndView = new ModelAndView("index");
-        List<Event> results  = IEventDao.findAllEvents();
+        modelAndView.addObject("searchEventForm", searchEventForm);
+
+        List<Event> results  = null;
+
+        if ("".equals(search)) {
+            results = IEventDao.findAllEvents();
+        } else {
+            results = IEventDao.findEventsByString(search);
+        }
+
         for (Event item : results) {
             String img = item.getImg();
             img = "/space_adventures/resources/img/" + img;
             item.setImg(img);
         }
         modelAndView.addObject("events", results);
+
         return modelAndView;
     }
 
@@ -55,8 +77,8 @@ public class DashboardController {
      * @param subscriptionForm Object with subscription information.
      * @param result result of email validation.
      * @return null if success, subscription form view else.
-     */
-    @RequestMapping(value = {"/index.html"}, method = RequestMethod.POST)
+//     */
+    @RequestMapping(value = {"/subsribe.html"/*"/index.html"*/}, /*params="subscr=true",*/ method = RequestMethod.POST)
     public ModelAndView addSubscription(@Valid final SubscriptionForm subscriptionForm, final BindingResult result) {
         if (result.hasErrors()) {
             ModelAndView modelAndView = new ModelAndView("subscribe-form");
@@ -81,8 +103,8 @@ public class DashboardController {
         return modelAndView;
     }
 
-    @InitBinder
+/*    @InitBinder
     protected void initBinder(final WebDataBinder binder) {
         binder.setValidator(subscriptionValidator);
-    }
+    }    */
 }

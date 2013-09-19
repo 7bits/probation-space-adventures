@@ -1,4 +1,4 @@
-package it.sevenbits.space.model;
+package it.sevenbits.space.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

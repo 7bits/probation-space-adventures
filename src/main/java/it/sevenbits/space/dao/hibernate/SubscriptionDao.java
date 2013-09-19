@@ -1,7 +1,7 @@
 package it.sevenbits.space.dao.hibernate;
 
 import it.sevenbits.space.dao.ISubscriptionDao;
-import it.sevenbits.space.model.Subscription;
+import it.sevenbits.space.domain.Subscription;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 

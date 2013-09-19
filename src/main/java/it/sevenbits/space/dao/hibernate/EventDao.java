@@ -1,13 +1,14 @@
 package it.sevenbits.space.dao.hibernate;
 
 import it.sevenbits.space.dao.IEventDao;
-import it.sevenbits.space.model.Event;
+import it.sevenbits.space.domain.Event;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import java.util.LinkedList;
 import java.util.List;
 
 @Repository
@@ -36,6 +37,24 @@ public class EventDao implements IEventDao {
             return null;
         }
     }
+
+
+    @Transactional
+    @Override
+    public List<Event> findEventsByString(final String searchingText) {
+
+        List<Event> results = new LinkedList<Event>();
+
+        if (entityManager != null) {
+            //выбираем элементы списка, совпадающие с текстом, занесённым в форму поиска. для экронирования используем setParameter
+            TypedQuery<Event> query  = entityManager.createQuery("select e from Event e where e.name like :searchingTextParam or e.description like :searchingTextParam", Event.class).setParameter("searchingTextParam", "%"+searchingText+"%");
+            results = (List<Event>) query.getResultList();
+            return results;
+        }else {
+            return null;
+        }
+    }
+
 
     @Override
     public boolean removeEvent(Long id) {

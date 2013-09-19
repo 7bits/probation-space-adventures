@@ -1,6 +1,6 @@
 package it.sevenbits.space.dao;
 
-import it.sevenbits.space.model.Event;
+import it.sevenbits.space.domain.Event;
 
 import java.util.List;
 
@@ -32,4 +32,6 @@ public interface IEventDao {
      * @return Event if success, null else.
      */
     Event findEventById(final Long id);
+
+    List<Event> findEventsByString(String searchingText);
 }
