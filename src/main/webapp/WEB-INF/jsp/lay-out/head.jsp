@@ -11,6 +11,7 @@
     <script src="/space_adventures/resources/js/insert-form.js"> </script>
     <script src="/space_adventures/resources/js/button-scroll-top.js"> </script>
     <script src="/space_adventures/resources/js/form-actions.js"> </script>
+    <script src="/space_adventures/resources/js/searchFailure.js"> </script>
     <script src="/space_adventures/resources/js/js-lib/jquery-2.0.3.min.js"></script>
     <script src="/space_adventures/resources/js/js-lib/jquery.form.js"> </script>
 

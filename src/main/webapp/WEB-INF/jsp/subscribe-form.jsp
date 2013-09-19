@@ -5,7 +5,7 @@
 <script src="/space_adventures/resources/js/close-button.js"> </script>
 <script src="/space_adventures/resources/js/form-actions.js"> </script>
 
-<form:form commandName="subscriptionForm" id="subscribe-form" action="index.html">
+<form:form commandName="subscriptionForm" id="subscribe-form" action="subsribe.html">
     <div>
         <div id="form-name"> <label>Подписка на рассылку</label> </div>  <div id="close"> x </div>
         <div id="form-content"> <img src="/space_adventures/resources/img/mail.png">

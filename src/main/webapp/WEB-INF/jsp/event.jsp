@@ -25,7 +25,7 @@
                 <div class="single-text-block">
                     <div class="single-event-title">
                         <div class="single-event-name"><c:out value="${event.name}"/></div>
-                        <div class="single-event-date"> <c:out value="${event.humanReadableDate}"/></div>
+                        <div class="single-event-date"><c:out value="${event.humanReadableDate}"/></div>
                         <div id="vk_like" class="single-vk_like"></div>
                                     <script type="text/javascript">
                                         VK.Widgets.Like("vk_like", {type: "mini", height: 20, pageImage:"${event.img}"});
