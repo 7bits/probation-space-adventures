@@ -23,7 +23,7 @@
                <c:forEach items="${events}" var="events">
                    <a href="event?id=${events.id}">
                        <div class="event-block" class="block">
-                           <div > <img ustype="image/jpeg" class="img-block" src="${events.img}"> </div>
+                           <div> <img ustype="image/jpeg" class="img-block" src="${events.img}"> </div>
                            <div class="text-block">
                                <div class="event-name"><c:out value="${events.name}"/></div>
                                <!--div class="event-creator">новость добавил <c:out value="${events.id}"/></div-->
