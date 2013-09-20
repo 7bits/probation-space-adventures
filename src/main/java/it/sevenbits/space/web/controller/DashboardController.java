@@ -2,8 +2,8 @@ package it.sevenbits.space.web.controller;
 
 import it.sevenbits.space.dao.IEventDao;
 import it.sevenbits.space.dao.ISubscriptionDao;
-import it.sevenbits.space.domain.Event;
 import it.sevenbits.space.domain.Subscription;
+import it.sevenbits.space.service.SearchingEvent;
 import it.sevenbits.space.web.form.SearchEventForm;
 import it.sevenbits.space.web.form.SubscriptionForm;
 import it.sevenbits.space.web.validator.SubscriptionValidator;
@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @Controller
 public class DashboardController {
@@ -27,7 +26,7 @@ public class DashboardController {
     private ISubscriptionDao ISubscriptionDao;
 
     @Autowired
-    private IEventDao IEventDao;
+    private SearchingEvent searchingEvent;
 
     @Autowired
     private SubscriptionValidator subscriptionValidator;
@@ -38,24 +37,13 @@ public class DashboardController {
      */
     @RequestMapping(value = {"/index.html", "/"}, method = RequestMethod.GET)
     public ModelAndView showListEvent(@RequestParam(value = "query", required = false, defaultValue="") String search) {
-        SearchEventForm searchEventForm = new SearchEventForm();
+
         ModelAndView modelAndView = new ModelAndView("index");
+
+        SearchEventForm searchEventForm = new SearchEventForm();
         modelAndView.addObject("searchEventForm", searchEventForm);
 
-        List<Event> results  = null;
-
-        if ("".equals(search)) {
-            results = IEventDao.findAllEvents();
-        } else {
-            results = IEventDao.findEventsByString(search);
-        }
-
-        for (Event item : results) {
-            String img = item.getImg();
-            img = "/space_adventures/resources/img/" + img;
-            item.setImg(img);
-        }
-        modelAndView.addObject("events", results);
+        modelAndView.addObject("events", searchingEvent.findCustom(search));
 
         return modelAndView;
     }
