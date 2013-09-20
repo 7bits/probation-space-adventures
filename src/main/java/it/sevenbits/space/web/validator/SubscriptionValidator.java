@@ -30,7 +30,8 @@ public class SubscriptionValidator implements org.springframework.validation.Val
 
     /**
      * Checks subscription information.
-     * @param email subscriber email.
+     *
+     * @param email  subscriber email.
      * @param errors
      */
     private void validateEmail(final String email, final Errors errors) {
@@ -47,6 +48,7 @@ public class SubscriptionValidator implements org.springframework.validation.Val
 
     /**
      * Checks if the email is not already exist in database.
+     *
      * @param email email to check.
      * @return true if it is new email, false else.
      */
