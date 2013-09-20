@@ -1,6 +1,7 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 
 <div id="top-line">
@@ -10,6 +11,17 @@
                 <img src="/space_adventures/resources/img/logo.png" alt="logo">
             </div>
         </a>
+        
+        <div id="security-nav">
+            <sec:authorize access="isAnonymous()">
+                <a id="register-href" href="<c:url value="/register.html" />" > Регистрация</a>
+                <a id="signin-href" href="<c:url value="/signin.html" />" > Вход</a>
+            </sec:authorize>
+            <sec:authorize access="isAuthenticated()">
+                <a href="<c:url value="/user.html" />" > User: <sec:authentication property="principal.username" /></a>
+                <a href="<c:url value="/j_spring_security_logout" />" > Выход</a>
+            </sec:authorize>
+        </div>
 
         <form:form commandName="searchEventForm" id="search" method="GET" action="index.html">
             <form:input path="query" placeholder="Поиск..." id="search-text"/>
