@@ -39,4 +39,11 @@ public interface IUserDao {
      * @return Event if success, null else.
      */
     User findUserByUsername(final String username);
+
+    /**
+     * Finds an user by his email.
+     * @param email user's email.
+     * @return Event if success, null else.
+     */
+    User findUserByEmail(final String email);
 }

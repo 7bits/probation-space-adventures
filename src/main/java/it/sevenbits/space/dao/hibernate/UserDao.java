@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Repository
@@ -50,9 +51,28 @@ public class UserDao implements IUserDao {
     @Transactional
     @Override
     public User findUserByUsername(String username) {
-        return entityManager.
+        List<User> result = entityManager.
                 createQuery("select u from User u where u.username = :username", User.class).
                 setParameter("username", username).
-                getSingleResult();
+                getResultList();
+
+        if (result.isEmpty()) {
+            return null;
+        }
+        return result.get(0);
+    }
+
+    @Transactional
+    @Override
+    public User findUserByEmail(String email) {
+        List<User> result = entityManager.
+                createQuery("select u from User u where u.email = :email", User.class).
+                setParameter("email", email).
+                getResultList();
+
+        if (result.isEmpty()) {
+            return null;
+        }
+        return result.get(0);
     }
 }

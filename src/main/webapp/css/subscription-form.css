@@ -180,6 +180,13 @@ form img {
     font-size: 14px;
 }
 
+.form-error{
+    float: left;
+    padding: 15px;
+    color: rgb(160, 8, 32);
+    font-size: 14px;
+}
+
 #subscribe-notification-text{
     margin: 60px 0 0;
     text-align: center;
