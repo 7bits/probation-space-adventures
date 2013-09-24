@@ -18,6 +18,8 @@ public class User implements UserDetails {
     private String email;
     private String password;
     private String role;
+    private String activationCode;
+    private boolean activated;
 
     @Id
     @GeneratedValue
@@ -66,6 +68,24 @@ public class User implements UserDetails {
         this.role = role;
     }
 
+    @Column(name = "activationCode")
+    public String getActivationCode() {
+        return activationCode;
+    }
+
+    public void setActivationCode(String activationCode) {
+        this.activationCode = activationCode;
+    }
+
+    @Column(name = "activated")
+    public boolean isActivated() {
+        return activated;
+    }
+
+    public void setActivated(boolean activated) {
+        this.activated = activated;
+    }
+
     @Transient
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Collection<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
@@ -100,6 +120,6 @@ public class User implements UserDetails {
 
     @Transient
     public boolean isEnabled() {
-        return true;
+        return activated;
     }
 }
