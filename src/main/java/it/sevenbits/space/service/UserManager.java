@@ -24,4 +24,14 @@ public class UserManager implements UserDetailsService {
         }
         return user;
     }
+
+    public void activateUser(final String activationCode) {
+
+        User user = userDao.findUserByActivationCode(activationCode);
+        if (user != null) {
+            user.setActivated(true);
+            user.setActivationCode(null);
+            userDao.updateUser(user);
+        }
+    }
 }

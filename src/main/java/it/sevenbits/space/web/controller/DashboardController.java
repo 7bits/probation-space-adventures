@@ -3,6 +3,7 @@ package it.sevenbits.space.web.controller;
 import it.sevenbits.space.dao.ISubscriptionDao;
 import it.sevenbits.space.domain.Subscription;
 import it.sevenbits.space.service.SearchingEvent;
+import it.sevenbits.space.service.UserManager;
 import it.sevenbits.space.web.form.SearchEventForm;
 import it.sevenbits.space.web.form.SubscriptionForm;
 import it.sevenbits.space.web.validator.SubscriptionValidator;
@@ -30,12 +31,20 @@ public class DashboardController {
     @Autowired
     private SubscriptionValidator subscriptionValidator;
 
+    @Autowired
+    private UserManager userManager;
+
     /**
      * Displays a list of events on the main page.
      * @return index page view.
      */
     @RequestMapping(value = {"/index.html", "/"}, method = RequestMethod.GET)
-    public ModelAndView showListEvent(@RequestParam(value = "query", required = false, defaultValue="") String search) {
+    public ModelAndView showListEvent(@RequestParam(value = "query", required = false, defaultValue="") String search,
+                                      @RequestParam(value = "activation", required = false, defaultValue="") String activationCode) {
+
+        if (!activationCode.isEmpty()) {
+            userManager.activateUser(activationCode);
+        }
 
         ModelAndView modelAndView = new ModelAndView("index");
 

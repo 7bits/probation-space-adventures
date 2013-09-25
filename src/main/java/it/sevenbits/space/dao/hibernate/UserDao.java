@@ -32,6 +32,12 @@ public class UserDao implements IUserDao {
 
     @Transactional
     @Override
+    public User updateUser(User user) {
+        return entityManager.merge(user);
+    }
+
+    @Transactional
+    @Override
     public List<User> findAllUsers() {
         return entityManager.
                 createQuery("select u from User u", User.class).
@@ -67,6 +73,20 @@ public class UserDao implements IUserDao {
         List<User> result = entityManager.
                 createQuery("select u from User u where u.email = :email", User.class).
                 setParameter("email", email).
+                getResultList();
+
+        if (result.isEmpty()) {
+            return null;
+        }
+        return result.get(0);
+    }
+
+    @Transactional
+    @Override
+    public User findUserByActivationCode(String activationCode) {
+        List<User> result = entityManager.
+                createQuery("select u from User u where u.activationCode = :activationCode", User.class).
+                setParameter("activationCode", activationCode).
                 getResultList();
 
         if (result.isEmpty()) {

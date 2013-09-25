@@ -21,6 +21,13 @@ public interface IUserDao {
     boolean removeUser(final Long id);
 
     /**
+     * Updates user.
+     * @param user
+     * @return
+     */
+    User updateUser(final User user);
+
+    /**
      * Makes a List of all saved users.
      * @return List of users.
      */
@@ -46,4 +53,11 @@ public interface IUserDao {
      * @return Event if success, null else.
      */
     User findUserByEmail(final String email);
+
+    /**
+     * Finds an user by his activation code.
+     * @param activationCode user's activation code.
+     * @return Event if success, null else.
+     */
+    User findUserByActivationCode(final String activationCode);
 }

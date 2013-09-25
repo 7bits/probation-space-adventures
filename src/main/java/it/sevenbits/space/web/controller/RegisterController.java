@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.sql.Timestamp;
+
 @Controller
 public class RegisterController {
 
@@ -49,11 +51,21 @@ public class RegisterController {
         user.setEmail(registrationForm.getEmail());
         user.setPassword(registrationForm.getPassword());
         user.setRole(RoleType.ROLE_USER.name());
-        user.setActivationCode(String.valueOf(registrationForm.getEmail().hashCode()));
+        user.setActivationCode(generateActivationCode(registrationForm.getEmail()));
         user.setActivated(false);
         userDao.addUser(user);
         mailService.sendConfirmationEmail(user);
 
         return null;
+    }
+
+    private String generateActivationCode(final String email) {
+
+        StringBuffer result = new StringBuffer();
+        java.util.Date date= new java.util.Date();
+
+        result.append(Math.abs(new Timestamp(date.getTime()).hashCode()));
+        result.append(Math.abs(email.hashCode()));
+        return result.toString();
     }
 }
