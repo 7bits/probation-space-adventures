@@ -1,7 +1,6 @@
 package it.sevenbits.space.web.validator;
 
 import it.sevenbits.space.dao.IUserDao;
-import it.sevenbits.space.domain.User;
 import it.sevenbits.space.web.form.RegistrationForm;
 import org.apache.commons.validator.routines.EmailValidator;
 import org.springframework.beans.factory.annotation.Autowired;

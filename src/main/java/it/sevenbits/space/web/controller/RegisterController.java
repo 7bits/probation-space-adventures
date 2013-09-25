@@ -7,8 +7,6 @@ import it.sevenbits.space.service.RoleType;
 import it.sevenbits.space.web.form.RegistrationForm;
 import it.sevenbits.space.web.validator.RegistrationValidator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
-import org.springframework.security.authentication.encoding.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;

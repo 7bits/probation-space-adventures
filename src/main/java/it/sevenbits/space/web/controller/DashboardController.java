@@ -1,6 +1,5 @@
 package it.sevenbits.space.web.controller;
 
-import it.sevenbits.space.dao.IEventDao;
 import it.sevenbits.space.dao.ISubscriptionDao;
 import it.sevenbits.space.domain.Subscription;
 import it.sevenbits.space.service.SearchingEvent;
