@@ -13,3 +13,4 @@ target/
 out/
 bin/
 logs/
+hidden.properties
