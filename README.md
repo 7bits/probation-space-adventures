@@ -1,5 +1,6 @@
-сборка: mvn tomcat:deploy
-в дальнейнем: mvn clean tomcat:undeploy tomcat:deploy
+Информационный портал, посвященный космическим событиям, которые видны в небе.
 
-просмотр страницы: http://localhost:8080/space_adventures/index.html
-или http://localhost:8080/space_adventures/
+Сборка: mvn clean tomcat:redeploy
+
+Просмотр страницы: http://localhost/space_adventures/index.html
+или http://localhost/space_adventures/
